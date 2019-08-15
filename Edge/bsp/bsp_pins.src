@@ -69,6 +69,116 @@
 
 
 # *****************************************************************************
+#  Camera Pins
+# *****************************************************************************
+pin
+    name            = CAMERA_D0
+    pinnum          = 24
+    func_sel        = AM_HAL_PIN_24_GPIO
+    drvstrength     = 2
+    GPinput         = true
+
+pin
+    name            = CAMERA_D1
+    pinnum          = 25
+    func_sel        = AM_HAL_PIN_25_GPIO
+    drvstrength     = 2
+    GPinput         = true
+
+pin
+    name            = CAMERA_D2
+    pinnum          = 26
+    func_sel        = AM_HAL_PIN_26_GPIO
+    drvstrength     = 2
+    GPinput         = true
+
+pin
+    name            = CAMERA_D3
+    pinnum          = 27
+    func_sel        = AM_HAL_PIN_27_GPIO
+    drvstrength     = 2
+    GPinput         = true
+
+pin
+    name            = CAMERA_D4
+    pinnum          = 28
+    func_sel        = AM_HAL_PIN_28_GPIO
+    drvstrength     = 2
+    GPinput         = true
+
+pin
+    name            = CAMERA_D5
+    pinnum          = 5
+    func_sel        = AM_HAL_PIN_5_GPIO
+    drvstrength     = 2
+    GPinput         = true
+
+pin
+    name            = CAMERA_D6
+    pinnum          = 6
+    func_sel        = AM_HAL_PIN_6_GPIO
+    drvstrength     = 2
+    GPinput         = true
+
+pin
+    name            = CAMERA_D7
+    pinnum          = 7
+    func_sel        = AM_HAL_PIN_7_GPIO
+    drvstrength     = 2
+    GPinput         = true
+
+# pin
+#     name            = CAMERA_MCLCK
+#     pinnum          = 
+#     func_sel        = 
+#     # this pin needs only the pad # to be defined b/c it is configured by "am_hal_ctimer_output_configure"
+
+pin
+    name            = CAMERA_VSYNC
+    desc            = Also called FVLD on the HM01B0 module
+    pinnum          = 15
+    func_sel        = AM_HAL_PIN_15_GPIO
+    drvstrength     = 2
+    GPinput         = true
+
+pin
+    name            = CAMERA_HSYNC
+    desc            = Also called LVLD on the HM01B0 module
+    pinnum          = 22
+    func_sel        = AM_HAL_PIN_22_GPIO
+    drvstrength     = 2
+    GPinput         = true
+
+pin
+    name            = CAMERA_PCLK
+    pinnum          = 23
+    func_sel        = AM_HAL_PIN_23_GPIO
+    drvstrength     = 2
+    GPinput         = true
+
+pin
+    name            = CAMERA_TRIG
+    pinnum          = 12
+    func_sel        = AM_HAL_PIN_12_GPIO
+    drvstrength     = 2
+    GPinput         = true
+
+pin
+    name            = CAMERA_INT
+    pinnum          = 4
+    func_sel        = AM_HAL_PIN_4_GPIO
+    drvstrength     = 2
+    GPinput         = true
+    # todo: add interrupt capability for this pin according to polarity of HM01B0 module
+
+pin
+    name            = CAMERA_DVDDEN
+    pinnum          = 10
+    func_sel        = AM_HAL_PIN_10_GPIO
+    drvstrength     = 2
+
+
+# *****************************************************************************
 #  Analog Microphones
 # *****************************************************************************
 pin
