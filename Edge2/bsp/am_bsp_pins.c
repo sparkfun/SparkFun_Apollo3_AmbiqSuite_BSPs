@@ -16,24 +16,24 @@
 //
 // Copyright (c) 2019, Ambiq Micro
 // All rights reserved.
-//
+// 
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
-//
+// 
 // 1. Redistributions of source code must retain the above copyright notice,
 // this list of conditions and the following disclaimer.
-//
+// 
 // 2. Redistributions in binary form must reproduce the above copyright
 // notice, this list of conditions and the following disclaimer in the
 // documentation and/or other materials provided with the distribution.
-//
+// 
 // 3. Neither the name of the copyright holder nor the names of its
 // contributors may be used to endorse or promote products derived from this
 // software without specific prior written permission.
-//
+// 
 // Third party software included in this distribution is subject to the
 // additional license terms as defined in the /docs/licenses directory.
-//
+// 
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 // AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 // IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -51,6 +51,173 @@
 //*****************************************************************************
 
 #include "am_bsp.h"
+
+//*****************************************************************************
+//
+//  CAMERA_D0 pin.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_D0 =
+{
+    .uFuncSel            = AM_HAL_PIN_14_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
+//  CAMERA_D1 pin.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_D1 =
+{
+    .uFuncSel            = AM_HAL_PIN_11_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
+//  CAMERA_D2 pin.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_D2 =
+{
+    .uFuncSel            = AM_HAL_PIN_25_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
+//  CAMERA_D3 pin.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_D3 =
+{
+    .uFuncSel            = AM_HAL_PIN_34_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
+//  CAMERA_D4 pin.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_D4 =
+{
+    .uFuncSel            = AM_HAL_PIN_6_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
+//  CAMERA_D5 pin.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_D5 =
+{
+    .uFuncSel            = AM_HAL_PIN_5_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
+//  CAMERA_D6 pin.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_D6 =
+{
+    .uFuncSel            = AM_HAL_PIN_35_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
+//  CAMERA_D7 pin.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_D7 =
+{
+    .uFuncSel            = AM_HAL_PIN_28_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
+//  CAMERA_VSYNC pin: Also called FVLD on the HM01B0 module.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_VSYNC =
+{
+    .uFuncSel            = AM_HAL_PIN_15_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
+//  CAMERA_HSYNC pin: Also called LVLD on the HM01B0 module.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_HSYNC =
+{
+    .uFuncSel            = AM_HAL_PIN_27_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
+//  CAMERA_PCLK pin.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_PCLK =
+{
+    .uFuncSel            = AM_HAL_PIN_7_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
+//  CAMERA_TRIG pin.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_TRIG =
+{
+    .uFuncSel            = AM_HAL_PIN_13_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
+//  CAMERA_INT pin.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_INT =
+{
+    .uFuncSel            = AM_HAL_PIN_23_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
+//  CAMERA_DVDDEN pin.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_DVDDEN =
+{
+    .uFuncSel            = AM_HAL_PIN_32_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA
+};
 
 //*****************************************************************************
 //

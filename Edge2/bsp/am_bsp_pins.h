@@ -16,24 +16,24 @@
 //
 // Copyright (c) 2019, Ambiq Micro
 // All rights reserved.
-//
+// 
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
-//
+// 
 // 1. Redistributions of source code must retain the above copyright notice,
 // this list of conditions and the following disclaimer.
-//
+// 
 // 2. Redistributions in binary form must reproduce the above copyright
 // notice, this list of conditions and the following disclaimer in the
 // documentation and/or other materials provided with the distribution.
-//
+// 
 // 3. Neither the name of the copyright holder nor the names of its
 // contributors may be used to endorse or promote products derived from this
 // software without specific prior written permission.
-//
+// 
 // Third party software included in this distribution is subject to the
 // additional license terms as defined in the /docs/licenses directory.
-//
+// 
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 // AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 // IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -61,6 +61,118 @@
 extern "C"
 {
 #endif
+
+//*****************************************************************************
+//
+//  CAMERA_D0 pin.
+//
+//*****************************************************************************
+#define AM_BSP_GPIO_CAMERA_D0           14
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D0;
+
+//*****************************************************************************
+//
+//  CAMERA_D1 pin.
+//
+//*****************************************************************************
+#define AM_BSP_GPIO_CAMERA_D1           11
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D1;
+
+//*****************************************************************************
+//
+//  CAMERA_D2 pin.
+//
+//*****************************************************************************
+#define AM_BSP_GPIO_CAMERA_D2           25
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D2;
+
+//*****************************************************************************
+//
+//  CAMERA_D3 pin.
+//
+//*****************************************************************************
+#define AM_BSP_GPIO_CAMERA_D3           34
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D3;
+
+//*****************************************************************************
+//
+//  CAMERA_D4 pin.
+//
+//*****************************************************************************
+#define AM_BSP_GPIO_CAMERA_D4           6
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D4;
+
+//*****************************************************************************
+//
+//  CAMERA_D5 pin.
+//
+//*****************************************************************************
+#define AM_BSP_GPIO_CAMERA_D5           5
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D5;
+
+//*****************************************************************************
+//
+//  CAMERA_D6 pin.
+//
+//*****************************************************************************
+#define AM_BSP_GPIO_CAMERA_D6           35
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D6;
+
+//*****************************************************************************
+//
+//  CAMERA_D7 pin.
+//
+//*****************************************************************************
+#define AM_BSP_GPIO_CAMERA_D7           28
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D7;
+
+//*****************************************************************************
+//
+//  CAMERA_VSYNC pin: Also called FVLD on the HM01B0 module.
+//
+//*****************************************************************************
+#define AM_BSP_GPIO_CAMERA_VSYNC        15
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_VSYNC;
+
+//*****************************************************************************
+//
+//  CAMERA_HSYNC pin: Also called LVLD on the HM01B0 module.
+//
+//*****************************************************************************
+#define AM_BSP_GPIO_CAMERA_HSYNC        27
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HSYNC;
+
+//*****************************************************************************
+//
+//  CAMERA_PCLK pin.
+//
+//*****************************************************************************
+#define AM_BSP_GPIO_CAMERA_PCLK         7
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_PCLK;
+
+//*****************************************************************************
+//
+//  CAMERA_TRIG pin.
+//
+//*****************************************************************************
+#define AM_BSP_GPIO_CAMERA_TRIG         13
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_TRIG;
+
+//*****************************************************************************
+//
+//  CAMERA_INT pin.
+//
+//*****************************************************************************
+#define AM_BSP_GPIO_CAMERA_INT          23
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_INT;
+
+//*****************************************************************************
+//
+//  CAMERA_DVDDEN pin.
+//
+//*****************************************************************************
+#define AM_BSP_GPIO_CAMERA_DVDDEN       32
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_DVDDEN;
 
 //*****************************************************************************
 //

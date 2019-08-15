@@ -72,13 +72,40 @@ extern "C"
 
 //*****************************************************************************
 //
-// Print interface type
+// Begin User Modifiable Area
 //
 //*****************************************************************************
-#define AM_BSP_PRINT_INFC_NONE              0
-#define AM_BSP_PRINT_INFC_SWO               1
-#define AM_BSP_PRINT_INFC_UART0             2
-#define AM_BSP_PRINT_INFC_BUFFERED_UART0    3
+
+//*****************************************************************************
+//
+// Camera
+//
+//*****************************************************************************
+#define AM_BSP_CAMERA_MCLK_PIN              26
+#define AM_BSP_CAMERA_I2C_IOM               1
+#define AM_BSP_CAMERA_I2C_SDA_PIN           AM_BSP_GPIO_IOM1_SDA
+#define AM_BSP_CAMERA_I2C_SCL_PIN           AM_BSP_GPIO_IOM1_SCL
+
+//*****************************************************************************
+//
+// Accelerometer.
+//
+//*****************************************************************************
+#define AM_BSP_ACCELEROMETER_I2C_IOM        3
+#define AM_BSP_ACCELEROMETER_I2C_ADDRESS    0x19
+#define AM_BSP_ACCELEROMETER_I2C_SDA_PIN    AM_BSP_GPIO_IOM3_SDA
+#define AM_BSP_ACCELEROMETER_I2C_SCL_PIN    AM_BSP_GPIO_IOM3_SCL
+
+
+//*****************************************************************************
+//
+// Qwiic Connector.
+//
+//*****************************************************************************
+#define AM_BSP_QWIIC_I2C_IOM                4
+#define AM_BSP_QWIIC_I2C_SDA_PIN            AM_BSP_GPIO_IOM4_SDA
+#define AM_BSP_QWIIC_I2C_SCL_PIN            AM_BSP_GPIO_IOM4_SCL
+
 
 // //*****************************************************************************
 // //
@@ -136,17 +163,20 @@ extern am_devices_led_t am_bsp_psLEDs[AM_BSP_NUM_LEDS];
 
 //*****************************************************************************
 //
-// I2C definitions.
+// End User Modifiable Area
 //
 //*****************************************************************************
-#define AM_BSP_I2C_ACCELEROMETER_IOM        3
-#define AM_BSP_I2C_ACCELEROMETER_ADDRESS    0x19
-#define AM_BSP_I2C_ACCELEROMETER_SDA_PIN    AM_BSP_GPIO_IOM3_SDA
-#define AM_BSP_I2C_ACCELEROMETER_SCL_PIN    AM_BSP_GPIO_IOM3_SCL
 
-#define AM_BSP_I2C_QWIIC_IOM                4
-#define AM_BSP_I2C_ACCELEROMETER_SDA_PIN    AM_BSP_GPIO_IOM4_SDA
-#define AM_BSP_I2C_ACCELEROMETER_SCL_PIN    AM_BSP_GPIO_IOM4_SCL
+//*****************************************************************************
+//
+// Print interface type
+//
+//*****************************************************************************
+#define AM_BSP_PRINT_INFC_NONE              0
+#define AM_BSP_PRINT_INFC_SWO               1
+#define AM_BSP_PRINT_INFC_UART0             2
+#define AM_BSP_PRINT_INFC_BUFFERED_UART0    3
+
 
 //*****************************************************************************
 //
