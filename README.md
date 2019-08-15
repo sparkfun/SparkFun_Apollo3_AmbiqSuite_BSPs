@@ -1,3 +1,7 @@
+Welcome!
+========
+This is the location to get the latest Board Support Packages (BSPs) for SparkFun Apollo3 (Artemis) based boards to be used in the AmbiqSuite SDK.
+
 How to Generate BSP Files
 =========================
 
