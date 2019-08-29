@@ -1,0 +1,1 @@
+# This is a temporary file used only to enable the board directories to be lowercased on GitHub
