@@ -3,7 +3,9 @@
 
 # Python
 __pycache__
+*.pyc
 
-# Objects / Deps
+# Objects / Deps / Archives
 *.o
 *.d
+*.a
