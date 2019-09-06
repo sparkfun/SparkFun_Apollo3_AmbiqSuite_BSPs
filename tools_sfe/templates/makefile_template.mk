@@ -120,19 +120,26 @@ endif
 ifeq ($(SDKPATH),)
     SDKPATH			=../../../../
     $(warning warning: you have not defined SDKPATH so will continue assuming that the SDK root is at $(SDKPATH))
+else
+# When the SDKPATH is given export it
+export SDKPATH
 endif
+
 ifeq ($(BOARDPATH),)
     BOARDPATH			=../../..
     $(warning warning: you have not defined BOARDPATH so will continue assuming that the BOARD root is at $(BOARDPATH))
+else
+# When the BOARDPATH is given export it
+export BOARDPATH
 endif
+
 ifeq ($(PROJECTPATH),)
     PROJECTPATH			=..
     $(warning warning: you have not defined PROJECTPATH so will continue assuming that the PROJECT root is at $(PROJECTPATH))
-endif
-
-export SDKPATH
-export BOARDPATH
+else
+# When the PROJECTPATH is given export it
 export PROJECTPATH
+endif
 
 #******************************************************************************
 #
