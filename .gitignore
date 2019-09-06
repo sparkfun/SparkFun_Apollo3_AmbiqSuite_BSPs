@@ -9,3 +9,9 @@ __pycache__
 *.o
 *.d
 *.a
+
+# Other Build Residuals
+*.map
+*.lst
+*.bin
+*.axf
