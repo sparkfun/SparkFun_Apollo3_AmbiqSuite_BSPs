@@ -303,7 +303,7 @@ am_bsp_itm_printf_enable(void)
     // Enable the ITM interface and the SWO pin.
     //
     am_hal_itm_enable();
-//  am_hal_gpio_pinconfig(AM_BSP_GPIO_ITM_SWO, g_AM_BSP_GPIO_ITM_SWO);
+    // am_hal_gpio_pinconfig(AM_BSP_GPIO_ITM_SWO, g_AM_BSP_GPIO_ITM_SWO);
 
     //
     // Enable the ITM and TPIU
@@ -311,7 +311,7 @@ am_bsp_itm_printf_enable(void)
     //
     TPIUcfg.ui32SetItmBaud = AM_HAL_TPIU_BAUD_1M;
     am_hal_tpiu_enable(&TPIUcfg);
-    am_hal_gpio_pinconfig(AM_BSP_GPIO_ITM_SWO, g_AM_BSP_GPIO_ITM_SWO);
+    // am_hal_gpio_pinconfig(AM_BSP_GPIO_ITM_SWO, g_AM_BSP_GPIO_ITM_SWO);
 
     //
     // Attach the ITM to the STDIO driver.
@@ -337,10 +337,10 @@ am_bsp_itm_printf_disable(void)
     //
     am_util_stdio_printf_init(0);
 
-    //
-    // Disconnect the SWO pin
-    //
-    am_hal_gpio_pinconfig(AM_BSP_GPIO_ITM_SWO, g_AM_HAL_GPIO_DISABLE);
+    // //
+    // // Disconnect the SWO pin
+    // //
+    // am_hal_gpio_pinconfig(AM_BSP_GPIO_ITM_SWO, g_AM_HAL_GPIO_DISABLE);
 } // am_bsp_itm_printf_disable()
 
 //*****************************************************************************
