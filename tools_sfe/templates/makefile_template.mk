@@ -319,7 +319,7 @@ $(SDKPATH)/third_party/uecc/gcc/bin/lib_uecc.a:
 	$(MAKE) -C $(SDKPATH)/third_party/uecc
 
 $(BOARDPATH)/bsp/gcc/bin/libam_bsp.a:
-	$(MAKE) -C $(BOARDPATH)/bsp
+	$(MAKE) -C $(BOARDPATH)/bsp/gcc
 
 # Automatically include any generated dependencies
 -include $(DEPS)
