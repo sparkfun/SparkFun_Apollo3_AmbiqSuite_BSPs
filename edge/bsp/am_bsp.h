@@ -97,7 +97,7 @@ extern "C"
 #define AM_BSP_ACCELEROMETER_I2C_SDA_PIN    AM_BSP_GPIO_IOM3_SDA
 #define AM_BSP_ACCELEROMETER_I2C_SCL_PIN    AM_BSP_GPIO_IOM3_SCL
 #define AM_BSP_ACCELEROMETER_INT1_PIN       17
-#define AM_BSP_ACCELEROMETER_INT1_PIN       0
+#define AM_BSP_ACCELEROMETER_INT2_PIN       0
 
 
 //*****************************************************************************

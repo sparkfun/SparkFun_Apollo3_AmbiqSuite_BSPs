@@ -243,22 +243,6 @@ pin
 
 
 # *****************************************************************************
-#  UART pins (UART1).
-# *****************************************************************************
-pin
-    name            = UART_TX
-    desc            = This pin is the COM_UART transmit pin.
-    pinnum          = 48
-    func_sel        = AM_HAL_PIN_48_UART1TX
-    drvstrength     = 2
-
-pin
-    name            = UART_RX
-    desc            = This pin is the COM_UART receive pin.
-    pinnum          = 49
-    func_sel        = AM_HAL_PIN_49_UART1RX
-
-# *****************************************************************************
 #  IOM0 pins.
 # *****************************************************************************
 pin
