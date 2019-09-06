@@ -130,6 +130,9 @@ ifeq ($(PROJECTPATH),)
     $(warning warning: you have not defined PROJECTPATH so will continue assuming that the PROJECT root is at $(PROJECTPATH))
 endif
 
+export SDKPATH
+export BOARDPATH
+export PROJECTPATH
 
 #******************************************************************************
 #
@@ -148,7 +151,7 @@ DEFINES+=
 
 # Includes (Add paths to where example header files are located)
 INCLUDES=
-INCLUDES+= -I../src
+INCLUDES+= -I$(PROJECTPATH)/src
 INCLUDES+= -I$(BOARDPATH)/bsp
 INCLUDES+= -I$(SDKPATH)
 INCLUDES+= -I$(SDKPATH)/utils
@@ -156,6 +159,7 @@ INCLUDES+= -I$(SDKPATH)/devices
 INCLUDES+= -I$(SDKPATH)/mcu/apollo3
 INCLUDES+= -I$(SDKPATH)/CMSIS/AmbiqMicro/Include
 INCLUDES+= -I$(SDKPATH)/CMSIS/ARM/Include
+INCLUDES+=
 
 # Compilation Units (Add all the .c files you need to compile)
 SRC=
@@ -164,7 +168,8 @@ SRC+=
 
 # VPATH (Add paths to where your source files are located)
 VPATH=
-VPATH+=$(PROJECTPATH)
+VPATH+=$(PROJECTPATH)/src
+VPATH+=$(SDKPATH)/utils
 VPATH+=
 
 # LIBS (Precompiled libraries to include in the linker step)
@@ -314,7 +319,7 @@ $(SDKPATH)/third_party/uecc/gcc/bin/lib_uecc.a:
 	$(MAKE) -C $(SDKPATH)/third_party/uecc
 
 $(BOARDPATH)/bsp/gcc/bin/libam_bsp.a:
-	$(MAKE) -C $(BOARDPATH)/bsp
+	$(MAKE) -C $(BOARDPATH)/bsp/gcc
 
 # Automatically include any generated dependencies
 -include $(DEPS)
