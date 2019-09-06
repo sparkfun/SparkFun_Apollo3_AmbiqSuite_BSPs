@@ -190,9 +190,9 @@ am_bsp_low_power_init(void)
     am_hal_pwrctrl_low_power_init();
 
     //
-    // Run the RTC off the LFRC.
+    // Disable the RTC.
     //
-    am_hal_rtc_osc_select(AM_HAL_RTC_OSC_LFRC);
+    am_hal_rtc_osc_disable();
 
     //
     // Stop the XTAL.
