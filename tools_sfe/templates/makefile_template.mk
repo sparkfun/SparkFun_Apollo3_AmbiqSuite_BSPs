@@ -118,7 +118,7 @@ ifeq ($(SVL_UPLOAD_BAUD),)
 endif
 
 ifeq ($(SDKPATH),)
-    SDKPATH			=../../../../
+    SDKPATH			=../../../../..
     $(warning warning: you have not defined SDKPATH so will continue assuming that the SDK root is at $(SDKPATH))
 else
 # When the SDKPATH is given export it
