@@ -320,7 +320,7 @@ clean:
 $(CONFIG)/%.d: ;
 
 $(SDKPATH)/mcu/apollo3/hal/gcc/bin/libam_hal.a:
-	$(MAKE) -C $(SDKPATH)/mcu/apollo3/hal
+	$(MAKE) -C $(SDKPATH)/mcu/apollo3/hal/gcc
 
 $(SDKPATH)/third_party/uecc/gcc/bin/lib_uecc.a:
 	$(MAKE) -C $(SDKPATH)/third_party/uecc
