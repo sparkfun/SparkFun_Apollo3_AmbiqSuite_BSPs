@@ -328,10 +328,10 @@ $(CONFIG)/$(TARGET).axf: $(OBJS) $(LIBS)
 	@echo " Linking $(COMPILERNAME) $@ with script $(LINKER_FILE)";\
 	$(CC) -Wl,-T,$(LINKER_FILE) -o $@ $(OBJS) $(LFLAGS)
 
-$(CONFIG)/$(TARGET).bin: $(CONFIG)/$(TARGET).axf
+$(CONFIG)/$(TARGET)_%.bin: $(CONFIG)/$(TARGET)_%.axf
 	@echo " Copying $(COMPILERNAME) $@..." ;\
 	$(CP) $(CPFLAGS) $< $@ ;\
-	$(OD) $(ODFLAGS) $< > $(CONFIG)/$(TARGET).lst
+	$(OD) $(ODFLAGS) $< > $(CONFIG)/$(TARGET)_%.lst
 
 bootload_asb: $(CONFIG)/$(TARGET)_asb.bin
 	$(AMBIQ_BIN2BOARD) --bin $(CONFIG)/$(TARGET)_asb.bin --load-address-blob 0x20000 --magic-num 0xCB -o $(CONFIG)/$(TARGET) --version 0x0 --load-address-wired 0xC000 -i 6 --options 0x1 -b $(ASB_UPLOAD_BAUD) -port $(COM_PORT) -r 2 -v 
