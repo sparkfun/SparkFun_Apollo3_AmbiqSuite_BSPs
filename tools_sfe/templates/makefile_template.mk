@@ -129,7 +129,7 @@ export SDKPATH
 endif
 
 ifeq ($(BSPPATH),)
-    BSPPATH			=../..
+    BSPPATH			=../../../..
     $(warning warning: you have not defined BSPPATH so will continue assuming that the BSP root is at $(BSPPATH))
 else
 # When the BSPPATH is given export it
