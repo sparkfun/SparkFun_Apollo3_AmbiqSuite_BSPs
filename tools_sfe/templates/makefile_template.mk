@@ -105,7 +105,8 @@ CONFIG := bin
 #
 #******************************************************************************
 ifeq ($(COM_PORT),)
-    $(warning warning: you have not defined COM_PORT so bootloading will not work)
+    COM_PORT=COM4
+    $(warning warning: you have not defined COM_PORT. Assuming it is COM4)
 endif
 ifeq ($(PYTHON3),)
     PYTHON3=python3
