@@ -86,9 +86,11 @@ SVL_UPLOAD_BAUD=
 PYTHON3=
 
 # *Optionally* specify absolute paths to the SDK and the BSP
-SDKPATH				 =# Note that if you copy/paste a windows file path here you need to change backslashes to forward slashes
-BOARDPATH			 =# Set this as the path to the BSP (Board Support Package) directory for the board you are using. Defaults to relative paths if left blank
-PROJECTPATH			=#Set this as the path to the project folder
+# Make sure to use / instead of \ when on Windows
+SDKPATH				=# Set as the path to the SDK root if not located at ../../../../..
+BSPPATH				=# Set as the path to the BSP if not located at ../../../..
+BOARDPATH			=# Set as the path to the board if not located at ../../..
+PROJECTPATH			=# Set as the path to the project if not located at ../..
 
 ### Project Settings
 TARGET := example
@@ -123,6 +125,14 @@ ifeq ($(SDKPATH),)
 else
 # When the SDKPATH is given export it
 export SDKPATH
+endif
+
+ifeq ($(BSPPATH),)
+    BSPPATH			=../..
+    $(warning warning: you have not defined BSPPATH so will continue assuming that the BSP root is at $(BSPPATH))
+else
+# When the BSPPATH is given export it
+export BSPPATH
 endif
 
 ifeq ($(BOARDPATH),)
@@ -194,8 +204,8 @@ LIBS+=
 #
 #******************************************************************************
 ### Bootloader Tools
-AMBIQ_BIN2BOARD=$(PYTHON) $(SDKPATH)/tools_sfe/ambiq/ambiq_bin2board.py
-ARTEMIS_SVL=$(PYTHON) $(SDKPATH)/tools_sfe/artemis/artemis_svl.py
+AMBIQ_BIN2BOARD=$(PYTHON3) $(BSPPATH)/tools_sfe/ambiq/ambiq_bin2board.py
+ARTEMIS_SVL=$(PYTHON3) $(BSPPATH)/tools_sfe/artemis/artemis_svl.py
 
 
 SHELL:=/bin/bash
