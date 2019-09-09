@@ -209,7 +209,7 @@ FPU = fpv4-sp-d16
 #FABI = softfp
 FABI = hard
 
-LINKER_FILE := $(PROJECTPATH)/gcc/template.ld
+LINKER_FILE := $(PROJECTPATH)/gcc/example.ld
 STARTUP_FILE := ./startup_$(COMPILERNAME).c
 
 #### Required Executables ####
