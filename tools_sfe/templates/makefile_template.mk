@@ -91,9 +91,9 @@ BOARDPATH			 =# Set this as the path to the BSP (Board Support Package) director
 PROJECTPATH			=#Set this as the path to the project folder
 
 ### Project Settings
-TARGET := template
+TARGET := example
 COMPILERNAME := gcc
-PROJECT := template_gcc
+PROJECT := example_gcc
 CONFIG := bin
 
 
