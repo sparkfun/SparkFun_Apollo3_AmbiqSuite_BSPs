@@ -87,7 +87,7 @@ PYTHON3=
 
 # *Optionally* specify absolute paths to the SDK and the BSP
 # Make sure to use / instead of \ when on Windows
-SDKPATH				=C:/Users/owen.lyke/AppData/Roaming/AmbiqSDK/AmbiqSuite-Rel2.2.0# Set as the path to the SDK root if not located at ../../../../..
+SDKPATH				=# Set as the path to the SDK root if not located at ../../../../..
 BSPPATH				=# Set as the path to the BSP if not located at ../../../..
 BOARDPATH			=# Set as the path to the board if not located at ../../..
 PROJECTPATH			=# Set as the path to the project if not located at ../..
