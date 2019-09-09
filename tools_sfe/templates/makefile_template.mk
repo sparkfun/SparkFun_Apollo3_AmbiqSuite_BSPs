@@ -108,7 +108,8 @@ ifeq ($(COM_PORT),)
     $(warning warning: you have not defined COM_PORT so bootloading will not work)
 endif
 ifeq ($(PYTHON3),)
-    $(warning warning: you have not defined PYTHON3 so bootloading will not work)
+    PYTHON3=python3
+    $(warning warning: you have not defined PYTHON3. assuming it is accessible by 'python3')
 endif
 ifeq ($(ASB_UPLOAD_BAUD),)
     ASB_UPLOAD_BAUD=115200
