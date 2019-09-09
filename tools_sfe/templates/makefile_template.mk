@@ -201,8 +201,9 @@ SRC+=
 
 # VPATH (Add paths to where your source files are located)
 VPATH=
-VPATH+=$(PROJECTPATH)/src
-VPATH+=$(SDKPATH)/utils
+VPATH+= $(PROJECTPATH)/src
+VPATH+= $(SDKPATH)/utils
+VPATH+= $(BSPPATH)/tools_sfe/templates
 VPATH+=
 
 # LIBS (Precompiled libraries to include in the linker step)
