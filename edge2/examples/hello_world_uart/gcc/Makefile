@@ -325,7 +325,7 @@ $(CONFIG)/%.o: %.s $(CONFIG)/%.d
 	$(CC) -c $(CFLAGS) $< -o $@
 
 $(CONFIG)/$(TARGET).axf: $(OBJS) $(LIBS)
-	@echo " Linking $(COMPILERNAME) $@" ;\
+	@echo " Linking $(COMPILERNAME) $@ with script $(LINKER_FILE)";\
 	$(CC) -Wl,-T,$(LINKER_FILE) -o $@ $(OBJS) $(LFLAGS)
 
 $(CONFIG)/$(TARGET).bin: $(CONFIG)/$(TARGET).axf
