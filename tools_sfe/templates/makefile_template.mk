@@ -92,8 +92,6 @@ BSPPATH				=# Set as the path to the BSP if not located at ../../../..
 BOARDPATH			=# Set as the path to the board if not located at ../../..
 PROJECTPATH			=# Set as the path to the project if not located at ../..
 
-LINKER_FILE:=# Optionally provide your own custom linker (but best to leave it as the default)
-
 ### Project Settings
 TARGET := example
 COMPILERNAME := gcc
@@ -153,17 +151,6 @@ ifeq ($(PROJECTPATH),)
 else
 # When the PROJECTPATH is given export it
 export PROJECTPATH
-endif
-
-ifneq ($(LINKER_FILE),)
-    $(warning you provided a custom linker script: $(LINKER_FILE))
-else
-    # Default to asb_linker
-    # When using the 'bootload_asb' target use the asb linker
-    # When using the 'bootload_svl' target use the svl linker
-    LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_linker.ld
-    bootload_asb : LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_linker.ld
-    bootload_svl : LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_svl_linker.ld
 endif
 
 #******************************************************************************
@@ -320,7 +307,13 @@ $(CONFIG)/%.o: %.s $(CONFIG)/%.d
 	@echo " Assembling $(COMPILERNAME) $<" ;\
 	$(CC) -c $(CFLAGS) $< -o $@
 
-$(CONFIG)/$(TARGET).axf: $(OBJS) $(LIBS)
+$(CONFIG)/$(TARGET)_asb.axf: LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_linker.ld
+$(CONFIG)/$(TARGET)_asb.axf: $(OBJS) $(LIBS)
+	@echo " Linking $(COMPILERNAME) $@ with script $(LINKER_FILE)";\
+	$(CC) -Wl,-T, $(LINKER_FILE) -o $@ $(OBJS) $(LFLAGS)
+
+$(CONFIG)/$(TARGET)_svl.axf: LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_svl_linker.ld
+$(CONFIG)/$(TARGET)_svl.axf: $(OBJS) $(LIBS)
 	@echo " Linking $(COMPILERNAME) $@ with script $(LINKER_FILE)";\
 	$(CC) -Wl,-T, $(LINKER_FILE) -o $@ $(OBJS) $(LFLAGS)
 
