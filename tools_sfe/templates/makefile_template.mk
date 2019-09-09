@@ -171,6 +171,7 @@ INCLUDES+=
 # Compilation Units (Add all the .c files you need to compile)
 SRC=
 SRC+= main.c
+SRC+= startup_gcc.c
 SRC+=
 
 # VPATH (Add paths to where your source files are located)
