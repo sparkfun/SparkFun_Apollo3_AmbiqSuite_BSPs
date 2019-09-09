@@ -92,8 +92,6 @@ BSPPATH				=# Set as the path to the BSP if not located at ../../../..
 BOARDPATH			=# Set as the path to the board if not located at ../../..
 PROJECTPATH			=# Set as the path to the project if not located at ../..
 
-LINKER_FILE:=# Optionally provide your own custom linker (but best to leave it as the default)
-
 ### Project Settings
 TARGET := example
 COMPILERNAME := gcc
@@ -153,17 +151,6 @@ ifeq ($(PROJECTPATH),)
 else
 # When the PROJECTPATH is given export it
 export PROJECTPATH
-endif
-
-ifneq ($(LINKER_FILE),)
-    $(warning you provided a custom linker script: $(LINKER_FILE))
-else
-    # Default to asb_linker
-    # When using the 'bootload_asb' target use the asb linker
-    # When using the 'bootload_svl' target use the svl linker
-    LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_linker.ld
-    bootload_asb : LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_linker.ld
-    bootload_svl : LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_svl_linker.ld
 endif
 
 #******************************************************************************
@@ -309,7 +296,7 @@ ODFLAGS = -S
 # Targets / Rules
 #
 #******************************************************************************
-all: directories $(CONFIG)/$(TARGET).bin
+all: directories $(CONFIG)/$(TARGET)_asb.bin
 
 directories: $(CONFIG)
 
@@ -324,20 +311,26 @@ $(CONFIG)/%.o: %.s $(CONFIG)/%.d
 	@echo " Assembling $(COMPILERNAME) $<" ;\
 	$(CC) -c $(CFLAGS) $< -o $@
 
-$(CONFIG)/$(TARGET).axf: $(OBJS) $(LIBS)
+$(CONFIG)/$(TARGET)_asb.axf: LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_linker.ld
+$(CONFIG)/$(TARGET)_asb.axf: $(OBJS) $(LIBS)
 	@echo " Linking $(COMPILERNAME) $@ with script $(LINKER_FILE)";\
-	$(CC) -Wl,-T,$(LINKER_FILE) -o $@ $(OBJS) $(LFLAGS)
+	$(CC) -Wl,-T, $(LINKER_FILE) -o $@ $(OBJS) $(LFLAGS)
 
-$(CONFIG)/$(TARGET).bin: $(CONFIG)/$(TARGET).axf
+$(CONFIG)/$(TARGET)_svl.axf: LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_svl_linker.ld
+$(CONFIG)/$(TARGET)_svl.axf: $(OBJS) $(LIBS)
+	@echo " Linking $(COMPILERNAME) $@ with script $(LINKER_FILE)";\
+	$(CC) -Wl,-T, $(LINKER_FILE) -o $@ $(OBJS) $(LFLAGS)
+
+$(CONFIG)/$(TARGET)_%.bin: $(CONFIG)/$(TARGET)_%.axf
 	@echo " Copying $(COMPILERNAME) $@..." ;\
 	$(CP) $(CPFLAGS) $< $@ ;\
 	$(OD) $(ODFLAGS) $< > $(CONFIG)/$(TARGET).lst
 
-bootload_asb: all
-	$(AMBIQ_BIN2BOARD) --bin $(CONFIG)/$(TARGET).bin --load-address-blob 0x20000 --magic-num 0xCB -o $(CONFIG)/$(TARGET) --version 0x0 --load-address-wired 0xC000 -i 6 --options 0x1 -b $(ASB_UPLOAD_BAUD) -port $(COM_PORT) -r 2 -v 
+bootload_asb: $(CONFIG)/$(TARGET)_asb.bin
+	$(AMBIQ_BIN2BOARD) --bin $(CONFIG)/$(TARGET)_asb.bin --load-address-blob 0x20000 --magic-num 0xCB -o $(CONFIG)/$(TARGET) --version 0x0 --load-address-wired 0xC000 -i 6 --options 0x1 -b $(ASB_UPLOAD_BAUD) -port $(COM_PORT) -r 2 -v 
 
-bootload_svl: all
-	$(ARTEMIS_SVL) $(COM_PORT) -f $(CONFIG)/$(TARGET).bin -b $(SVL_UPLOAD_BAUD) -v
+bootload_svl: $(CONFIG)/$(TARGET)_svl.bin
+	$(ARTEMIS_SVL) $(COM_PORT) -f $(CONFIG)/$(TARGET)_svl.bin -b $(SVL_UPLOAD_BAUD) -v
 
 bootload: bootload_svl
 
