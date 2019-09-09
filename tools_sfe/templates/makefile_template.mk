@@ -92,6 +92,8 @@ BSPPATH				=# Set as the path to the BSP if not located at ../../../..
 BOARDPATH			=# Set as the path to the board if not located at ../../..
 PROJECTPATH			=# Set as the path to the project if not located at ../..
 
+LINKER_FILE:=# Optionally provide your own custom linker (but best to leave it as the default)
+
 ### Project Settings
 TARGET := example
 COMPILERNAME := gcc
@@ -151,6 +153,17 @@ ifeq ($(PROJECTPATH),)
 else
 # When the PROJECTPATH is given export it
 export PROJECTPATH
+endif
+
+ifneq ($(LINKER_FILE),)
+    $(warning you provided a custom linker script: $(LINKER_FILE))
+else
+    # Default to asb_linker
+    # When using the 'bootload_asb' target use the asb linker
+    # When using the 'bootload_svl' target use the svl linker
+    LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_linker.ld
+    bootload_asb : LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_linker.ld
+    bootload_svl : LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_svl_linker.ld
 endif
 
 #******************************************************************************
@@ -222,7 +235,6 @@ FPU = fpv4-sp-d16
 #FABI = softfp
 FABI = hard
 
-LINKER_FILE := $(PROJECTPATH)/gcc/example.ld
 STARTUP_FILE := ./startup_$(COMPILERNAME).c
 
 #### Required Executables ####
@@ -309,7 +321,7 @@ $(CONFIG)/%.o: %.s $(CONFIG)/%.d
 
 $(CONFIG)/$(TARGET).axf: $(OBJS) $(LIBS)
 	@echo " Linking $(COMPILERNAME) $@" ;\
-	$(CC) -Wl,-T,$(LINKER_FILE) -o $@ $(OBJS) $(LFLAGS)
+	$(CC) -Wl,-T, $(LINKER_FILE) -o $@ $(OBJS) $(LFLAGS)
 
 $(CONFIG)/$(TARGET).bin: $(CONFIG)/$(TARGET).axf
 	@echo " Copying $(COMPILERNAME) $@..." ;\
@@ -344,4 +356,4 @@ $(BOARDPATH)/bsp/gcc/bin/libam_bsp.a:
 # Automatically include any generated dependencies
 -include $(DEPS)
 endif
-.PHONY: all clean directories
+.PHONY: all clean directories bootload bootload_asb bootload_svl
