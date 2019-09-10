@@ -310,12 +310,12 @@ $(CONFIG)/%.o: %.s $(CONFIG)/%.d
 $(CONFIG)/$(TARGET)_asb.axf: LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_linker.ld
 $(CONFIG)/$(TARGET)_asb.axf: $(OBJS) $(LIBS)
 	@echo " Linking $(COMPILERNAME) $@ with script $(LINKER_FILE)";\
-	$(CC) -Wl,-T, $(LINKER_FILE) -o $@ $(OBJS) $(LFLAGS)
+	$(CC) -Wl,-T,$(LINKER_FILE) -o $@ $(OBJS) $(LFLAGS)
 
 $(CONFIG)/$(TARGET)_svl.axf: LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_svl_linker.ld
 $(CONFIG)/$(TARGET)_svl.axf: $(OBJS) $(LIBS)
 	@echo " Linking $(COMPILERNAME) $@ with script $(LINKER_FILE)";\
-	$(CC) -Wl,-T, $(LINKER_FILE) -o $@ $(OBJS) $(LFLAGS)
+	$(CC) -Wl,-T,$(LINKER_FILE) -o $@ $(OBJS) $(LFLAGS)
 
 $(CONFIG)/$(TARGET)_%.bin: $(CONFIG)/$(TARGET)_%.axf
 	@echo " Copying $(COMPILERNAME) $@..." ;\
