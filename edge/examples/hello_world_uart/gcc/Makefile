@@ -88,7 +88,7 @@ PYTHON3=
 # *Optionally* specify absolute paths to the SDK and the BSP
 # Make sure to use / instead of \ when on Windows
 SDKPATH				=# Set as the path to the SDK root if not located at ../../../../..
-BSPPATH				=# Set as the path to the BSP if not located at ../../../..
+COMMONPATH			=# Set as the path to the BSP if not located at ../../../../common
 BOARDPATH			=# Set as the path to the board if not located at ../../..
 PROJECTPATH			=# Set as the path to the project if not located at ../..
 
@@ -129,12 +129,12 @@ else
 export SDKPATH
 endif
 
-ifeq ($(BSPPATH),)
-    BSPPATH			=../../../..
-    $(warning warning: you have not defined BSPPATH so will continue assuming that the BSP root is at $(BSPPATH))
+ifeq ($(COMMONPATH),)
+    COMMONPATH			=../../../../common
+    $(warning warning: you have not defined COMMONPATH so will continue assuming that the BSP root is at $(COMMONPATH))
 else
-# When the BSPPATH is given export it
-export BSPPATH
+# When the COMMONPATH is given export it
+export COMMONPATH
 endif
 
 ifeq ($(BOARDPATH),)
@@ -194,7 +194,7 @@ SRC+=
 VPATH=
 VPATH+= $(PROJECTPATH)/src
 VPATH+= $(SDKPATH)/utils
-VPATH+= $(BSPPATH)/tools_sfe/templates
+VPATH+= $(COMMONPATH)/tools_sfe/templates
 VPATH+=
 
 # LIBS (Precompiled libraries to include in the linker step)
@@ -211,8 +211,8 @@ LIBS+=
 #
 #******************************************************************************
 ### Bootloader Tools
-AMBIQ_BIN2BOARD=$(PYTHON3) $(BSPPATH)/tools_sfe/ambiq/ambiq_bin2board.py
-ARTEMIS_SVL=$(PYTHON3) $(BSPPATH)/tools_sfe/artemis/artemis_svl.py
+AMBIQ_BIN2BOARD=$(PYTHON3) $(COMMONPATH)/tools_sfe/ambiq/ambiq_bin2board.py
+ARTEMIS_SVL=$(PYTHON3) $(COMMONPATH)/tools_sfe/artemis/artemis_svl.py
 
 
 SHELL:=/bin/bash
@@ -311,12 +311,12 @@ $(CONFIG)/%.o: %.s $(CONFIG)/%.d
 	@echo " Assembling $(COMPILERNAME) $<" ;\
 	$(CC) -c $(CFLAGS) $< -o $@
 
-$(CONFIG)/$(TARGET)_asb.axf: LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_linker.ld
+$(CONFIG)/$(TARGET)_asb.axf: LINKER_FILE = $(COMMONPATH)/tools_sfe/templates/asb_linker.ld
 $(CONFIG)/$(TARGET)_asb.axf: $(OBJS) $(LIBS)
 	@echo " Linking $(COMPILERNAME) $@ with script $(LINKER_FILE)";\
 	$(CC) -Wl,-T,$(LINKER_FILE) -o $@ $(OBJS) $(LFLAGS)
 
-$(CONFIG)/$(TARGET)_svl.axf: LINKER_FILE = $(BSPPATH)/tools_sfe/templates/asb_svl_linker.ld
+$(CONFIG)/$(TARGET)_svl.axf: LINKER_FILE = $(COMMONPATH)/tools_sfe/templates/asb_svl_linker.ld
 $(CONFIG)/$(TARGET)_svl.axf: $(OBJS) $(LIBS)
 	@echo " Linking $(COMPILERNAME) $@ with script $(LINKER_FILE)";\
 	$(CC) -Wl,-T,$(LINKER_FILE) -o $@ $(OBJS) $(LFLAGS)
