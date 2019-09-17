@@ -131,7 +131,7 @@ endif
 
 ifeq ($(COMMONPATH),)
     COMMONPATH			=../../../../common
-    $(warning warning: you have not defined COMMONPATH so will continue assuming that the BSP root is at $(COMMONPATH))
+    $(warning warning: you have not defined COMMONPATH so will continue assuming that the COMMON root is at $(COMMONPATH))
 else
 # When the COMMONPATH is given export it
 export COMMONPATH
