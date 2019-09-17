@@ -194,6 +194,7 @@ SRC+=
 VPATH=
 VPATH+= $(PROJECTPATH)/src
 VPATH+= $(SDKPATH)/utils
+VPATH+= $(COMMONPATH)/examples/hello_world_uart
 VPATH+= $(COMMONPATH)/tools_sfe/templates
 VPATH+=
 
