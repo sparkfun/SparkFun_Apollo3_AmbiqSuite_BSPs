@@ -24,6 +24,7 @@ SOFTWARE.
 #define _LIS2DH12_PLATFORM_APOLLO3_H_
 
 #include "am_mcu_apollo.h"
+#include "lis2dh12_reg.h"
 
 typedef struct _lis2dh12_platform_apollo3_if_t {
     void*       iomHandle;          // IO Master instance
@@ -31,5 +32,8 @@ typedef struct _lis2dh12_platform_apollo3_if_t {
                                     // SPI mode: the Apollo3 pad to use for chip select
     bool        useSPI;             // Set 'true' if using SPI mode, else 'false'
 }lis2dh12_platform_apollo3_if_t;
+
+int32_t lis2dh12_write_platform_apollo3(void *handle, uint8_t reg, uint8_t *bufp, uint16_t len);
+int32_t lis2dh12_read_platform_apollo3(void *handle, uint8_t reg, uint8_t *bufp, uint16_t len);
 
 #endif // _LIS2DH12_PLATFORM_APOLLO3_H_

@@ -32,8 +32,7 @@ SOFTWARE.
  * @param  len       number of consecutive register to write
  *
  */
-static int32_t lis2dh12_write_platform_apollo3(void *handle, uint8_t reg, uint8_t *bufp,
-                              uint16_t len)
+int32_t lis2dh12_write_platform_apollo3(void *handle, uint8_t reg, uint8_t *bufp, uint16_t len)
 {
     uint32_t retVal32 = 0;
     lis2dh12_platform_apollo3_if_t* pif = (lis2dh12_platform_apollo3_if_t*)handle;
@@ -79,8 +78,7 @@ static int32_t lis2dh12_write_platform_apollo3(void *handle, uint8_t reg, uint8_
  * @param  len       number of consecutive register to read
  *
  */
-static int32_t lis2dh12_read_platform_apollo3(void *handle, uint8_t reg, uint8_t *bufp,
-                             uint16_t len)
+int32_t lis2dh12_read_platform_apollo3(void *handle, uint8_t reg, uint8_t *bufp, uint16_t len)
 {
     uint32_t retVal32 = 0;
     lis2dh12_platform_apollo3_if_t* pif = (lis2dh12_platform_apollo3_if_t*)handle;
