@@ -102,11 +102,11 @@ int32_t lis2dh12_read_platform_apollo3(void *handle, uint8_t reg, uint8_t *bufp,
 
     // Send the first transfer
     retVal32 = am_hal_iom_blocking_transfer(iomHandle, &iomTransfer);
-    if( retVal32 != AM_HAL_STATUS_OK ){ return retVal32; }
+    if( retVal32 != AM_HAL_STATUS_SUCCESS ){ return retVal32; }
 
     // Change direction, and add the rx buffer
     iomTransfer.eDirection                  = AM_HAL_IOM_RX;
-    iomTransfer.pui32RxBuffer               = bufp;
+    iomTransfer.pui32RxBuffer               = (uint32_t*)bufp;
     iomTransfer.ui32NumBytes                = len;
     iomTransfer.bContinue                   = false;
 
