@@ -42,15 +42,15 @@ float acceleration_mg[3];
 float temperature_degC;
 
 lis2dh12_platform_apollo3_if_t dev_if = {
-    .iomHandle  = NULL;                             // Needs to be initialized later
-    .addCS      = AM_BSP_ACCELEROMETER_I2C_ADDRESS; // Gets the accelerometer I2C address for the board
-    .useSPI     = false;                            // Using I2C in this example
+    .iomHandle  = NULL,                             // Needs to be initialized later
+    .addCS      = AM_BSP_ACCELEROMETER_I2C_ADDRESS, // Gets the accelerometer I2C address for the board
+    .useSPI     = false,                            // Using I2C in this example
 };
 
 lis2dh12_ctx_t dev_ctx = {
-    .write_reg  = lis2dh12_write_platform_apollo3;  // write bytes function
-    .read_reg   = lis2dh12_read_platform_apollo3;   // read bytes function
-    .handle     = (void*)&dev_if;                   // Apollo3-specific interface information
+    .write_reg  = lis2dh12_write_platform_apollo3,  // write bytes function
+    .read_reg   = lis2dh12_read_platform_apollo3,   // read bytes function
+    .handle     = (void*)&dev_if,                   // Apollo3-specific interface information
 };
 
 int main( void ){
@@ -130,7 +130,7 @@ uint32_t initAccel( void ){
 
     am_hal_iom_config_t i2cConfig = {
         .eInterfaceMode = AM_HAL_IOM_I2C_MODE,
-        .ui32ClockFreq = AM_HAL_IOM_100KHZ
+        .ui32ClockFreq = AM_HAL_IOM_100KHZ,
     };
 
     // Initialize the IOM.
