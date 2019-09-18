@@ -28,8 +28,7 @@ SOFTWARE.
 
 //
 // Macros
-#define ALIAS_TO_PINCFG_(ALIAS) g_ ## ALIAS
-#define ALIAS_TO_PINCFG(ALIAS) ALIAS_TO_PINCFG_(ALIAS)
+#define ALIAS_TO_PINCFG(ALIAS) g_ ## ALIAS
 
 //
 // Defines
