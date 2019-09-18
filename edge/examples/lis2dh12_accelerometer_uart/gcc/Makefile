@@ -196,6 +196,7 @@ VPATH=
 VPATH+= $(PROJECTPATH)/src
 VPATH+= $(SDKPATH)/utils
 VPATH+= $(COMMONPATH)/examples/lis2dh12_accelerometer_uart
+VPATH+= $(COMMONPATH)/third_party/lis2dh12
 VPATH+= $(COMMONPATH)/tools_sfe/templates
 VPATH+=
 
