@@ -27,6 +27,11 @@ SOFTWARE.
 #include "lis2dh12_platform_apollo3.h"
 
 //
+// Macros
+#define ALIAS_TO_PINCFG_(ALIAS) g_ ## ALIAS
+#define ALIAS_TO_PINCFG(ALIAS) ALIAS_TO_PINCFG_(ALIAS)
+
+//
 // Defines
 #define LOOP_DELAY_MS 0
 
@@ -145,8 +150,8 @@ uint32_t initAccel( void ){
 
     //
     // Configure the IOM pins.
-    am_hal_gpio_pinconfig(AM_BSP_ACCELEROMETER_I2C_SDA_PIN,  g_ ## AM_BSP_ACCELEROMETER_I2C_SDA_PIN);
-    am_hal_gpio_pinconfig(AM_BSP_ACCELEROMETER_I2C_SCL_PIN,  g_ ## AM_BSP_ACCELEROMETER_I2C_SDA_PIN);
+    am_hal_gpio_pinconfig(AM_BSP_ACCELEROMETER_I2C_SDA_PIN,  ALIAS_TO_PINCFG(AM_BSP_ACCELEROMETER_I2C_SDA_PIN));
+    am_hal_gpio_pinconfig(AM_BSP_ACCELEROMETER_I2C_SCL_PIN,  ALIAS_TO_PINCFG(AM_BSP_ACCELEROMETER_I2C_SDA_PIN));
 
     //
     // Enable the IOM.
