@@ -1,3 +1,30 @@
+How to Generate BSP Files
+=========================
+
+A Board Support Package is designed to provide a uniform interface to the hardware capabilities across boards, thus enabling users to easily identify what hardware is being used and increasing the compatibility of example applications.
+
+To do so the BSP provides a listing of pin names and corresponding pin configurations, as well as several uniform API calls.
+
+am_bsp.h + am_bsp.c
+===================
+
+This compilation unit uses the pin definitions (explained below) to describe the common interface. It has a standard structure and contents, but it is also possible to add additional board-specific macros.
+
+**The Header**
+The header is standardized and changes to it should be minimal
+Includes:
+- License + Copyright
+- Include guards (opening)
+- Includes
+    - stdint
+    - stdbool
+    - am_mcu_apollo
+    - am_bsp_pins
+    - am_devices_led
+    - am_devices_button
+- C++ guards (opening)
+- 
+``` c
 //*****************************************************************************
 //
 //  am_bsp.h
@@ -75,94 +102,16 @@ extern "C"
 // Begin User Modifiable Area
 //
 //*****************************************************************************
+```
 
-//*****************************************************************************
-//
-// Camera
-//
-//*****************************************************************************
-#define AM_BSP_CAMERA_MCLK_PIN              26
-#define AM_BSP_CAMERA_I2C_IOM               1
-#define AM_BSP_CAMERA_I2C_SDA_PIN           AM_BSP_GPIO_IOM1_SDA
-#define AM_BSP_CAMERA_I2C_SCL_PIN           AM_BSP_GPIO_IOM1_SCL
+**The User Modifiable Area**
+Contents of this section are free reign. Nothing is required. Possible elements include:
+- Aliases for pin names 
+- Definitions for HW not captured by the bsp_pins.src file
 
-//*****************************************************************************
-//
-// Accelerometer.
-//
-//*****************************************************************************
-#define AM_BSP_ACCELEROMETER_I2C_IOM        3
-#define AM_BSP_ACCELEROMETER_I2C_ADDRESS    0x19
-#define AM_BSP_ACCELEROMETER_I2C_SDA_PIN    AM_BSP_GPIO_IOM3_SDA
-#define AM_BSP_ACCELEROMETER_I2C_SCL_PIN    AM_BSP_GPIO_IOM3_SCL
-#define g_AM_BSP_ACCELEROMETER_I2C_SDA_PIN    g_AM_BSP_GPIO_IOM3_SDA
-#define g_AM_BSP_ACCELEROMETER_I2C_SCL_PIN    g_AM_BSP_GPIO_IOM3_SCL
-
-
-//*****************************************************************************
-//
-// Qwiic Connector.
-//
-//*****************************************************************************
-#define AM_BSP_QWIIC_I2C_IOM                4
-#define AM_BSP_QWIIC_I2C_SDA_PIN            AM_BSP_GPIO_IOM4_SDA
-#define AM_BSP_QWIIC_I2C_SCL_PIN            AM_BSP_GPIO_IOM4_SCL
-
-
-// //*****************************************************************************
-// //
-// // Button definitions.
-// //
-// //*****************************************************************************
-// #define AM_BSP_NUM_BUTTONS                  0
-// extern am_devices_button_t am_bsp_psButtons[AM_BSP_NUM_BUTTONS];
-
-
-//*****************************************************************************
-//
-// LED definitions.
-//
-//*****************************************************************************
-#define AM_BSP_NUM_LEDS                   4
-extern am_devices_led_t am_bsp_psLEDs[AM_BSP_NUM_LEDS];
-
-#define AM_BSP_GPIO_LED0             AM_BSP_GPIO_LED_RED
-#define AM_BSP_GPIO_LED1            AM_BSP_GPIO_LED_BLUE
-#define AM_BSP_GPIO_LED2           AM_BSP_GPIO_LED_GREEN
-#define AM_BSP_GPIO_LED3          AM_BSP_GPIO_LED_YELLOW
-
-#define AM_BSP_GPIO_LED19             AM_BSP_GPIO_LED_RED
-#define AM_BSP_GPIO_LED18            AM_BSP_GPIO_LED_BLUE
-#define AM_BSP_GPIO_LED17           AM_BSP_GPIO_LED_GREEN
-#define AM_BSP_GPIO_LED37          AM_BSP_GPIO_LED_YELLOW
-
-
-//*****************************************************************************
-//
-// PWM_LED peripheral assignments.
-//
-//*****************************************************************************
-//
-// The Edge2 LED0 is pin 19
-//
-#define AM_BSP_PIN_PWM_LED                  AM_BSP_GPIO_LED0
-#define AM_BSP_PWM_LED_TIMER                1
-#define AM_BSP_PWM_LED_TIMER_SEG            AM_HAL_CTIMER_TIMERB
-#define AM_BSP_PWM_LED_TIMER_INT            AM_HAL_CTIMER_INT_TIMERB1C0
-
-//*****************************************************************************
-//
-// UART definitions.
-//
-//*****************************************************************************
-//
-// Apollo3 has two UART instances.
-// AM_BSP_UART_PRINT_INST should correspond to COM_UART.
-//
-#define AM_BSP_UART_IOS_INST                0
-#define AM_BSP_UART_PRINT_INST              0
-#define AM_BSP_UART_BOOTLOADER_INST         0
-
+**Print Interface Area**
+Todo: explain what this area is about
+```c
 //*****************************************************************************
 //
 // End User Modifiable Area
@@ -200,6 +149,11 @@ am_bsp_uart_pwrsave_t;
 //*****************************************************************************
 extern am_bsp_uart_pwrsave_t am_bsp_uart_pwrsave[AM_REG_UART_NUM_MODULES];
 
+```
+
+**The API Area**
+This area declares standard bsp functions that are used across AmbiqSuite examples. It is best to attempt to implement these functions in ```am_bsp.c```.
+```c
 //*****************************************************************************
 //
 // External function definitions.
@@ -229,7 +183,11 @@ extern void am_bsp_buffered_uart_printf_enable(void);
 extern void am_bsp_buffered_uart_service(void);
 
 extern uint32_t am_bsp_com_uart_transfer(const am_hal_uart_transfer_t *psTransfer);
+```
 
+**The Footer**
+The footer just wraps it all up
+```c
 #ifdef __cplusplus
 }
 #endif
@@ -241,3 +199,16 @@ extern uint32_t am_bsp_com_uart_transfer(const am_hal_uart_transfer_t *psTransfe
 //! @}
 //
 //*****************************************************************************
+```
+
+am_bsp_pins.h + am_bsp_pins.c
+=============================
+
+These files are used to create named configurations (and pins numbers) that represent what's on the board. The files are automatically generated by the ```pinconfig.py``` script. An example usage is:
+
+```bash
+python pinconfig.py ${board}/bsp/bsp_pins.src ${selector} > ${board}/bsp/am_bsp_pins.${selector}
+```
+Where ```${board}``` is the directory for the board whose BSP is beign generated and ```${selector}``` is one of ```c``` or ```h``` (which tells the script which file to generate)
+
+Todo: more explanation of pin name formats + scope

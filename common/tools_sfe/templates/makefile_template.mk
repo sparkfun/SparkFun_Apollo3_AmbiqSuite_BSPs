@@ -184,17 +184,12 @@ INCLUDES+=
 SRC=
 SRC+= main.c
 SRC+= startup_gcc.c
-SRC+= am_util_delay.c
-SRC+= am_util_faultisr.c
-SRC+= am_util_id.c
-SRC+= am_util_stdio.c
 SRC+=
 
 # VPATH (Add paths to where your source files are located)
 VPATH=
 VPATH+= $(PROJECTPATH)/src
 VPATH+= $(SDKPATH)/utils
-VPATH+= $(COMMONPATH)/examples/hello_world_uart
 VPATH+= $(COMMONPATH)/tools_sfe/templates
 VPATH+=
 
