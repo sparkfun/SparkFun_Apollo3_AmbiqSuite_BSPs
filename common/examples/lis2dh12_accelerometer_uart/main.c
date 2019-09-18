@@ -135,13 +135,13 @@ uint32_t initAccel( void ){
 
     // Initialize the IOM.
     retVal32 = am_hal_iom_initialize(AM_BSP_ACCELEROMETER_I2C_IOM, &(dev_if.iomHandle)); // set the iomHandle of the device interface
-    if(retVal32 != AM_HAL_STATUS_SUCCESS){ return retVal32 };
+    if(retVal32 != AM_HAL_STATUS_SUCCESS){ return retVal32; }
 
     retVal32 = am_hal_iom_power_ctrl((dev_if.iomHandle), AM_HAL_SYSCTRL_WAKE, false);
-    if(retVal32 != AM_HAL_STATUS_SUCCESS){ return retVal32 };
+    if(retVal32 != AM_HAL_STATUS_SUCCESS){ return retVal32; }
     
     retVal32 = am_hal_iom_configure((dev_if.iomHandle), &i2cConfig);
-    if(retVal32 != AM_HAL_STATUS_SUCCESS){ return retVal32 };
+    if(retVal32 != AM_HAL_STATUS_SUCCESS){ return retVal32; }
 
     //
     // Configure the IOM pins.
@@ -152,7 +152,7 @@ uint32_t initAccel( void ){
     // Enable the IOM.
     //
     retVal32 = am_hal_iom_enable((dev_if.iomHandle));
-    if(retVal32 != AM_HAL_STATUS_SUCCESS){ return retVal32 };
+    if(retVal32 != AM_HAL_STATUS_SUCCESS){ return retVal32; }
 
     //
     // Apply accelerometer configuration
