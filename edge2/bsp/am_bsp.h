@@ -94,9 +94,9 @@ extern "C"
 //*****************************************************************************
 #define AM_BSP_PDM_CHANNEL                  AM_HAL_PDM_CHANNEL_RIGHT
 #define AM_BSP_PDM_DATA                     AM_BSP_GPIO_MIC_DATA
-#define AM_BSP_PDM_CLOCK                    AM_BSP_GPIO_MIC_CLOCK
+#define AM_BSP_PDM_CLOCK                    AM_BSP_GPIO_MIC_CLK
 #define g_AM_BSP_PDM_DATA                   g_AM_BSP_GPIO_MIC_DATA
-#define g_AM_BSP_PDM_CLOCK                  g_AM_BSP_GPIO_MIC_DATA
+#define g_AM_BSP_PDM_CLOCK                  g_AM_BSP_GPIO_MIC_CLK
 
 //*****************************************************************************
 //
