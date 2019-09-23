@@ -128,11 +128,7 @@ pdm_init(void)
     // Configure the necessary pins.
     //
     am_hal_gpio_pinconfig(AM_BSP_PDM_DATA, g_AM_BSP_PDM_DATA);
-
     am_hal_gpio_pinconfig(AM_BSP_PDM_CLOCK, g_AM_BSP_PDM_CLOCK);
-
-    am_hal_gpio_state_write(14, AM_HAL_GPIO_OUTPUT_CLEAR);
-    am_hal_gpio_pinconfig(14, g_AM_HAL_GPIO_OUTPUT);
 
     //
     // Configure and enable PDM interrupts (set up to trigger on DMA
