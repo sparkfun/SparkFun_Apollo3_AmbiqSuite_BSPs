@@ -101,7 +101,7 @@ am_hal_pdm_config_t g_sPdmConfig =
     .ePDMClkSource = AM_HAL_PDM_INTERNAL_CLK,
     .bPDMSampleDelay = 0,
     .bDataPacking = 1,
-    .ePCMChannels = AM_HAL_PDM_CHANNEL_RIGHT,
+    .ePCMChannels = AM_BSP_PDM_CHANNEL,
     .ui32GainChangeDelay = 1,
     .bI2SEnable = 0, 
     .bSoftMute = 0,
@@ -127,13 +127,9 @@ pdm_init(void)
     //
     // Configure the necessary pins.
     //
-    am_hal_gpio_pincfg_t sPinCfg = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    am_hal_gpio_pinconfig(AM_BSP_PDM_DATA, g_AM_BSP_PDM_DATA);
 
-    sPinCfg.uFuncSel = AM_HAL_PIN_11_PDMDATA;
-    am_hal_gpio_pinconfig(11, sPinCfg);
-
-    sPinCfg.uFuncSel = AM_HAL_PIN_12_PDMCLK;
-    am_hal_gpio_pinconfig(12, sPinCfg);
+    am_hal_gpio_pinconfig(AM_BSP_PDM_CLOCK, g_AM_BSP_PDM_CLOCK);
 
     am_hal_gpio_state_write(14, AM_HAL_GPIO_OUTPUT_CLEAR);
     am_hal_gpio_pinconfig(14, g_AM_HAL_GPIO_OUTPUT);
