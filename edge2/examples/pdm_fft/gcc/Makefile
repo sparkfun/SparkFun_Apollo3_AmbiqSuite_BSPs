@@ -187,6 +187,9 @@ INCLUDES+=
 SRC=
 SRC+= main.c
 SRC+= startup_gcc.c
+SRC+= am_util_delay.c
+SRC+= am_util_faultisr.c
+SRC+= am_util_stdio.c
 SRC+=
 
 # VPATH (Add paths to where your source files are located)
