@@ -204,6 +204,7 @@ VPATH+=
 LIBS=
 LIBS+= $(BOARDPATH)/bsp/gcc/bin/libam_bsp.a
 LIBS+= $(SDKPATH)/mcu/apollo3/hal/gcc/bin/libam_hal.a
+LIBS+= $(SDKPATH)/CMSIS/ARM/Lib/ARM/libarm_cortexM4lf_math.a
 LIBS+=
 
 
