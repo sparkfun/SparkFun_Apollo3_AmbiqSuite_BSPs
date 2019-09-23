@@ -83,7 +83,9 @@ extern "C"
 //
 //*****************************************************************************
 #undef AM_BSP_NUM_LEDS
+#ifdef AM_BSP_NUM_LEDS
 extern am_devices_led_t am_bsp_psLEDs[AM_BSP_NUM_LEDS];
+#endif // AM_BSP_NUM_LEDS
 
 
 //*****************************************************************************
