@@ -73,14 +73,14 @@
 pin
     name            = MIC_DATA
     desc            = Data line for PDM microphones
-    pinnum          = 29
-    func_sel        = AM_HAL_PIN_29_PDMDATA
+    pinnum          = 36
+    func_sel        = AM_HAL_PIN_36_PDMDATA
 
 pin
     name            = MIC_CLK
     desc            = Clock line for PDM microphones
-    pinnum          = 12
-    func_sel        = AM_HAL_PIN_12_PDMCLK
+    pinnum          = 37
+    func_sel        = AM_HAL_PIN_37_PDMCLK
 
 
 # *****************************************************************************

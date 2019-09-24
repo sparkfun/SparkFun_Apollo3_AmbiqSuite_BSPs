@@ -59,7 +59,7 @@
 //*****************************************************************************
 const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_MIC_DATA =
 {
-    .uFuncSel            = AM_HAL_PIN_29_PDMDATA
+    .uFuncSel            = AM_HAL_PIN_36_PDMDATA
 };
 
 //*****************************************************************************
@@ -69,7 +69,7 @@ const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_MIC_DATA =
 //*****************************************************************************
 const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_MIC_CLK =
 {
-    .uFuncSel            = AM_HAL_PIN_12_PDMCLK
+    .uFuncSel            = AM_HAL_PIN_37_PDMCLK
 };
 
 //*****************************************************************************
