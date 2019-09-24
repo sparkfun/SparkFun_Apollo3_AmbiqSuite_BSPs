@@ -5,9 +5,17 @@
 __pycache__
 *.pyc
 
-# Objects / Deps
+# Objects / Deps / Archives
 *.o
 *.d
+*.a
+!artemis/bsp/gcc/bin/libam_bsp.a
+!artemis_thing_plus/bsp/gcc/bin/libam_bsp.a
+!edge/bsp/gcc/bin/libam_bsp.a
+!edge2/bsp/gcc/bin/libam_bsp.a
+!redboard_artemis/bsp/gcc/bin/libam_bsp.a
+!redboard_artemis_atp/bsp/gcc/bin/libam_bsp.a
+!redboard_artemis_nano/bsp/gcc/bin/libam_bsp.a
 
 # Other Build Residuals
 *.map
