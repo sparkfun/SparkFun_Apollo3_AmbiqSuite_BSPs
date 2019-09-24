@@ -17,8 +17,11 @@ __pycache__
 !redboard_artemis_atp/bsp/gcc/bin/libam_bsp.a
 !redboard_artemis_nano/bsp/gcc/bin/libam_bsp.a
 
+# Binaries
+*.bin
+!edge/examples/tensorflow_micro_speech/gcc/bin/edge_cortexm4f_micro_speech.bin
+
 # Other Build Residuals
 *.map
 *.lst
-*.bin
 *.axf
