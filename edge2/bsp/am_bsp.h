@@ -86,6 +86,18 @@ extern "C"
 #define AM_BSP_CAMERA_I2C_SDA_PIN           AM_BSP_GPIO_IOM1_SDA
 #define AM_BSP_CAMERA_I2C_SCL_PIN           AM_BSP_GPIO_IOM1_SCL
 
+
+//*****************************************************************************
+//
+// PDM Microphone
+//
+//*****************************************************************************
+#define AM_BSP_PDM_CHANNEL                  AM_HAL_PDM_CHANNEL_RIGHT
+#define AM_BSP_PDM_DATA                     AM_BSP_GPIO_MIC_DATA
+#define AM_BSP_PDM_CLOCK                    AM_BSP_GPIO_MIC_CLK
+#define g_AM_BSP_PDM_DATA                   g_AM_BSP_GPIO_MIC_DATA
+#define g_AM_BSP_PDM_CLOCK                  g_AM_BSP_GPIO_MIC_CLK
+
 //*****************************************************************************
 //
 // Accelerometer.

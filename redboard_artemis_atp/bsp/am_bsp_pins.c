@@ -65,6 +65,26 @@ const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_LED_BLUE =
 
 //*****************************************************************************
 //
+//  MIC_DATA pin: Data line for PDM microphones.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_MIC_DATA =
+{
+    .uFuncSel            = AM_HAL_PIN_36_PDMDATA
+};
+
+//*****************************************************************************
+//
+//  MIC_CLK pin: Clock line for PDM microphones.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_MIC_CLK =
+{
+    .uFuncSel            = AM_HAL_PIN_37_PDMCLK
+};
+
+//*****************************************************************************
+//
 //  COM_UART_TX pin: This pin is the COM_UART transmit pin.
 //
 //*****************************************************************************

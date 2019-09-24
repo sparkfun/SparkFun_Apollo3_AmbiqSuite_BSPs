@@ -81,6 +81,22 @@ pin
 
 
 # *****************************************************************************
+#  PDM Microphone Lines
+# *****************************************************************************
+pin
+    name            = MIC_DATA
+    desc            = Data line for PDM microphones
+    pinnum          = 36
+    func_sel        = AM_HAL_PIN_36_PDMDATA
+
+pin
+    name            = MIC_CLK
+    desc            = Clock line for PDM microphones
+    pinnum          = 37
+    func_sel        = AM_HAL_PIN_37_PDMCLK
+
+
+# *****************************************************************************
 #  COM UART pins (UART0).
 # *****************************************************************************
 pin
