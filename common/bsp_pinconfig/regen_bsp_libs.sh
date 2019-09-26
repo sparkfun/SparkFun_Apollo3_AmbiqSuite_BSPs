@@ -5,7 +5,8 @@
 # - 'make' available at the command line
 # - 'arm-none-eabi-xxx' available at the command line (preferred version is q4-2018-major)
 
-source boards.sh
+DIR=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
+source $DIR/boards.sh
 
 for value in $BOARDS
 do

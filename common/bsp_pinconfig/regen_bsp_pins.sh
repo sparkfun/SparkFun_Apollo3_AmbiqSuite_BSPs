@@ -3,7 +3,8 @@
 # requires:
 # - python3 available at the command line
 
-source boards.sh
+DIR=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
+source $DIR/boards.sh
 
 for value in $BOARDS
 do
