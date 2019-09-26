@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # run me from the repo root
+# requires:
+# - python3 available at the command line
 
 source boards.sh
 
