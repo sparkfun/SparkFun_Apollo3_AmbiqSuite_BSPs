@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
+# run me from the repo root
 
-BOARDS="edge edge2 artemis artemis_thing_plus redboard_artemis redboard_artemis_atp redboard_artemis_nano"
+source boards.sh
 
 for value in $BOARDS
 do
