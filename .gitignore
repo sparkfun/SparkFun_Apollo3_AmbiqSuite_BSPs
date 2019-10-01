@@ -20,6 +20,9 @@ __pycache__
 # Binaries
 *.bin
 !edge/examples/tensorflow_micro_speech/gcc/bin/micro_speech.bin
+!edge/examples/tensorflow_micro_speech_test/gcc/bin/micro_speech_test.bin
+!edge2/examples/tensorflow_micro_speech/gcc/bin/micro_speech.bin
+!edge2/examples/tensorflow_micro_speech_test/gcc/bin/micro_speech_test.bin
 
 # Other Build Residuals
 *.map
