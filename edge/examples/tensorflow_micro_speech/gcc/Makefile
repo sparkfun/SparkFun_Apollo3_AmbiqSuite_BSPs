@@ -77,17 +77,17 @@
 #******************************************************************************
 
 # COM_PORT is the serial port to use for uploading. For example COM#### on Windows or /dev/cu.usbserial-#### on *nix
-COM_PORT=
+COM_PORT			?=
 # ASB_UPLOAD_BAUD is the baud rate setting of the Ambiq Secue Bootloader (ASB) as it is configured on the Apollo3. Defautls to 115200 if unset
-ASB_UPLOAD_BAUD=
+ASB_UPLOAD_BAUD			?=
 # SVL_UPLOAD_BAUD is the baud rate setting of the SparkFun Variable Loader (SVL). Defaults to 921600 if unset
-SVL_UPLOAD_BAUD=
+SVL_UPLOAD_BAUD			?=
 # PYTHON3 should evaluate to a call to the Python3 executable on your machine
-PYTHON3=
+PYTHON3							?=
 
 # *Optionally* specify absolute paths to the SDK and the BSP
 # Make sure to use / instead of \ when on Windows
-PROJECTPATH			=# Set as the path to the project if not located at ../..
+PROJECTPATH					?=# Set as the path to the project if not located at ../..
 
 
 #******************************************************************************
