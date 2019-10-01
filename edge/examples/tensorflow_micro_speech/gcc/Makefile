@@ -184,5 +184,4 @@ $(SDKPATH)/third_party/uecc/gcc/bin/lib_uecc.a:
 
 # Automatically include any generated dependencies
 -include $(DEPS)
-endif
 .PHONY: all clean directories bootload bootload_asb bootload_svl
