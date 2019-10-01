@@ -77,7 +77,7 @@
 #******************************************************************************
 
 # COM_PORT is the serial port to use for uploading. For example COM#### on Windows or /dev/cu.usbserial-#### on *nix
-COM_PORT			?=
+COM_PORT			      ?=
 # ASB_UPLOAD_BAUD is the baud rate setting of the Ambiq Secue Bootloader (ASB) as it is configured on the Apollo3. Defautls to 115200 if unset
 ASB_UPLOAD_BAUD			?=
 # SVL_UPLOAD_BAUD is the baud rate setting of the SparkFun Variable Loader (SVL). Defaults to 921600 if unset
@@ -87,6 +87,9 @@ PYTHON3							?=
 
 # *Optionally* specify absolute paths to the SDK and the BSP
 # Make sure to use / instead of \ when on Windows
+SDKPATH							?=# Set as the path to the SDK root if not located at ../../../../..
+COMMONPATH					?=# Set as the path to the BSP if not located at ../../../../common
+BOARDPATH						?=# Set as the path to the board if not located at ../../..
 PROJECTPATH					?=# Set as the path to the project if not located at ../..
 
 
@@ -110,6 +113,30 @@ endif
 ifeq ($(SVL_UPLOAD_BAUD),)
     SVL_UPLOAD_BAUD=921600
     $(warning defaulting to 921600 baud for SVL)
+endif
+
+ifeq ($(SDKPATH),)
+    SDKPATH			=../../../../..
+    $(warning warning: you have not defined SDKPATH so will continue assuming that the SDK root is at $(SDKPATH))
+else
+# When the SDKPATH is given export it
+export SDKPATH
+endif
+
+ifeq ($(COMMONPATH),)
+    COMMONPATH			=../../../../common
+    $(warning warning: you have not defined COMMONPATH so will continue assuming that the COMMON root is at $(COMMONPATH))
+else
+# When the COMMONPATH is given export it
+export COMMONPATH
+endif
+
+ifeq ($(BOARDPATH),)
+    BOARDPATH			=../../..
+    $(warning warning: you have not defined BOARDPATH so will continue assuming that the BOARD root is at $(BOARDPATH))
+else
+# When the BOARDPATH is given export it
+export BOARDPATH
 endif
 
 ifeq ($(PROJECTPATH),)
