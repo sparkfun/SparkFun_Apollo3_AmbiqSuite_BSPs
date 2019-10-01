@@ -168,8 +168,8 @@ SHELL:=/bin/bash
 #******************************************************************************
 all: bootload_asb
 
-bootload_asb: bin/edge_cortexm4f_micro_speech.bin
-	$(AMBIQ_BIN2BOARD) --bin bin/edge_cortexm4f_micro_speech.bin --load-address-blob 0x20000 --magic-num 0xCB -o bin/edge_cortexm4f_micro_speech --version 0x0 --load-address-wired 0xC000 -i 6 --options 0x1 -b $(ASB_UPLOAD_BAUD) -port $(COM_PORT) -r 2 -v 
+bootload_asb: bin/micro_speech.bin
+	$(AMBIQ_BIN2BOARD) --bin bin/micro_speech.bin --load-address-blob 0x20000 --magic-num 0xCB -o bin/micro_speech --version 0x0 --load-address-wired 0xC000 -i 6 --options 0x1 -b $(ASB_UPLOAD_BAUD) -port $(COM_PORT) -r 2 -v 
 
 bootload: bootload_asb
 
