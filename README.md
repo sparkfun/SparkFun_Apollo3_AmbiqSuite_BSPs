@@ -16,7 +16,7 @@ make
 make clean
 make bootload       # eqivalent to bootload_svl
 make bootload_svl   # builds and bootloads with SparkFun Variable Loader - you must have this bootloader flashed onto your board
-make_bootload_asb   # builds and bootloads with Ambiq Secure Bootloader - should work with most all boards. If not try changing the baud rate
+make bootload_asb   # builds and bootloads with Ambiq Secure Bootloader - should work with most all boards. If not try changing the baud rate
 ```
 
 How to Generate BSP Files
