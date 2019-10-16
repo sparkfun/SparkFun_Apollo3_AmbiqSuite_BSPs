@@ -11,6 +11,7 @@ __pycache__
 *.a
 !artemis/bsp/gcc/bin/libam_bsp.a
 !artemis_thing_plus/bsp/gcc/bin/libam_bsp.a
+!artmbed/bsp/gcc/bin/libam_bsp.a
 !edge/bsp/gcc/bin/libam_bsp.a
 !edge2/bsp/gcc/bin/libam_bsp.a
 !redboard_artemis/bsp/gcc/bin/libam_bsp.a
