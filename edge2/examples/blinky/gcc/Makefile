@@ -194,6 +194,7 @@ SRC+=
 VPATH=
 VPATH+= $(PROJECTPATH)/src
 VPATH+= $(SDKPATH)/utils
+VPATH+= $(SDKPATH)/devices
 VPATH+= $(COMMONPATH)/examples/blinky
 VPATH+= $(COMMONPATH)/tools_sfe/templates
 VPATH+=
