@@ -2,6 +2,13 @@ Welcome!
 ========
 This is the location to get the latest Board Support Packages (BSPs) for SparkFun Apollo3 (Artemis) based boards to be used in the AmbiqSuite SDK.
 
+Prerequisites
+=============
+* AmbiqSuiteSDK - contains source code to support the Apollo3 microcontroller (easy mode: [clone/fork our mirror here](https://github.com/sparkfun/AmbiqSuiteSDK))
+* arm-none-eabi-gcc toolchain accessible at your cmmand line (reccomend version [8-2018-q4-major](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads#panel2a) or lower)
+* make
+* python3 (only needed for bootloading)
+
 Installation
 ============
 Usage of these BSPs is quite flexible, however the easiest way to use them is to clone into your AmbiqSuite SDK directly. For example:
