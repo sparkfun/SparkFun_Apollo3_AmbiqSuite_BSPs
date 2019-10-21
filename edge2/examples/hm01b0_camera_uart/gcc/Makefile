@@ -189,6 +189,7 @@ SRC+= main.c
 SRC+= startup_gcc.c
 SRC+= HM01B0.c
 SRC+= am_util_stdio.c
+SRC+= am_util_delay.c
 SRC+=
 
 # VPATH (Add paths to where your source files are located)
