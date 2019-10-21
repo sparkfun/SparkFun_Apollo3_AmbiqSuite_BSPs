@@ -173,8 +173,8 @@ pin
 
 pin
     name            = CAMERA_HM01B0_DVDDEN
-    pinnum          = 32
-    func_sel        = AM_HAL_PIN_32_GPIO
+    pinnum          = 10
+    func_sel        = AM_HAL_PIN_10_GPIO
     drvstrength     = 2
 
 
