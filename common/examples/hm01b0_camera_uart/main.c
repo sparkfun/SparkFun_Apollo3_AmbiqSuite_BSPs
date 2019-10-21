@@ -32,7 +32,7 @@ SOFTWARE.
 #include "platform.h"
 
 
-//#define DEMO_HM01B0_TEST_MODE_ENABLE
+#define DEMO_HM01B0_TEST_MODE_ENABLE
 #define DEMO_HM01B0_FRAMEBUFFER_DUMP_ENABLE
 
 //*****************************************************************************
