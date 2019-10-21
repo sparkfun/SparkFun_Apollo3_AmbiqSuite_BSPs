@@ -1,3 +1,5 @@
+// based on demo from Himax
+
 /*
 Copyright (c) 2019 SparkFun Electronics
 
