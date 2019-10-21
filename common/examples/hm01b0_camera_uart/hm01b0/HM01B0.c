@@ -40,7 +40,7 @@ const am_hal_gpio_pincfg_t g_HM01B0_pin_int =
 //! @return Error code.
 //
 //*****************************************************************************
-static uint32_t hm01b0_write_reg(hm01b0_cfg_t *psCfg, \
+uint32_t hm01b0_write_reg(hm01b0_cfg_t *psCfg, \
                             uint16_t ui16Reg, uint8_t *pui8Value, uint32_t ui32NumBytes)
 {
     am_hal_iom_transfer_t Transaction;
@@ -85,7 +85,7 @@ static uint32_t hm01b0_write_reg(hm01b0_cfg_t *psCfg, \
 //! @return Error code.
 //
 //*****************************************************************************
-static uint32_t hm01b0_read_reg(hm01b0_cfg_t *psCfg, \
+uint32_t hm01b0_read_reg(hm01b0_cfg_t *psCfg, \
                             uint16_t ui16Reg, uint8_t *pui8Value, uint32_t ui32NumBytes)
 {
     am_hal_iom_transfer_t  Transaction;
@@ -128,7 +128,7 @@ static uint32_t hm01b0_read_reg(hm01b0_cfg_t *psCfg, \
 //! @return Error code.
 //
 //*****************************************************************************
-static uint32_t hm01b0_load_script(hm01b0_cfg_t *psCfg, hm_script_t *psScript, uint32_t ui32ScriptCmdNum)
+uint32_t hm01b0_load_script(hm01b0_cfg_t *psCfg, hm_script_t *psScript, uint32_t ui32ScriptCmdNum)
 {
     uint32_t ui32Err = HM01B0_ERR_OK;
     for (uint32_t idx = 0; idx < ui32ScriptCmdNum; idx++)

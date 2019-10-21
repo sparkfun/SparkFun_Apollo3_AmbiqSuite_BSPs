@@ -143,7 +143,7 @@ typedef struct
 //! @return Error code.
 //
 //*****************************************************************************
-static uint32_t hm01b0_write_reg(hm01b0_cfg_t *psCfg, \
+uint32_t hm01b0_write_reg(hm01b0_cfg_t *psCfg, \
                             uint16_t ui16Reg, uint8_t *pui8Value, uint32_t ui32NumBytes);
 
 //*****************************************************************************
@@ -160,7 +160,7 @@ static uint32_t hm01b0_write_reg(hm01b0_cfg_t *psCfg, \
 //! @return Error code.
 //
 //*****************************************************************************
-static uint32_t hm01b0_read_reg(hm01b0_cfg_t *psCfg, \
+uint32_t hm01b0_read_reg(hm01b0_cfg_t *psCfg, \
                             uint16_t ui16Reg, uint8_t *pui8Value, uint32_t ui32NumBytes);
 
 //*****************************************************************************
@@ -176,7 +176,7 @@ static uint32_t hm01b0_read_reg(hm01b0_cfg_t *psCfg, \
 //! @return Error code.
 //
 //*****************************************************************************
-static uint32_t hm01b0_load_script(hm01b0_cfg_t *psCfg, hm_script_t *psScript, uint32_t ui32ScriptCmdNum);
+uint32_t hm01b0_load_script(hm01b0_cfg_t *psCfg, hm_script_t *psScript, uint32_t ui32ScriptCmdNum);
 
 //*****************************************************************************
 //
