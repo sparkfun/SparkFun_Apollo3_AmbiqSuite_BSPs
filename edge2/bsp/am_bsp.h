@@ -81,10 +81,10 @@ extern "C"
 // Camera
 //
 //*****************************************************************************
-#define AM_BSP_CAMERA_MCLK_PIN              26
-#define AM_BSP_CAMERA_I2C_IOM               1
-#define AM_BSP_CAMERA_I2C_SDA_PIN           AM_BSP_GPIO_IOM1_SDA
-#define AM_BSP_CAMERA_I2C_SCL_PIN           AM_BSP_GPIO_IOM1_SCL
+#define AM_BSP_CAMERA_HM01B0_MCLK_PIN              26
+#define AM_BSP_CAMERA_HM01B0_I2C_IOM               1
+#define AM_BSP_CAMERA_HM01B0_I2C_SDA_PIN           AM_BSP_GPIO_IOM1_SDA
+#define AM_BSP_CAMERA_HM01B0_I2C_SCL_PIN           AM_BSP_GPIO_IOM1_SCL
 
 
 //*****************************************************************************
