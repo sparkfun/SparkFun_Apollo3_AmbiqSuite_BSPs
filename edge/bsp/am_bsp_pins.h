@@ -171,7 +171,7 @@ extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_INT;
 //  CAMERA_HM01B0_DVDDEN pin.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_CAMERA_HM01B0_DVDDEN10
+#define AM_BSP_GPIO_CAMERA_HM01B0_DVDDEN    10
 extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_DVDDEN;
 
 //*****************************************************************************
