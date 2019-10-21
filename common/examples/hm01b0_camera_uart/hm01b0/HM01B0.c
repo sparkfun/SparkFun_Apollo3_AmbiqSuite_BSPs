@@ -10,7 +10,7 @@
 #include "am_util.h"
 #include "HM01B0.h"
 #include "HM01B0_Walking1s_01.h"
-// #include "platform_Sparkfun_Edge.h"
+#include "platform.h"
 
 #define read_vsync()    (AM_REGVAL(AM_REGADDR(GPIO, RDA)) & (1 << HM01B0_PIN_VSYNC))
 #define read_hsync()    (AM_REGVAL(AM_REGADDR(GPIO, RDA)) & (1 << HM01B0_PIN_HSYNC))

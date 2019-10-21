@@ -9,6 +9,7 @@
 #include "am_util.h"
 #include "HM01B0.h"
 #include "HM01B0_RAW8_QVGA_8bits_lsb_5fps.h"
+#include "platform.h"
 
 
 #define DEMO_HM01B0_TEST_MODE_ENABLE
@@ -23,35 +24,36 @@ static hm01b0_cfg_t         s_HM01B0Cfg =
 {
     // i2c settings
     .ui16SlvAddr                = HM01B0_DEFAULT_ADDRESS,
-    .eIOMMode                   = AM_HAL_IOM_I2C_MODE,
-    .ui32IOMModule              = AM_BSP_CAMERA_HM01B0_I2C_IOM,
-    .sIOMCfg                    =   {
-                                        .eInterfaceMode     = AM_HAL_IOM_I2C_MODE,
-                                        .ui32ClockFreq      = AM_HAL_IOM_100KHZ,
-                                    },
+    .eIOMMode                   = HM01B0_IOM_MODE,
+    .ui32IOMModule              = HM01B0_IOM_MODULE,
+    .sIOMCfg                    =
+        {
+            .eInterfaceMode     = HM01B0_IOM_MODE,
+            .ui32ClockFreq      = HM01B0_I2C_CLOCK_FREQ,
+        },
     .pIOMHandle                 = NULL,
-    .ui8PinSCL                  = AM_BSP_CAMERA_HM01B0_I2C_SCL_PIN,
-    .ui8PinSDA                  = AM_BSP_CAMERA_HM01B0_I2C_SDA_PIN,
+    .ui8PinSCL                  = HM01B0_PIN_SCL,
+    .ui8PinSDA                  = HM01B0_PIN_SDA,
 
     // MCLK settings
-    .ui32CTimerModule           = 0 /*HM01B0_MCLK_GENERATOR_MOD*/, // todo: I think these are unused
-    .ui32CTimerSegment          = 0 /*HM01B0_MCLK_GENERATOR_SEG*/, // todo: I think these are unused
-    .ui32CTimerOutputPin        = AM_BSP_CAMERA_HM01B0_MCLK_PIN,
+    .ui32CTimerModule           = HM01B0_MCLK_GENERATOR_MOD,
+    .ui32CTimerSegment          = HM01B0_MCLK_GENERATOR_SEG,
+    .ui32CTimerOutputPin        = HM01B0_PIN_MCLK,
 
     // data interface
-    .ui8PinD0                   = AM_BSP_GPIO_CAMERA_HM01B0_D0,
-    .ui8PinD1                   = AM_BSP_GPIO_CAMERA_HM01B0_D1,
-    .ui8PinD2                   = AM_BSP_GPIO_CAMERA_HM01B0_D2,
-    .ui8PinD3                   = AM_BSP_GPIO_CAMERA_HM01B0_D3,
-    .ui8PinD4                   = AM_BSP_GPIO_CAMERA_HM01B0_D4,
-    .ui8PinD5                   = AM_BSP_GPIO_CAMERA_HM01B0_D5,
-    .ui8PinD6                   = AM_BSP_GPIO_CAMERA_HM01B0_D6,
-    .ui8PinD7                   = AM_BSP_GPIO_CAMERA_HM01B0_D7,
-    .ui8PinVSYNC                = AM_BSP_GPIO_CAMERA_HM01B0_VSYNC,
-    .ui8PinHSYNC                = AM_BSP_GPIO_CAMERA_HM01B0_HSYNC,
-    .ui8PinPCLK                 = AM_BSP_GPIO_CAMERA_HM01B0_PCLK,
-    .ui8PinTrig                 = AM_BSP_GPIO_CAMERA_HM01B0_TRIG,
-    .ui8PinInt                  = AM_BSP_GPIO_CAMERA_HM01B0_INT,
+    .ui8PinD0                   = HM01B0_PIN_D0,
+    .ui8PinD1                   = HM01B0_PIN_D1,
+    .ui8PinD2                   = HM01B0_PIN_D2,
+    .ui8PinD3                   = HM01B0_PIN_D3,
+    .ui8PinD4                   = HM01B0_PIN_D4,
+    .ui8PinD5                   = HM01B0_PIN_D5,
+    .ui8PinD6                   = HM01B0_PIN_D6,
+    .ui8PinD7                   = HM01B0_PIN_D7,
+    .ui8PinVSYNC                = HM01B0_PIN_VSYNC,
+    .ui8PinHSYNC                = HM01B0_PIN_HSYNC,
+    .ui8PinPCLK                 = HM01B0_PIN_PCLK,
+    .ui8PinTrig                 = HM01B0_PIN_TRIG,
+    .ui8PinInt                  = HM01B0_PIN_INT,
     .pfnGpioIsr                 = NULL,
 };
 
