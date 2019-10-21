@@ -64,115 +64,115 @@ extern "C"
 
 //*****************************************************************************
 //
-//  CAMERA_D0 pin.
+//  CAMERA_HM01B0_D0 pin.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_CAMERA_D0           14
-extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D0;
+#define AM_BSP_GPIO_CAMERA_HM01B0_D0    14
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_D0;
 
 //*****************************************************************************
 //
-//  CAMERA_D1 pin.
+//  CAMERA_HM01B0_D1 pin.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_CAMERA_D1           11
-extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D1;
+#define AM_BSP_GPIO_CAMERA_HM01B0_D1    11
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_D1;
 
 //*****************************************************************************
 //
-//  CAMERA_D2 pin.
+//  CAMERA_HM01B0_D2 pin.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_CAMERA_D2           25
-extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D2;
+#define AM_BSP_GPIO_CAMERA_HM01B0_D2    25
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_D2;
 
 //*****************************************************************************
 //
-//  CAMERA_D3 pin.
+//  CAMERA_HM01B0_D3 pin.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_CAMERA_D3           34
-extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D3;
+#define AM_BSP_GPIO_CAMERA_HM01B0_D3    34
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_D3;
 
 //*****************************************************************************
 //
-//  CAMERA_D4 pin.
+//  CAMERA_HM01B0_D4 pin.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_CAMERA_D4           6
-extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D4;
+#define AM_BSP_GPIO_CAMERA_HM01B0_D4    6
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_D4;
 
 //*****************************************************************************
 //
-//  CAMERA_D5 pin.
+//  CAMERA_HM01B0_D5 pin.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_CAMERA_D5           5
-extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D5;
+#define AM_BSP_GPIO_CAMERA_HM01B0_D5    5
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_D5;
 
 //*****************************************************************************
 //
-//  CAMERA_D6 pin.
+//  CAMERA_HM01B0_D6 pin.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_CAMERA_D6           35
-extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D6;
+#define AM_BSP_GPIO_CAMERA_HM01B0_D6    35
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_D6;
 
 //*****************************************************************************
 //
-//  CAMERA_D7 pin.
+//  CAMERA_HM01B0_D7 pin.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_CAMERA_D7           28
-extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_D7;
+#define AM_BSP_GPIO_CAMERA_HM01B0_D7    28
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_D7;
 
 //*****************************************************************************
 //
-//  CAMERA_VSYNC pin: Also called FVLD on the HM01B0 module.
+//  CAMERA_HM01B0_VSYNC pin: Also called FVLD on the HM01B0 module.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_CAMERA_VSYNC        15
-extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_VSYNC;
+#define AM_BSP_GPIO_CAMERA_HM01B0_VSYNC 15
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_VSYNC;
 
 //*****************************************************************************
 //
-//  CAMERA_HSYNC pin: Also called LVLD on the HM01B0 module.
+//  CAMERA_HM01B0_HSYNC pin: Also called LVLD on the HM01B0 module.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_CAMERA_HSYNC        27
-extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HSYNC;
+#define AM_BSP_GPIO_CAMERA_HM01B0_HSYNC 27
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_HSYNC;
 
 //*****************************************************************************
 //
-//  CAMERA_PCLK pin.
+//  CAMERA_HM01B0_PCLK pin.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_CAMERA_PCLK         7
-extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_PCLK;
+#define AM_BSP_GPIO_CAMERA_HM01B0_PCLK  7
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_PCLK;
 
 //*****************************************************************************
 //
-//  CAMERA_TRIG pin.
+//  CAMERA_HM01B0_TRIG pin.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_CAMERA_TRIG         13
-extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_TRIG;
+#define AM_BSP_GPIO_CAMERA_HM01B0_TRIG  13
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_TRIG;
 
 //*****************************************************************************
 //
-//  CAMERA_INT pin.
+//  CAMERA_HM01B0_INT pin.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_CAMERA_INT          23
-extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_INT;
+#define AM_BSP_GPIO_CAMERA_HM01B0_INT   23
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_INT;
 
 //*****************************************************************************
 //
-//  CAMERA_DVDDEN pin.
+//  CAMERA_HM01B0_DVDDEN pin.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_CAMERA_DVDDEN       32
-extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_DVDDEN;
+#define AM_BSP_GPIO_CAMERA_HM01B0_DVDDEN32
+extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_CAMERA_HM01B0_DVDDEN;
 
 //*****************************************************************************
 //
