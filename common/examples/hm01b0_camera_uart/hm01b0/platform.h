@@ -31,13 +31,13 @@ extern "C"
 #endif
 
 #define HM01B0_PIN_D0                   AM_BSP_GPIO_CAMERA_HM01B0_D0
-#define HM01B0_PIN_D1                   AM_BSP_GPIO_CAMERA_HM01B0_D0
-#define HM01B0_PIN_D2                   AM_BSP_GPIO_CAMERA_HM01B0_D0
-#define HM01B0_PIN_D3                   AM_BSP_GPIO_CAMERA_HM01B0_D0
-#define HM01B0_PIN_D4                   AM_BSP_GPIO_CAMERA_HM01B0_D0
-#define HM01B0_PIN_D5                   AM_BSP_GPIO_CAMERA_HM01B0_D0
-#define HM01B0_PIN_D6                   AM_BSP_GPIO_CAMERA_HM01B0_D0
-#define HM01B0_PIN_D7                   AM_BSP_GPIO_CAMERA_HM01B0_D0
+#define HM01B0_PIN_D1                   AM_BSP_GPIO_CAMERA_HM01B0_D1
+#define HM01B0_PIN_D2                   AM_BSP_GPIO_CAMERA_HM01B0_D2
+#define HM01B0_PIN_D3                   AM_BSP_GPIO_CAMERA_HM01B0_D3
+#define HM01B0_PIN_D4                   AM_BSP_GPIO_CAMERA_HM01B0_D4
+#define HM01B0_PIN_D5                   AM_BSP_GPIO_CAMERA_HM01B0_D5
+#define HM01B0_PIN_D6                   AM_BSP_GPIO_CAMERA_HM01B0_D6
+#define HM01B0_PIN_D7                   AM_BSP_GPIO_CAMERA_HM01B0_D7
 #define HM01B0_PIN_VSYNC                AM_BSP_GPIO_CAMERA_HM01B0_VSYNC
 #define HM01B0_PIN_HSYNC                AM_BSP_GPIO_CAMERA_HM01B0_HSYNC
 #define HM01B0_PIN_PCLK                 AM_BSP_GPIO_CAMERA_HM01B0_PCLK
