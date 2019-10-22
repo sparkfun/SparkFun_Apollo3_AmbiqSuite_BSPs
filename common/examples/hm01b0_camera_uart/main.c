@@ -72,8 +72,15 @@ static hm01b0_cfg_t         s_HM01B0Cfg =
     .ui8PinVSYNC                = HM01B0_PIN_VSYNC,
     .ui8PinHSYNC                = HM01B0_PIN_HSYNC,
     .ui8PinPCLK                 = HM01B0_PIN_PCLK,
+
+#ifdef HM01B0_PIN_TRIG
     .ui8PinTrig                 = HM01B0_PIN_TRIG,
+#endif // HM01B0_PIN_TRIG
+
+#ifdef HM01B0_PIN_INT
     .ui8PinInt                  = HM01B0_PIN_INT,
+#endif // HM01B0_PIN_INT
+
     .pfnGpioIsr                 = NULL,
 };
 
