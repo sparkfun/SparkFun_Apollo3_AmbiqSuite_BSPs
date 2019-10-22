@@ -85,7 +85,8 @@ extern "C"
 #define AM_BSP_CAMERA_HM01B0_I2C_IOM               2
 #define AM_BSP_CAMERA_HM01B0_I2C_SDA_PIN           AM_BSP_GPIO_IOM2_SDA
 #define AM_BSP_CAMERA_HM01B0_I2C_SCL_PIN           AM_BSP_GPIO_IOM2_SCL
-
+#define AM_BSP_CAMERA_HM01B0_MCLK_GEN_MOD           0
+#define AM_BSP_CAMERA_HM01B0_MCLK_GEN_SEG           AM_HAL_CTIMER_TIMERB
 
 //*****************************************************************************
 //

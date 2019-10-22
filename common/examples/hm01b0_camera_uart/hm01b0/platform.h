@@ -47,9 +47,9 @@ extern "C"
 #define HM01B0_PIN_SDA                  AM_BSP_CAMERA_HM01B0_I2C_SDA_PIN
 
 
-// // Define AP3B's CTIMER and output pin for HM01B0 MCLK generation
-// #define HM01B0_MCLK_GENERATOR_MOD       0 // todo: maybe fix these
-// #define HM01B0_MCLK_GENERATOR_SEG       AM_HAL_CTIMER_TIMERB // todo: maybe fix these
+// Define AP3B's CTIMER and output pin for HM01B0 MCLK generation
+#define HM01B0_MCLK_GENERATOR_MOD       AM_BSP_CAMERA_HM01B0_MCLK_GEN_MOD
+#define HM01B0_MCLK_GENERATOR_SEG       AM_BSP_CAMERA_HM01B0_MCLK_GEN_SEG
 #define HM01B0_PIN_MCLK                 AM_BSP_CAMERA_HM01B0_MCLK_PIN
 
 // Deifne I2C controller and SCL(pin8)/SDA(pin9) are configured automatically.
