@@ -41,10 +41,18 @@ extern "C"
 #define HM01B0_PIN_VSYNC                AM_BSP_GPIO_CAMERA_HM01B0_VSYNC
 #define HM01B0_PIN_HSYNC                AM_BSP_GPIO_CAMERA_HM01B0_HSYNC
 #define HM01B0_PIN_PCLK                 AM_BSP_GPIO_CAMERA_HM01B0_PCLK
-#define HM01B0_PIN_TRIG                 AM_BSP_GPIO_CAMERA_HM01B0_TRIG
-#define HM01B0_PIN_INT                  AM_BSP_GPIO_CAMERA_HM01B0_INT
 #define HM01B0_PIN_SCL                  AM_BSP_CAMERA_HM01B0_I2C_SCL_PIN
 #define HM01B0_PIN_SDA                  AM_BSP_CAMERA_HM01B0_I2C_SDA_PIN
+
+
+// Some boards do not support TRIG or INT pins
+#ifdef AM_BSP_GPIO_CAMERA_HM01B0_TRIG
+#define HM01B0_PIN_TRIG                 AM_BSP_GPIO_CAMERA_HM01B0_TRIG
+#endif // AM_BSP_GPIO_CAMERA_HM01B0_TRIG
+
+#ifdef AM_BSP_GPIO_CAMERA_HM01B0_INT
+#define HM01B0_PIN_INT                  AM_BSP_GPIO_CAMERA_HM01B0_INT
+#endif // AM_BSP_GPIO_CAMERA_HM01B0_INT
 
 
 // Define AP3B's CTIMER and output pin for HM01B0 MCLK generation
