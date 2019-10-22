@@ -334,9 +334,7 @@ bootload: bootload_svl
 
 clean:
 	@echo "Cleaning..." ;\
-	$(RM) -f $(OBJS) $(DEPS) \
-	    $(CONFIG)/$(TARGET).bin $(CONFIG)/$(TARGET).axf \
-	    $(CONFIG)/$(TARGET).lst $(CONFIG)/$(TARGET).map
+	$(RM) -R -f $(CONFIG)
 
 $(CONFIG)/%.d: ;
 
