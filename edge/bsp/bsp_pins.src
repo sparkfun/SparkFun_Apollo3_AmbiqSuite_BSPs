@@ -156,20 +156,20 @@ pin
     drvstrength     = 2
     GPinput         = true
 
-pin
-    name            = CAMERA_HM01B0_TRIG
-    pinnum          = 12
-    func_sel        = AM_HAL_PIN_12_GPIO
-    drvstrength     = 2
-    GPinput         = true
+# pin
+#     name            = CAMERA_HM01B0_TRIG
+#     pinnum          = 12
+#     func_sel        = AM_HAL_PIN_12_GPIO
+#     drvstrength     = 2
+#     GPinput         = true
 
-pin
-    name            = CAMERA_HM01B0_INT
-    pinnum          = 4
-    func_sel        = AM_HAL_PIN_4_GPIO
-    drvstrength     = 2
-    GPinput         = true
-    # todo: add interrupt capability for this pin according to polarity of HM01B0 module
+# pin
+#     name            = CAMERA_HM01B0_INT
+#     pinnum          = 4
+#     func_sel        = AM_HAL_PIN_4_GPIO
+#     drvstrength     = 2
+#     GPinput         = true
+#     # todo: add interrupt capability for this pin according to polarity of HM01B0 module
 
 pin
     name            = CAMERA_HM01B0_DVDDEN
