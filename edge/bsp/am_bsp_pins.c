@@ -186,6 +186,30 @@ const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_HM01B0_PCLK =
 
 //*****************************************************************************
 //
+//  CAMERA_HM01B0_TRIG pin.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_HM01B0_TRIG =
+{
+    .uFuncSel            = AM_HAL_PIN_12_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
+//  CAMERA_HM01B0_INT pin.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_CAMERA_HM01B0_INT =
+{
+    .uFuncSel            = AM_HAL_PIN_4_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
 //  CAMERA_HM01B0_DVDDEN pin.
 //
 //*****************************************************************************
