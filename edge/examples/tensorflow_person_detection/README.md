@@ -1,0 +1,2 @@
+# TensorFlow Person Detection Example for Edge
+This is a pre-compiled example for the Edge board. The makefile simply uploads the binary using the Ambiq Secure Bootloader (ASB) because that is what the image was compiled for. The image was generated following these instructions: [AI on a microcontroller with TensorFlow Lite and SparkFun Edge](https://codelabs.developers.google.com/codelabs/sparkfun-tensorflow/#0)
