@@ -180,7 +180,7 @@ INCLUDES+= -I$(SDKPATH)/devices
 INCLUDES+= -I$(SDKPATH)/mcu/apollo3
 INCLUDES+= -I$(SDKPATH)/CMSIS/AmbiqMicro/Include
 INCLUDES+= -I$(SDKPATH)/CMSIS/ARM/Include
-INCLUDES+= -I$(COMMONPATH)/examples/hm01b0_camera_uart/hm01b0
+INCLUDES+= -I$(COMMONPATH)/third_party/hm01b0
 INCLUDES+=
 
 # Compilation Units (Add all the .c files you need to compile)
@@ -198,7 +198,7 @@ VPATH+= $(PROJECTPATH)/src
 VPATH+= $(SDKPATH)/utils
 VPATH+= $(COMMONPATH)/tools_sfe/templates
 VPATH+= $(COMMONPATH)/examples/hm01b0_camera_uart
-VPATH+= $(COMMONPATH)/examples/hm01b0_camera_uart/hm01b0
+VPATH+= $(COMMONPATH)/third_party/hm01b0
 VPATH+=
 
 # LIBS (Precompiled libraries to include in the linker step)
