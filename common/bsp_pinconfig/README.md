@@ -1,5 +1,11 @@
-How to Generate BSP Files
-=========================
+How to Regenerate Existing BSPs
+===============================
+After making changes to the BSP source files (```am_bsp.h```, ```am_bsp.c```,  and ```bsp_pins.src```) you will still need to ensure that the ```libam_bsp.a``` archive is updated to reflect this (if this file exists then the build process simply uses it instead of compiling BSP sources). The simplest way is to navigate to the root of this repo and run ```./common/bsp_pinconfig/regen_bsps.sh```
+
+**all these automated methods rely on this repo being placed in the root directory of the AmbiqSuite SDK and having the prerequisite tools available**
+
+How to Generate New BSP Files
+=============================
 
 A Board Support Package is designed to provide a uniform interface to the hardware capabilities across boards, thus enabling users to easily identify what hardware is being used and increasing the compatibility of example applications.
 
