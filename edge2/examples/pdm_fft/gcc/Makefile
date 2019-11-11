@@ -237,6 +237,7 @@ STARTUP_FILE := ./startup_$(COMPILERNAME).c
 CC = $(TOOLCHAIN)-gcc
 GCC = $(TOOLCHAIN)-gcc
 CPP = $(TOOLCHAIN)-cpp
+CXX = $(TOOLCHAIN)-g++
 LD = $(TOOLCHAIN)-ld
 CP = $(TOOLCHAIN)-objcopy
 OD = $(TOOLCHAIN)-objdump
@@ -245,7 +246,7 @@ AR = $(TOOLCHAIN)-ar
 SIZE = $(TOOLCHAIN)-size
 RM = $(shell which rm 2>/dev/null)
 
-EXECUTABLES = CC LD CP OD AR RD SIZE GCC
+EXECUTABLES = CC LD CP OD AR RD SIZE GCC CXX
 K := $(foreach exec,$(EXECUTABLES),\
         $(if $(shell which $($(exec)) 2>/dev/null),,\
         $(info $(exec) not found on PATH ($($(exec))).)$(exec)))
@@ -265,22 +266,35 @@ else
 #
 #******************************************************************************
 
+XSRC = $(filter %.cpp,$(SRC))
+XSRC+= $(filter %.cc,$(SRC))
 CSRC = $(filter %.c,$(SRC))
 ASRC = $(filter %.s,$(SRC))
 
-OBJS = $(CSRC:%.c=$(CONFIG)/%.o)
+OBJS = $(XSRC:%.cpp=$(CONFIG)/%.o)
+OBJS+= $(XSRC:%.cc=$(CONFIG)/%.o)
+OBJS+= $(CSRC:%.c=$(CONFIG)/%.o)
 OBJS+= $(ASRC:%.s=$(CONFIG)/%.o)
 
-DEPS = $(CSRC:%.c=$(CONFIG)/%.d)
+DEPS = $(XSRC:%.cpp=$(CONFIG)/%.d)
+DEPS+= $(XSRC:%.cc=$(CONFIG)/%.d)
+DEPS+= $(CSRC:%.c=$(CONFIG)/%.d)
 DEPS+= $(ASRC:%.s=$(CONFIG)/%.d)
+
+CSTD = -std=c99 
 
 CFLAGS = -mthumb -mcpu=$(CPU) -mfpu=$(FPU) -mfloat-abi=$(FABI)
 CFLAGS+= -ffunction-sections -fdata-sections
-CFLAGS+= -MMD -MP -std=c99 -Wall -g
+CFLAGS+= -MMD -MP -Wall -g
 CFLAGS+= -O0
 CFLAGS+= $(DEFINES)
 CFLAGS+= $(INCLUDES)
 CFLAGS+= 
+
+XSTD   = -std=gnu++11
+
+XFLAGS = $(CFLAGS)
+XFLAGS+= -fno-exceptions
 
 LFLAGS = -mthumb -mcpu=$(CPU) -mfpu=$(FPU) -mfloat-abi=$(FABI)
 LFLAGS+= -nostartfiles -static
@@ -306,6 +320,10 @@ directories: $(CONFIG)
 
 $(CONFIG):
 	@mkdir -p $@
+
+$(CONFIG)/%.o: %.cpp $(CONFIG)/%.d
+	@echo " Compiling $(COMPILERNAME) $<" ;\
+	$(CXX) -c $(XSTD) $(XFLAGS) $< -o $@
 
 $(CONFIG)/%.o: %.c $(CONFIG)/%.d
 	@echo " Compiling $(COMPILERNAME) $<" ;\
