@@ -180,6 +180,7 @@ INCLUDES+= -I$(SDKPATH)/devices
 INCLUDES+= -I$(SDKPATH)/mcu/apollo3
 INCLUDES+= -I$(SDKPATH)/CMSIS/AmbiqMicro/Include
 INCLUDES+= -I$(SDKPATH)/CMSIS/ARM/Include
+INCLUDES+= -I$(COMMONPATH)/examples/ble_cordio_tag
 INCLUDES+= -I$(SDKPATH)/third_party/exactle/sw/stack/hci
 INCLUDES+= -I$(SDKPATH)/third_party/exactle/sw/apps/app
 INCLUDES+= -I$(SDKPATH)/third_party/exactle/sw/stack/include
