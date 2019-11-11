@@ -49,7 +49,7 @@
 //
 //*****************************************************************************
 
-#include "am_mcu_apollo.h"
+extern "C" { #include "am_mcu_apollo.h" } // extern "C" is required because Release 2.2.0 of the AmbiqSuite SDK still has some HAL headers without this CPP guard built in
 #include "am_bsp.h"
 #include "am_util.h"
 
