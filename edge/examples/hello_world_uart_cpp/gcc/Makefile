@@ -178,16 +178,15 @@ INCLUDES+= -I$(SDKPATH)/devices
 INCLUDES+= -I$(SDKPATH)/mcu/apollo3
 INCLUDES+= -I$(SDKPATH)/CMSIS/AmbiqMicro/Include
 INCLUDES+= -I$(SDKPATH)/CMSIS/ARM/Include
-INCLUDES+= -I$(COMMONPATH)/third_party/lis2dh12
 INCLUDES+=
 
 # Compilation Units (Add all the .c files you need to compile)
 SRC=
-SRC+= main.c
+SRC+= main.cpp
 SRC+= startup_gcc.c
-SRC+= lis2dh12_reg.c
-SRC+= lis2dh12_platform_apollo3.c
 SRC+= am_util_delay.c
+SRC+= am_util_faultisr.c
+SRC+= am_util_id.c
 SRC+= am_util_stdio.c
 SRC+=
 
@@ -195,8 +194,7 @@ SRC+=
 VPATH=
 VPATH+= $(PROJECTPATH)/src
 VPATH+= $(SDKPATH)/utils
-VPATH+= $(COMMONPATH)/examples/lis2dh12_accelerometer_uart
-VPATH+= $(COMMONPATH)/third_party/lis2dh12
+VPATH+= $(COMMONPATH)/examples/hello_world_uart_cpp
 VPATH+= $(COMMONPATH)/tools_sfe/templates
 VPATH+=
 
