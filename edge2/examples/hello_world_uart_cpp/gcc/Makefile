@@ -182,7 +182,7 @@ INCLUDES+=
 
 # Compilation Units (Add all the .c files you need to compile)
 SRC=
-SRC+= main.c
+SRC+= main.cpp
 SRC+= startup_gcc.c
 SRC+= am_util_delay.c
 SRC+= am_util_faultisr.c
@@ -194,7 +194,7 @@ SRC+=
 VPATH=
 VPATH+= $(PROJECTPATH)/src
 VPATH+= $(SDKPATH)/utils
-VPATH+= $(COMMONPATH)/examples/hello_world_uart
+VPATH+= $(COMMONPATH)/examples/hello_world_uart_cpp
 VPATH+= $(COMMONPATH)/tools_sfe/templates
 VPATH+=
 
