@@ -376,25 +376,25 @@ button_handler(wsfEventMask_t event, wsfMsgHdr_t *pMsg)
     //
     WsfTimerStartMs(&ButtonTimer, 10);
 
-    //
-    // Every time we get a button timer tick, check all of our buttons.
-    //
-    am_devices_button_array_tick(am_bsp_psButtons, AM_BSP_NUM_BUTTONS);
+    // //
+    // // Every time we get a button timer tick, check all of our buttons.
+    // //
+    // am_devices_button_array_tick(am_bsp_psButtons, AM_BSP_NUM_BUTTONS);
 
-    //
-    // If we got a a press, do something with it.
-    //
-    if ( am_devices_button_released(am_bsp_psButtons[0]) )
-    {
-        am_util_debug_printf("Got Button 0 Press\n");
-        AppUiBtnTest(APP_UI_BTN_1_SHORT);
-    }
+    // //
+    // // If we got a a press, do something with it.
+    // //
+    // if ( am_devices_button_released(am_bsp_psButtons[0]) )
+    // {
+    //     am_util_debug_printf("Got Button 0 Press\n");
+    //     AppUiBtnTest(APP_UI_BTN_1_SHORT);
+    // }
 
-    if ( am_devices_button_released(am_bsp_psButtons[1]) )
-    {
-        am_util_debug_printf("Got Button 1 Press\n");
-        AppUiBtnTest(APP_UI_BTN_1_SHORT);
-    }
+    // if ( am_devices_button_released(am_bsp_psButtons[1]) )
+    // {
+    //     am_util_debug_printf("Got Button 1 Press\n");
+    //     AppUiBtnTest(APP_UI_BTN_1_SHORT);
+    // }
 }
 
 //*****************************************************************************
