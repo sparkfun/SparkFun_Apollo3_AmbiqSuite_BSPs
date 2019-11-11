@@ -266,17 +266,17 @@ else
 #******************************************************************************
 
 XSRC = $(filter %.cpp,$(SRC))
-XSRC+= $(filter %.cc,$(SRC))
+ZSRC = $(filter %.cc,$(SRC))
 CSRC = $(filter %.c,$(SRC))
 ASRC = $(filter %.s,$(SRC))
 
 OBJS = $(XSRC:%.cpp=$(CONFIG)/%.o)
-OBJS+= $(XSRC:%.cc=$(CONFIG)/%.o)
+OBJS+= $(ZSRC:%.cc=$(CONFIG)/%.o)
 OBJS+= $(CSRC:%.c=$(CONFIG)/%.o)
 OBJS+= $(ASRC:%.s=$(CONFIG)/%.o)
 
 DEPS = $(XSRC:%.cpp=$(CONFIG)/%.d)
-DEPS+= $(XSRC:%.cc=$(CONFIG)/%.d)
+DEPS+= $(ZSRC:%.cc=$(CONFIG)/%.d)
 DEPS+= $(CSRC:%.c=$(CONFIG)/%.d)
 DEPS+= $(ASRC:%.s=$(CONFIG)/%.d)
 
