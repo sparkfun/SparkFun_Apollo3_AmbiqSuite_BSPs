@@ -285,6 +285,11 @@ CFLAGS+= $(DEFINES)
 CFLAGS+= $(INCLUDES)
 CFLAGS+= 
 
+XSTD   = -std=gnu++11
+
+XFLAGS = $(CFLAGS)
+XFLAGS+= -fno-exceptions
+
 LFLAGS = -mthumb -mcpu=$(CPU) -mfpu=$(FPU) -mfloat-abi=$(FABI)
 LFLAGS+= -nostartfiles -static
 LFLAGS+= -Wl,--gc-sections,--entry,Reset_Handler,-Map,$(CONFIG)/$(TARGET).map
