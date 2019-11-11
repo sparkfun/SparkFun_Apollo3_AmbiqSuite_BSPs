@@ -94,7 +94,7 @@ uint8_t g_pui8RxBuffer[2];
 // UART configuration.
 //
 //*****************************************************************************
-const am_hal_uart_config_t g_sUartConfig = {0};
+am_hal_uart_config_t g_sUartConfig = {0};
 
 //*****************************************************************************
 //
