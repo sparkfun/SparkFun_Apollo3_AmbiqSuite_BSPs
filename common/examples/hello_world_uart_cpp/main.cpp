@@ -69,7 +69,7 @@ public:
     CPPPrinter( uint8_t _value ) : value(_value) {};
 
     void printValue( void ){
-        am_util_stdio_printf("I am a CPPPrinter and my value is %d\n", value);
+        am_util_stdio_printf("I am a CPPPrinter and my value is %d\n\n", value);
     }
 };
 
