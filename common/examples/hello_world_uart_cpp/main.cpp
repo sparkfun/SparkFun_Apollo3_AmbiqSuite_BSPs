@@ -73,6 +73,8 @@ public:
     }
 };
 
+CPPPrinter myCPPPrinter(12);
+
 //*****************************************************************************
 //
 // UART handle.
@@ -242,6 +244,11 @@ extern "C" int main(void)
     //
     am_util_stdio_terminal_clear();
     am_util_stdio_printf("Hello World!\n\n");
+
+    //
+    // Test CPPPrinter
+    //
+    myCPPPrinter.printValue();
 
     //
     // Print the device info.
