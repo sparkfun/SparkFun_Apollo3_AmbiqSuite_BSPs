@@ -323,6 +323,10 @@ $(CONFIG)/%.o: %.cpp $(CONFIG)/%.d
 	@echo " Compiling $(COMPILERNAME) $<" ;\
 	$(CXX) -c $(XSTD) $(XFLAGS) $< -o $@
 
+$(CONFIG)/%.o: %.cc $(CONFIG)/%.d
+	@echo " Compiling $(COMPILERNAME) $<" ;\
+	$(CXX) -c $(XSTD) $(XFLAGS) $< -o $@
+
 $(CONFIG)/%.o: %.c $(CONFIG)/%.d
 	@echo " Compiling $(COMPILERNAME) $<" ;\
 	$(CC) -c $(CFLAGS) $< -o $@
