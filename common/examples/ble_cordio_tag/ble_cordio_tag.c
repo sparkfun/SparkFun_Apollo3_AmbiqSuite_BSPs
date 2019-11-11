@@ -405,10 +405,10 @@ button_handler(wsfEventMask_t event, wsfMsgHdr_t *pMsg)
 void
 setup_buttons(void)
 {
-    //
-    // Enable the buttons for user interaction.
-    //
-    am_devices_button_array_init(am_bsp_psButtons, AM_BSP_NUM_BUTTONS);
+    // //
+    // // Enable the buttons for user interaction.
+    // //
+    // am_devices_button_array_init(am_bsp_psButtons, AM_BSP_NUM_BUTTONS);
 
     //
     // Start a timer.
