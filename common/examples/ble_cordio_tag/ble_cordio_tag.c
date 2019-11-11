@@ -6,7 +6,7 @@
 //!
 //! Purpose: This is a standard BLE Proximity Profile example.
 //!
-//! Printing takes place over the ITM at 1M Baud.
+//! Printing takes place over the UART.
 //!
 //
 //*****************************************************************************
@@ -143,7 +143,7 @@ enable_print_interface(void)
     //
     // Initialize a debug printing interface.
     //
-    am_bsp_itm_printf_enable();
+    am_bsp_uart_printf_enable();
 }
 
 
