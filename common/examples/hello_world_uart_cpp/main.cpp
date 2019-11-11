@@ -57,6 +57,24 @@ extern "C" {                    // extern "C" is required because Release 2.2.0 
 
 //*****************************************************************************
 //
+// C++ Functionality demonstration
+//
+//*****************************************************************************
+class CPPPrinter {
+private:
+protected:
+public:
+    uint8_t value;
+
+    CPPPrinter( uint8_t _value ) : value(_value) {};
+
+    void printValue( void ){
+        am_util_stdio_printf("I am a CPPPrinter and my value is %d\n", value);
+    }
+};
+
+//*****************************************************************************
+//
 // UART handle.
 //
 //*****************************************************************************
