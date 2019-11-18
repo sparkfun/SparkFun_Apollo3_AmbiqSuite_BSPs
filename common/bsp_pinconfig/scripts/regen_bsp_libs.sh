@@ -6,7 +6,7 @@
 # example usage
 # locations:
 #   from bsp repo root:
-#     ./common/bsp_pinconfig/scripts/regen_bsp_libs.sh
+#     common/bsp_pinconfig/scripts/regen_bsp_libs.sh
 #   from remote location: (requires $AMSDK environment variable -- {boards_sfe} can be whatever you named the root of the bsp repo )
 #     $AMSDK/{boards_sfe}/common/bsp_pinconfig/scripts/regen_bsp_libs.sh -r $AMSDK/{boards_sfe} 
 # arguments:
