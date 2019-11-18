@@ -483,7 +483,7 @@ def write_Cfiles(pinobj, bCreateC):
         strHfile += '\n'
 
         if pin.pinnum != intnotgiven:
-            strHfile += '#define AM_BSP_GPIO_%-20s' % pin.name  +  '%d\n' % pin.pinnum
+            strHfile += '#define AM_BSP_GPIO_%-20s\t' % pin.name  +  '%d\n' % pin.pinnum
             strHfile += 'extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_%s;\n' % pin.name
             #strHfile += '\n'
 
