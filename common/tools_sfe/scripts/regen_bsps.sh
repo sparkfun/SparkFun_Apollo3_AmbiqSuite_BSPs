@@ -39,5 +39,5 @@ while getopts ":r:b:" opt; do
 done
 
 # regen pins and libs
-$BSP_ROOT/common/bsp_pinconfig/scripts/regen_bsp_pins.sh -r $BSP_ROOT -b $BOARDS_FILE # regenerates source (.h and .c) files from the bsp_pins.src files
-$BSP_ROOT/common/bsp_pinconfig/scripts/regen_bsp_libs.sh -r $BSP_ROOT -b $BOARDS_FILE # regenerates library archive files from bsp source (.h and .c) files
+$BSP_ROOT/common/tools_sfe/scripts/regen_bsp_pins.sh -r $BSP_ROOT -b $BOARDS_FILE # regenerates source (.h and .c) files from the bsp_pins.src files
+$BSP_ROOT/common/tools_sfe/scripts/regen_bsp_libs.sh -r $BSP_ROOT -b $BOARDS_FILE # regenerates library archive files from bsp source (.h and .c) files
