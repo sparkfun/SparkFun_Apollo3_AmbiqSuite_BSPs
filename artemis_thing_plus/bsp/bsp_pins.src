@@ -93,6 +93,14 @@ pin
     func_sel        = AM_HAL_PIN_26_GPIO
     drvstrength     = 12
 
+pin
+    name            = BUTTON0
+    desc            = Labeled 10 on the Artemis Thing Plus.
+    pinnum          = 14
+    func_sel        = AM_HAL_PIN_14_GPIO
+    drvstrength     = 2
+    GPinput         = true
+    
 
 # *****************************************************************************
 #  COM UART pins (UART0).

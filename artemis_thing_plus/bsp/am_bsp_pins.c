@@ -85,6 +85,18 @@ const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_LED_BLUE =
 
 //*****************************************************************************
 //
+//  BUTTON0 pin: Labeled 10 on the Artemis Thing Plus.
+//
+//*****************************************************************************
+const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_BUTTON0 =
+{
+    .uFuncSel            = AM_HAL_PIN_14_GPIO,
+    .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
+    .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
+};
+
+//*****************************************************************************
+//
 //  COM_UART_TX pin: This pin is the COM_UART transmit pin.
 //
 //*****************************************************************************

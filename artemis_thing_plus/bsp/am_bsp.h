@@ -98,13 +98,16 @@ extern "C"
 #define AM_BSP_QWIIC_I2C_SCL_PIN            AM_BSP_GPIO_IOM4_SCL
 
 
-// //*****************************************************************************
-// //
-// // Button definitions.
-// //
-// //*****************************************************************************
-// #define AM_BSP_NUM_BUTTONS                  0
-// extern am_devices_button_t am_bsp_psButtons[AM_BSP_NUM_BUTTONS];
+//*****************************************************************************
+//
+// Button definitions.
+//
+//*****************************************************************************
+#define AM_BSP_NUM_BUTTONS                  1
+extern am_devices_button_t am_bsp_psButtons[AM_BSP_NUM_BUTTONS];
+
+#define AM_BSP_GPIO_BUTTON10        AM_BSP_GPIO_BUTTON0
+#define AM_BSP_GPIO_SWCH            AM_BSP_GPIO_BUTTON0
 
 
 //*****************************************************************************
