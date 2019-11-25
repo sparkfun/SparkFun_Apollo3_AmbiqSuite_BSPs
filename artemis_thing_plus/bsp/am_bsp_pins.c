@@ -91,6 +91,7 @@ const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_LED_BLUE =
 const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_BUTTON0 =
 {
     .uFuncSel            = AM_HAL_PIN_14_GPIO,
+    .ePullup             = AM_HAL_GPIO_PIN_PULLUP_1_5K,
     .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_2MA,
     .eGPInput            = AM_HAL_GPIO_PIN_INPUT_ENABLE
 };

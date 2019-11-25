@@ -99,8 +99,9 @@ pin
     pinnum          = 14
     func_sel        = AM_HAL_PIN_14_GPIO
     drvstrength     = 2
+    pullup          = 1_5K
     GPinput         = true
-    
+
 
 # *****************************************************************************
 #  COM UART pins (UART0).
