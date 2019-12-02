@@ -185,6 +185,8 @@ INCLUDES+=
 # Compilation Units (Add all the .c files you need to compile)
 SRC=
 SRC+= main.c
+SRC+= am_util_delay.c
+SRC+= am_util_stdio.c
 SRC+= startup_gcc.c
 SRC+=
 
