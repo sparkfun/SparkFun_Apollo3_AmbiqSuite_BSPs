@@ -312,7 +312,9 @@ ODFLAGS = -S
 # Targets / Rules
 #
 #******************************************************************************
-all: directories $(CONFIG)/$(TARGET)_asb.bin
+all: asb
+asb: directories $(CONFIG)/$(TARGET)_asb.bin
+svl: directories $(CONFIG)/$(TARGET)_svl.bin
 
 directories: $(CONFIG)
 
