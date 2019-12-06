@@ -54,12 +54,12 @@
 
 //*****************************************************************************
 //
-//  LED_BLUE pin: The BLUE LED labelled 37.
+//  LED_BLUE pin: The BLUE LED labelled 19.
 //
 //*****************************************************************************
 const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_LED_BLUE =
 {
-    .uFuncSel            = AM_HAL_PIN_37_GPIO,
+    .uFuncSel            = AM_HAL_PIN_19_GPIO,
     .eDriveStrength      = AM_HAL_GPIO_PIN_DRIVESTRENGTH_12MA
 };
 

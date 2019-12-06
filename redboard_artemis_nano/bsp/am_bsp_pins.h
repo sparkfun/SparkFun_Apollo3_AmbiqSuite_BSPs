@@ -64,10 +64,10 @@ extern "C"
 
 //*****************************************************************************
 //
-//  LED_BLUE pin: The BLUE LED labelled 37.
+//  LED_BLUE pin: The BLUE LED labelled 19.
 //
 //*****************************************************************************
-#define AM_BSP_GPIO_LED_BLUE            	37
+#define AM_BSP_GPIO_LED_BLUE            	19
 extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_LED_BLUE;
 
 //*****************************************************************************

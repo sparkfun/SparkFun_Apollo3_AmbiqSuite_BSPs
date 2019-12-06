@@ -73,9 +73,9 @@
 # *****************************************************************************
 pin
     name            = LED_BLUE
-    desc            = The BLUE LED labelled 37
-    pinnum          = 37
-    func_sel        = AM_HAL_PIN_37_GPIO
+    desc            = The BLUE LED labelled 19
+    pinnum          = 19
+    func_sel        = AM_HAL_PIN_19_GPIO
     drvstrength     = 12
 
 
