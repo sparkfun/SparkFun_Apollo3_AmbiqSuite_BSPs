@@ -88,7 +88,7 @@ pin
 # *****************************************************************************
 pin
     name            = LED_BLUE
-    desc            = The BLUE LED
+    desc            = The BLUE LED labelled 18
     pinnum          = 26
     func_sel        = AM_HAL_PIN_26_GPIO
     drvstrength     = 12

@@ -80,7 +80,7 @@ extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_MIC_CLK;
 
 //*****************************************************************************
 //
-//  LED_BLUE pin: The BLUE LED.
+//  LED_BLUE pin: The BLUE LED labelled 18.
 //
 //*****************************************************************************
 #define AM_BSP_GPIO_LED_BLUE            	26
