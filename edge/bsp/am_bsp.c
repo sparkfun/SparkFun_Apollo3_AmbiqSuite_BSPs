@@ -287,21 +287,6 @@ am_bsp_debug_printf_disable(void)
 #ifdef AM_BSP_GPIO_ITM_SWO
 //*****************************************************************************
 //
-//! @brief ITM-based string print function.
-//!
-//! This function is used for printing a string via the ITM.
-//!
-//! @return None.
-//
-//*****************************************************************************
-void
-am_bsp_itm_string_print(char *pcString)
-{
-    am_hal_itm_print(pcString);
-}
-
-//*****************************************************************************
-//
 // @brief Enable printing over ITM.
 //
 //*****************************************************************************
@@ -333,6 +318,22 @@ am_bsp_itm_printf_enable(void)
     //
     am_util_stdio_printf_init(am_hal_itm_print);
 } // am_bsp_itm_printf_enable()
+#endif
+
+//*****************************************************************************
+//
+//! @brief ITM-based string print function.
+//!
+//! This function is used for printing a string via the ITM.
+//!
+//! @return None.
+//
+//*****************************************************************************
+void
+am_bsp_itm_string_print(char *pcString)
+{
+    am_hal_itm_print(pcString);
+}
 
 //*****************************************************************************
 //
@@ -357,7 +358,6 @@ am_bsp_itm_printf_disable(void)
     // //
     // am_hal_gpio_pinconfig(AM_BSP_GPIO_ITM_SWO, g_AM_HAL_GPIO_DISABLE);
 } // am_bsp_itm_printf_disable()
-#endif
 
 //*****************************************************************************
 //
