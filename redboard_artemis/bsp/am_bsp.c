@@ -244,7 +244,9 @@ am_bsp_debug_printf_enable(void)
 {
     if (g_ui32PrintInterface == AM_BSP_PRINT_INFC_SWO)
     {
+#ifdef AM_BSP_GPIO_ITM_SWO
         am_bsp_itm_printf_enable();
+#endif
     }
     else if (g_ui32PrintInterface == AM_BSP_PRINT_INFC_UART0)
     {
