@@ -284,6 +284,21 @@ am_bsp_debug_printf_disable(void)
 #ifdef AM_BSP_GPIO_ITM_SWO
 //*****************************************************************************
 //
+//! @brief ITM-based string print function.
+//!
+//! This function is used for printing a string via the ITM.
+//!
+//! @return None.
+//
+//*****************************************************************************
+void
+am_bsp_itm_string_print(char *pcString)
+{
+    am_hal_itm_print(pcString);
+}
+
+//*****************************************************************************
+//
 // @brief Enable printing over ITM.
 //
 //*****************************************************************************
