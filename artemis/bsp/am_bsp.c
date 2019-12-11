@@ -278,14 +278,17 @@ am_bsp_debug_printf_disable(void)
     }
 } // am_bsp_debug_printf_disable()
 
-#ifdef AM_BSP_GPIO_ITM_SWO
 //*****************************************************************************
 //
 // @brief Enable printing over ITM.
 //
 //*****************************************************************************
 void
+#ifdef AM_BSP_GPIO_ITM_SWO
 am_bsp_itm_printf_enable(void)
+#else
+am_bsp_itm_printf_enable(uint32_t ui32Pin, am_hal_gpio_pincfg_t sPincfg)
+#endif
 {
     am_hal_tpiu_config_t TPIUcfg;
 
@@ -305,14 +308,17 @@ am_bsp_itm_printf_enable(void)
     //
     TPIUcfg.ui32SetItmBaud = AM_HAL_TPIU_BAUD_1M;
     am_hal_tpiu_enable(&TPIUcfg);
+    #ifdef AM_BSP_GPIO_ITM_SWO
     am_hal_gpio_pinconfig(AM_BSP_GPIO_ITM_SWO, g_AM_BSP_GPIO_ITM_SWO);
+    #else
+    am_hal_gpio_pinconfig(ui32Pin, sPincfg);
+    #endif
 
     //
     // Attach the ITM to the STDIO driver.
     //
     am_util_stdio_printf_init(am_hal_itm_print);
 } // am_bsp_itm_printf_enable()
-#endif
 
 //*****************************************************************************
 //
