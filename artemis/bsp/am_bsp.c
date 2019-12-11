@@ -86,7 +86,7 @@ am_devices_button_t am_bsp_psButtons[AM_BSP_NUM_BUTTONS] =
 // Print interface tracking variable.
 //
 //*****************************************************************************
-static uint32_t g_ui32PrintInterface = AM_BSP_PRINT_INFC_NONE;
+static uint32_t g_ui32PrintInterface = AM_BSP_PRINT_INFC_UART0;
 
 //*****************************************************************************
 //
