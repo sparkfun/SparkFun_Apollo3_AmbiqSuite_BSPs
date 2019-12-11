@@ -418,7 +418,8 @@ def upload(args, verboseprint):
         with serial.Serial(args.port, args.baud, timeout=connection_timeout) as ser:
             #DTR is driven low when serial port open. DTR has now pulled RST low.
 
-            time.sleep(0.005) #3ms and 10ms work well. Not 50, and not 0.
+            # time.sleep(0.005) #3ms and 10ms work well. Not 50, and not 0.
+            time.sleep(0.008) #3ms and 10ms work well. Not 50, and not 0.
 
             #Setting RTS/DTR high causes the bootload pin to go high, then fall across 100ms
             ser.setDTR(0) #Set DTR high

@@ -300,9 +300,6 @@ am_bsp_itm_printf_enable(void)
     // Enable the ITM interface and the SWO pin.
     //
     am_hal_itm_enable();
-#ifdef AM_BSP_GPIO_ITM_SWO
-    am_hal_gpio_pinconfig(AM_BSP_GPIO_ITM_SWO, g_AM_BSP_GPIO_ITM_SWO);
-#endif
 
     //
     // Enable the ITM and TPIU
