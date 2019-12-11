@@ -307,9 +307,7 @@ am_bsp_itm_printf_enable(void)
     //
     TPIUcfg.ui32SetItmBaud = AM_HAL_TPIU_BAUD_1M;
     am_hal_tpiu_enable(&TPIUcfg);
-#ifdef AM_BSP_GPIO_ITM_SWO
     am_hal_gpio_pinconfig(AM_BSP_GPIO_ITM_SWO, g_AM_BSP_GPIO_ITM_SWO);
-#endif
 
     //
     // Attach the ITM to the STDIO driver.
