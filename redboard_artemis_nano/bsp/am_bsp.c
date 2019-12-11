@@ -281,6 +281,7 @@ am_bsp_debug_printf_disable(void)
     }
 } // am_bsp_debug_printf_disable()
 
+#ifdef AM_BSP_GPIO_ITM_SWO
 //*****************************************************************************
 //
 // @brief Enable printing over ITM.
@@ -338,6 +339,7 @@ am_bsp_itm_printf_disable(void)
     // //
     // am_hal_gpio_pinconfig(AM_BSP_GPIO_ITM_SWO, g_AM_HAL_GPIO_DISABLE);
 } // am_bsp_itm_printf_disable()
+#endif
 
 //*****************************************************************************
 //
