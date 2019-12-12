@@ -43,9 +43,6 @@ SOFTWARE.
 int
 main(void)
 {
-    am_util_id_t sIdDevice;
-    uint32_t ui32StrBuf;
-
     // Set the clock frequency.
     am_hal_clkgen_control(AM_HAL_CLKGEN_CONTROL_SYSCLK_MAX, 0);
 
