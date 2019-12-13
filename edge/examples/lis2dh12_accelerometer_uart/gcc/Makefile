@@ -96,7 +96,6 @@ PROJECTPATH		?=# Set as the path to the project if not located at ..
 TARGET := example
 COMPILERNAME := gcc
 PROJECT := example_gcc
-CONFIG := bin
 
 
 #******************************************************************************
@@ -152,6 +151,9 @@ else
 # When the PROJECTPATH is given export it
 export PROJECTPATH
 endif
+
+# Build Dir
+CONFIG := $(PROJECTPATH)/gcc/bin
 
 #******************************************************************************
 #
