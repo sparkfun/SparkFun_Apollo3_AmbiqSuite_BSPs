@@ -13,7 +13,7 @@
 #   [-r $BSP_ROOT]      path to bsp root      optional -- defaults to the current directory 
 #                                                         (should be specified when calling script remotely)
 #   [-b $BOARDS_FILE]   path to boards file   optional -- defaults to all supported bsp boards 
-#                                                         (for now boards bust still have source files located in the bsp repo)
+#                                                         (for now boards must still have source files located in the bsp repo)
 
 # setup
 set -e
