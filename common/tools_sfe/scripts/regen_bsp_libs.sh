@@ -25,7 +25,7 @@ DIR=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
 
 # defaults
 BSP_ROOT=.
-BOARDS_FILE=$DIR/configuation/boards.sh
+BOARDS_FILE=$DIR/configuration/boards.sh
 
 # handle arguments
 while getopts ":r:b:" opt; do
