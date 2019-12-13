@@ -155,7 +155,7 @@ export PROJECTPATH
 endif
 
 # Build Dir
-CONFIG := bin
+CONFIG := $(PROJECTPATH)/gcc/bin
 
 #******************************************************************************
 #
@@ -374,7 +374,7 @@ bootload_svl: directories $(CONFIG)/$(TARGET)_svl.bin
 bootload: bootload_svl
 
 clean:
-	@echo "Cleaning..." ;\
+	@echo "Cleaning... $(CONFIG)" ;\
 	$(RM) -R -f $(CONFIG)
 
 $(CONFIG)/%.d: ;
