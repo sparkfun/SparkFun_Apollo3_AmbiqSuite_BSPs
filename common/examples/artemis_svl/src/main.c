@@ -61,7 +61,7 @@ Modified: Juy 22 2019
 // Defines
 //
 //*****************************************************************************
-#define SVL_VERSION_NUMBER 0x03
+#define SVL_VERSION_NUMBER 0x04
 
 
 // ****************************************
@@ -265,6 +265,23 @@ void start_uart_debug( void ){
     NVIC_EnableIRQ((IRQn_Type)(UART0_IRQn + DEBUG_UART_INST));
     am_hal_uart_interrupt_enable(hUART_debug, (AM_HAL_UART_INT_RX));
 }
+
+void stop_uart_debug( void ){
+    // Deinitialize the UART printf interface.
+    am_hal_uart_power_control(hUART_debug, AM_HAL_SYSCTRL_DEEPSLEEP, false);
+    am_hal_uart_deinitialize(hUART_debug);
+
+    // Re-enable that pesky FIFO
+    UARTn(DEBUG_UART_INST)->LCRH_b.FEN = 1; 
+
+    // Disable the UART pins.
+    am_hal_gpio_pinconfig(DEBUG_TX_PAD, g_AM_HAL_GPIO_DISABLE);
+    am_hal_gpio_pinconfig(DEBUG_RX_PAD, g_AM_HAL_GPIO_DISABLE);
+
+    // Disable interrupts.
+    NVIC_DisableIRQ((IRQn_Type)(UART0_IRQn + DEBUG_UART_INST));
+    am_hal_uart_interrupt_disable(hUART_debug, (AM_HAL_UART_INT_RX));
+}
 #endif // DEBUG
 
 
@@ -296,32 +313,25 @@ void setup( void ){
 }
 
 
-// //*****************************************************************************
-// //
-// // Un-set-up
-// //
-// //*****************************************************************************
-// void unsetup( void ){
-//     // Set the clock frequency.
-//     am_hal_clkgen_control(AM_HAL_CLKGEN_CONTROL_SYSCLK_MAX, 0);
+//*****************************************************************************
+//
+// Un-set-up
+//
+//*****************************************************************************
+void unsetup( void ){
+    // Deconfigure the stimer
+    am_hal_stimer_int_disable(AM_HAL_STIMER_INT_OVERFLOW);
+    NVIC_DisableIRQ(STIMER_IRQn);
+    am_hal_stimer_config(AM_HAL_STIMER_CFG_CLEAR | AM_HAL_STIMER_CFG_FREEZE);
+    am_hal_stimer_config(AM_HAL_STIMER_NO_CLK);
 
-//     // Set the default cache configuration
-//     am_hal_cachectrl_config(&am_hal_cachectrl_defaults);
-//     am_hal_cachectrl_enable();
+#ifdef DEBUG
+    stop_uart_debug();
+#endif
 
-//     // Configure the stimer
-//     am_hal_stimer_int_enable(AM_HAL_STIMER_INT_OVERFLOW);
-//     NVIC_EnableIRQ(STIMER_IRQn);
-//     am_hal_stimer_config(AM_HAL_STIMER_CFG_CLEAR | AM_HAL_STIMER_CFG_FREEZE);
-//     am_hal_stimer_config(AM_HAL_STIMER_HFRC_3MHZ);
-
-// #ifdef DEBUG
-//     start_uart_debug();
-// #endif
-
-//     // Enable interrupts.
-//     am_hal_interrupt_master_enable();
-// }
+    // Disable interrupts.
+    am_hal_interrupt_master_disable();
+}
 
 
 // ****************************************
@@ -622,11 +632,10 @@ void app_start( void ){
 // #endif // DEBUG_PRINT_APP
 // #endif // DEBUG
 
-    // unsetup(); // todo:
-
     void* entryPoint = (void *)(*((uint32_t*)(USERCODE_OFFSET + 4)));
     debug_printf("\nJump to App at 0x%08X\n\n", (uint32_t)entryPoint);
     am_util_delay_ms(10);   // Wait for prints to complete
+    unsetup();              // Undoes configuration to provide users with a clean slate
     goto *entryPoint;       // Jump to start of user code
 }
 

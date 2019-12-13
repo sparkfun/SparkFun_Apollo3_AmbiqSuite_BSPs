@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # requires:
-# - 'make' available at the command line
-# - 'arm-none-eabi-xxx' available at the command line (preferred version is q4-2018-major)
+# make
 
 # example usage
 # locations:
@@ -57,6 +56,20 @@ source $BOARDS_FILE
 echo "" 1>&2
 for value in $BOARDS
 do
-    echo "Regenerating bsp library for: $value" 1>&2
-    make -C $BSP_ROOT/$value/bsp/gcc
+    echo "Cleaning all examples for: $value" 1>&2
+
+  # https://unix.stackexchange.com/questions/86722/how-do-i-loop-through-only-directories-in-bash
+  # https://stackoverflow.com/questions/4515866/iterate-through-subdirectories-in-bash
+  # https://stackoverflow.com/questions/9018723/what-is-the-simplest-way-to-remove-a-trailing-slash-from-each-parameter
+  # shopt -s nullglob
+  for f in $BSP_ROOT/$value/examples/*/; do
+    if [[ "$f" = "*" ]]; then continue; fi # protect from empty directories
+    if [[ -d "$f" && ! -L "$f" ]]; then
+      # # $f is a directory and is not a symlink
+      # echo "Removing: $f/gcc/bin"
+      # rm -rf $f/gcc/bin
+      echo "cleaning ${f%/}"
+      make -f ${f%/}/gcc/Makefile clean PROJECTPATH=${f%/}
+    fi
+  done
 done
