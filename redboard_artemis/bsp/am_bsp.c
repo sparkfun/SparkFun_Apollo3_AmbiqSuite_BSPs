@@ -176,12 +176,6 @@ void
 am_bsp_low_power_init(void)
 {
     //
-    // Make sure SWO/ITM/TPIU is disabled.
-    // SBL may not get it completely shut down.
-    //
-    am_bsp_itm_printf_disable();
-
-    //
     // Initialize for low power in the power control block
     //
     am_hal_pwrctrl_low_power_init();
@@ -197,9 +191,10 @@ am_bsp_low_power_init(void)
     am_hal_clkgen_control(AM_HAL_CLKGEN_CONTROL_XTAL_STOP, 0);
 
     //
-    // Disable the RTC.
+    // Make sure SWO/ITM/TPIU is disabled.
+    // SBL may not get it completely shut down.
     //
-    am_hal_rtc_osc_disable();
+    am_bsp_itm_printf_disable();
 
 #ifdef AM_BSP_NUM_LEDS
     //

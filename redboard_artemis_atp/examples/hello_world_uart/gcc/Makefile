@@ -95,7 +95,7 @@ PROJECTPATH		?=# Set as the path to the project if not located at ..
 ### Project Settings
 TARGET := example
 COMPILERNAME := gcc
-PROJECT := example_gcc
+PROJECT := $(TARGET)_gcc
 
 
 #******************************************************************************
