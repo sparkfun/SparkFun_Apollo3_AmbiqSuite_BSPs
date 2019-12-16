@@ -1,63 +1,91 @@
-/******************************************************************************
- *
- * hello_world_uart.ld - Linker script for applications using startup_gnu.c
- *
- *****************************************************************************/
+/* stack: dynamic */
+/* heap: dynamic */
+
 ENTRY(Reset_Handler)
 
 MEMORY
 {
-    FLASH (rx) : ORIGIN = 0x0000C000, LENGTH = 960K
-    SRAM (rwx) : ORIGIN = 0x10000000, LENGTH = 384K
+  flash (rx) : ORIGIN = 0x0000C000, LENGTH = 960K
+  sram (rwx) : ORIGIN = 0x10000000, LENGTH = 384K
 }
 
 SECTIONS
 {
-    .text :
-    {
-        . = ALIGN(4);
-        KEEP(*(.isr_vector))
-        KEEP(*(.patch))
-        *(.text)
-        *(.text*)
-        *(.rodata)
-        *(.rodata*)
-        . = ALIGN(4);
-        _etext = .;
-    } > FLASH
+  /* text: executable code */
+  /* located in _flash_ */
+  .text :
+  {
+    . = ALIGN(4);
+    _stext = .;
+    KEEP(*(.isr_vector))
+    KEEP(*(.ble_patch))
+    *(.text)
+    *(.text*)
 
-    /* User stack section initialized by startup code. */
-    .stack (NOLOAD):
-    {
-        . = ALIGN(8);
-        *(.stack)
-        *(.stack*)
-        . = ALIGN(8);
-    } > SRAM
+    __init_array_start = .;
+    KEEP(*(.init_array*))
+    __init_array_end = .;
 
-    .data :
-    {
-        . = ALIGN(4);
-        _sdata = .;
-        *(.data)
-        *(.data*)
-        . = ALIGN(4);
-        _edata = .;
-    } > SRAM AT>FLASH
+    /* .rodata */
+    . = ALIGN(4);
+    *(.rodata)
+    *(.rodata*)
 
-    /* used by startup to initialize data */
-    _init_data = LOADADDR(.data);
+    . = ALIGN(4);
+    _etext = .;
+  } > flash
 
-    .bss :
-    {
-        . = ALIGN(4);
-        _sbss = .;
-        *(.bss)
-        *(.bss*)
-        *(COMMON)
-        . = ALIGN(4);
-        _ebss = .;
-    } > SRAM
+  /* data: uniquely initialized symbols */
+  /* loaded into flash region, copied to sram region at startup */
+  /* VMA appears in sram region, LMA is in flash region for initialization */
+  /* _init_data used by startup to locate flash region copy of data */
+  .data :
+  {
+    . = ALIGN(4);
+    _sdata = .;
+    *(.data)
+    *(.data*)
+    . = ALIGN(4);
+    _edata = .;
+  } > sram AT>flash
+  _init_data = LOADADDR(.data); /* used by startup to initialize data */
 
-    .ARM.attributes 0 : { *(.ARM.attributes) }
+  /* bss: zero-initialized symbols */
+  /* don't require flash memory to remember their value */
+  .bss :
+  {
+    . = ALIGN(4);
+    _sbss = .;
+    *(.bss)
+    *(.bss*)
+    *(COMMON)
+    . = ALIGN(4);
+    _ebss = .;
+  } > sram
+
+  /* heap: RAM memory that can be dynamically allocated in the upward direction (increasing memory addresses) */
+  /* _sheap is used to identify the beginning of available dynamic memory */
+  .heap (NOLOAD):
+  {
+    . = ALIGN(4);
+    __end__ = .;
+    PROVIDE( end = . );
+    _sheap = .;
+  } >sram
+
+  /* dmz: the no-mans-land between the stack and the heap */
+  /* purpose is to place padding between initial (empty) stack and heap */
+  .dmz (NOLOAD):
+  {
+    . = ORIGIN(sram) + LENGTH(sram) - 8; /* Automatically give the rest of the space in sram to the stack */
+    . = ALIGN(8);
+  }
+
+  /* stack: RAM memory that can be dynamically allocated in the downward direction (decreasing memory addresses) */
+  /* _sstack is used to set the initial stack pointer */
+  .stack (NOLOAD):
+  {
+    . = ALIGN(8);
+    _sstack = .;
+  } >sram
 }

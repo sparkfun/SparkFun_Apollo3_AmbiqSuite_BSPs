@@ -105,13 +105,9 @@ extern void am_default_isr(void)      __attribute ((weak));
 //*****************************************************************************
 extern int main(void);
 
-//*****************************************************************************
-//
-// Reserve space for the system stack.
-//
-//*****************************************************************************
-__attribute__ ((section(".stack")))
-static uint32_t g_pui32Stack[1024];
+// '_sstack' accesses the linker-provided address for the start of the stack 
+// (which is a high address - stack goes top to bottom)
+extern void* _sstack;
 
 //*****************************************************************************
 //
@@ -126,8 +122,7 @@ static uint32_t g_pui32Stack[1024];
 __attribute__ ((section(".isr_vector")))
 void (* const g_am_pfnVectors[])(void) =
 {
-    (void (*)(void))((uint32_t)g_pui32Stack + sizeof(g_pui32Stack)),
-                                            // The initial stack pointer
+    (void (*)(void))(&_sstack),             // The initial stack pointer (provided by linker script)
     Reset_Handler,                          // The reset handler
     NMI_Handler,                            // The NMI handler
     HardFault_Handler,                      // The hard fault handler
@@ -194,7 +189,7 @@ void (* const g_am_pfnVectors[])(void) =
 // (16 core + 48 periph) such that code begins at offset 0x100.
 //
 //******************************************************************************
-__attribute__ ((section(".patch")))
+__attribute__ ((section(".ble_patch")))
 uint32_t const __Patchable[] =
 {
     0,                                      // 32
@@ -269,10 +264,13 @@ Reset_Handler(void)
           "    ldr     r1, =_sdata\n"
           "    ldr     r2, =_edata\n"
           "copy_loop:\n"
+          "        cmp   r1, r2\n"
+          "        beq   copy_end\n"
           "        ldr   r3, [r0], #4\n"
           "        str   r3, [r1], #4\n"
-          "        cmp     r1, r2\n"
-          "        blt     copy_loop\n");
+          "        b     copy_loop\n"
+          "copy_end:\n");
+    
     //
     // Zero fill the bss segment.
     //
@@ -284,6 +282,15 @@ Reset_Handler(void)
           "        it      lt\n"
           "        strlt   r2, [r0], #4\n"
           "        blt     zero_loop");
+
+    //
+    // Call Global Static Constructors for C++ support
+    //
+    extern void (*__init_array_start)(void);    // symbols must be
+    extern void (*__init_array_end)(void);      // provided by linker
+    for (void (**p)() = &__init_array_start; p < &__init_array_end; ++p) {  
+        (*p)();                                 // Call each function in the list
+    }
 
     //
     // Call the application's entry point.
