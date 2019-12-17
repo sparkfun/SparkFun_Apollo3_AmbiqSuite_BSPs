@@ -530,6 +530,11 @@ void enter_bootload(void)
         { // wait for either a frame or the done command
             debug_printf("\t\terror receiving packet (%d)\n", stat);
             retransmit = 1;
+            am_util_delay_us(177000); //Wait 177ms for 2048 byte transfer at 115200bps to complete
+
+            //Flush the buffers to remove any inbound or outbound garbage
+            bl_rx_ringbuf.r_offset = 0;
+            bl_rx_ringbuf.w_offset = 0;
             continue;
         }
 
