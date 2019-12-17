@@ -43,6 +43,5 @@ uint8_t svl_packet_wait(svl_packet_t *packet);
 
 uint16_t svl_packet_get_uint16_t(void);
 uint8_t svl_packet_wait_bytes(uint32_t num);
-uint16_t svl_packet_get_crc16(svl_packet_t *packet);
 
 #endif // _SVL_PACKET_H_
