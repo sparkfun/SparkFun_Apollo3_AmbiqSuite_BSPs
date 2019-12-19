@@ -80,7 +80,7 @@ Modified: Juy 22 2019
 //
 // ****************************************
 
-// #define DEBUG 1                                 // uncomment to enable debug output
+//#define DEBUG 1 // uncomment to enable debug output
 
 #ifdef DEBUG
 #define DEBUG_BAUD_RATE 921600 // debug output baud rate
@@ -304,6 +304,8 @@ void setup(void)
 //*****************************************************************************
 void unsetup(void)
 {
+    disable_burst_mode();
+
     // Deconfigure the stimer
     am_hal_stimer_int_disable(AM_HAL_STIMER_INT_OVERFLOW);
     NVIC_DisableIRQ(STIMER_IRQn);
@@ -497,7 +499,7 @@ void start_uart_bl(uint32_t baud)
 // ****************************************
 void enter_bootload(void)
 {
-
+    enable_burst_mode();
     bool done = false;
     uint32_t frame_address = 0;
     uint16_t last_page_erased = 0;
@@ -530,7 +532,7 @@ void enter_bootload(void)
         { // wait for either a frame or the done command
             debug_printf("\t\terror receiving packet (%d)\n", stat);
             retransmit = 1;
-            am_util_delay_us(177000); //Wait 177ms for 2048 byte transfer at 115200bps to complete
+            am_util_delay_us(177000); //Worst case: wait 177ms for 2048 byte transfer at 115200bps to complete
 
             //Flush the buffers to remove any inbound or outbound garbage
             bl_rx_ringbuf.r_offset = 0;
@@ -573,11 +575,8 @@ void enter_bootload(void)
 // ****************************************
 uint8_t handle_frame_packet(svl_packet_t *packet, uint32_t *p_frame_address, uint16_t *p_last_page_erased)
 {
-
     // debug_printf("\t\thandling frame\n");
-
     uint32_t num_words = (packet->pl_len / 4);
-    int32_t i32ReturnCode = 0;
 
     debug_printf("\t\tframe_address = 0x%08X, num_words = %d\n", *(p_frame_address), num_words);
 
@@ -588,6 +587,7 @@ uint8_t handle_frame_packet(svl_packet_t *packet, uint32_t *p_frame_address, uin
         return 1;
     }
 
+    int32_t i32ReturnCode = 0;
     uint32_t offset_address = (*(p_frame_address) + USERCODE_OFFSET);
     if ((*p_last_page_erased) < AM_HAL_FLASH_ADDR2PAGE(offset_address))
     { // Prevent erasing partially-filled pages
@@ -603,17 +603,17 @@ uint8_t handle_frame_packet(svl_packet_t *packet, uint32_t *p_frame_address, uin
         }
     }
 
-    // //Record the array
-    // debug_printf("Recording %d words (%d bytes) to memory\n", num_words, 4*num_words);
+    //Record the array
+    //debug_printf("Recording %d words (%d bytes) to memory\n", num_words, 4 * num_words);
     i32ReturnCode = am_hal_flash_program_main(AM_HAL_FLASH_PROGRAM_KEY, (uint32_t *)packet->pl, (uint32_t *)(*(p_frame_address) + USERCODE_OFFSET), num_words);
     if (i32ReturnCode)
     {
         debug_printf("FLASH_WRITE error = 0x%x.\n\r", i32ReturnCode);
         return 1;
     }
+    *(p_frame_address) += num_words * 4;
 
     // debug_printf("Array recorded to flash\n");
-    *(p_frame_address) += num_words * 4;
     return 0;
 }
 
