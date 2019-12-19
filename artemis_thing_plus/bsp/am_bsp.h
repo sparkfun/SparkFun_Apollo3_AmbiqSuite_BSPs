@@ -118,6 +118,11 @@ extern am_devices_button_t am_bsp_psButtons[AM_BSP_NUM_BUTTONS];
 #define AM_BSP_NUM_LEDS                   1
 extern am_devices_led_t am_bsp_psLEDs[AM_BSP_NUM_LEDS];
 
+// LED Device Array Indices
+#define AM_BSP_LED0 0
+#define AM_BSP_LED_BLUE         AM_BSP_LED0
+
+// Corresponding GPIO Numbers
 #define AM_BSP_GPIO_LED             AM_BSP_GPIO_LED_BLUE
 #define AM_BSP_GPIO_LED0            AM_BSP_GPIO_LED_BLUE
 #define AM_BSP_GPIO_LED18           AM_BSP_GPIO_LED_BLUE
