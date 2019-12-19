@@ -198,7 +198,7 @@ def phase_bootload(ser):
 
     frame_size = 512*4
 
-    resend_max = 64
+    resend_max = 4
     resend_count = 0
 
     verboseprint('\nphase:\tbootload')
