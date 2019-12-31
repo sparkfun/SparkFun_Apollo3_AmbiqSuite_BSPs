@@ -98,7 +98,6 @@ PROJECTPATH		?=# Set as the path to the project if not located at ..
 TARGET := ble_cordio_tag
 COMPILERNAME := gcc
 PROJECT := $(TARGET)_gcc
-CONFIG := bin
 
 
 #******************************************************************************
@@ -154,6 +153,9 @@ else
 # When the PROJECTPATH is given export it
 export PROJECTPATH
 endif
+
+# Build Dir
+CONFIG := $(PROJECTPATH)/gcc/bin
 
 #******************************************************************************
 #
@@ -420,10 +422,8 @@ all: asb
 asb: directories $(CONFIG)/$(TARGET)_asb.bin
 svl: directories $(CONFIG)/$(TARGET)_svl.bin
 
-directories: $(CONFIG)
-
-$(CONFIG):
-	@mkdir -p $@
+directories:
+	@mkdir -p $(CONFIG)
 
 $(CONFIG)/%.o: %.c $(CONFIG)/%.d
 	@echo " Compiling $(COMPILERNAME) $<" ;\
