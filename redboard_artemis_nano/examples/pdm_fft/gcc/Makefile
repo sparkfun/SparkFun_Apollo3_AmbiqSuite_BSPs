@@ -318,10 +318,8 @@ all: asb
 asb: directories $(CONFIG)/$(TARGET)_asb.bin
 svl: directories $(CONFIG)/$(TARGET)_svl.bin
 
-directories: $(CONFIG)
-
-$(CONFIG):
-	@mkdir -p $@
+directories:
+	@mkdir -p $(CONFIG)
 
 $(CONFIG)/%.o: %.cpp $(CONFIG)/%.d
 	@echo " Compiling $(COMPILERNAME) $<" ;\

@@ -123,10 +123,8 @@ ODFLAGS = -S
 #### Rules ####
 all: directories $(CONFIG)/$(TARGET).a
 
-directories: $(CONFIG)
-
-$(CONFIG):
-	@mkdir -p $@
+directories:
+	@mkdir -p $(CONFIG)
 
 $(CONFIG)/%.o: %.c $(CONFIG)/%.d $(INCS)
 	@echo " Compiling $(COMPILERNAME) $<" ;\
