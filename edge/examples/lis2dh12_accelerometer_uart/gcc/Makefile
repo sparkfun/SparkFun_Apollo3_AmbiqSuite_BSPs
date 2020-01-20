@@ -93,7 +93,7 @@ BOARDPATH		?=# Set as the path to the board if not located at ../../..
 PROJECTPATH		?=# Set as the path to the project if not located at ..
 
 ### Project Settings
-TARGET := example
+TARGET := lis2dh12_accelerometer_uart
 COMPILERNAME := gcc
 PROJECT := $(TARGET)_gcc
 
