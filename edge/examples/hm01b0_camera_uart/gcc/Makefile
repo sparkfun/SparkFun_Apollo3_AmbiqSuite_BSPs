@@ -95,7 +95,7 @@ BOARDPATH		?=# Set as the path to the board if not located at ../../..
 PROJECTPATH		?=# Set as the path to the project if not located at ..
 
 ### Project Settings
-TARGET := example
+TARGET := hm01b0_camera_uart
 COMPILERNAME := gcc
 PROJECT := $(TARGET)_gcc
 
