@@ -95,7 +95,7 @@ BOARDPATH		?=# Set as the path to the board if not located at ../../..
 PROJECTPATH		?=# Set as the path to the project if not located at ..
 
 ### Project Settings
-TARGET := example
+TARGET := ble_cordio_tag
 COMPILERNAME := gcc
 PROJECT := $(TARGET)_gcc
 
