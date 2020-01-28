@@ -299,7 +299,7 @@ CSTD = -std=c99
 
 CFLAGS = -mthumb -mcpu=$(CPU) -mfpu=$(FPU) -mfloat-abi=$(FABI)
 CFLAGS+= -ffunction-sections -fdata-sections
-CFLAGS+= -MMD -MP -Wall -g
+CFLAGS+= -MMD -MP $(CSTD) -Wall -g
 CFLAGS+= -O0
 CFLAGS+= $(DEFINES)
 CFLAGS+= $(INCLUDES)
