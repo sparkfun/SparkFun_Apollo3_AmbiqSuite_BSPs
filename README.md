@@ -18,6 +18,7 @@ cd $AM_SDK_ROOT # Enter the root of your AmbiqSuite SDK
 git clone https://github.com/sparkfun/SparkFun_Apollo3_AmbiqSuite_BSPs boards_sfe # Clone this repo into a directory called 'boards_sfe'
 
 # Assuming you have your ARMCC (arm-none-eabi-xxx) toolchain installed you can then build examples
+YOUR_BOARD=redboard_artemis_atp       # choose the directory name of the board you want to use
 cd boards_sfe/common/examples/$YOUR_EXAMPLE/gcc
 make BOARD=$YOUR_BOARD
 make BOARD=$YOUR_BOARD clean
