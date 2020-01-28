@@ -106,6 +106,13 @@ PROJECT := $(TARGET)_gcc
 # Warning Messages
 #
 #******************************************************************************
+ifeq ($(BOARD),)
+    $(warning warning: no BOARD specified, will fall back to BOARDPATH for arbitrary bsp locations)
+else
+    BOARDPATH=../../../../$(BOARD)
+    $(warning Using BOARD=$(BOARD) at $(BOARDPATH))
+endif
+
 ifeq ($(COM_PORT),)
     COM_PORT=COM4
     $(warning warning: you have not defined COM_PORT. Assuming it is COM4)
@@ -140,23 +147,28 @@ export COMMONPATH
 endif
 
 ifeq ($(BOARDPATH),)
-    BOARDPATH			=../../..
-    $(warning warning: you have not defined BOARDPATH so will continue assuming that the BOARD root is at $(BOARDPATH))
+    $(error Error: BOARDPATH must be provided)
 else
+# Ensure that boardpath does not include a trailing '/'
+ifeq ($(notdir $(BOARDPATH)),)
+    override BOARDPATH:=$(patsubst %/, %,$(BOARDPATH))
+    $(warning BOARDPATH had a trivial 'notdir' so we tried changing it to: $(BOARDPATH))
+    BOARD=$(notdir $(BOARDPATH))
+endif
 # When the BOARDPATH is given export it
 export BOARDPATH
 endif
 
 ifeq ($(PROJECTPATH),)
-    PROJECTPATH			=..
+    PROJECTPATH			=$(COMMONPATH)/examples/$(TARGET)
     $(warning warning: you have not defined PROJECTPATH so will continue assuming that the PROJECT root is at $(PROJECTPATH))
 else
 # When the PROJECTPATH is given export it
 export PROJECTPATH
 endif
 
-# Build Dir
-CONFIG := $(PROJECTPATH)/gcc/bin
+CONFIG := $(PROJECTPATH)/gcc/$(BOARD)/bin
+$(warning CONFIG=$(CONFIG))
 
 #******************************************************************************
 #

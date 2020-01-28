@@ -99,8 +99,6 @@ BOARD			?=# If using a SparkFun board you can simply provide the name e.g. redbo
 TARGET := blinky
 COMPILERNAME := gcc
 PROJECT := blinky_gcc
-CONFIG := bin
-
 
 #******************************************************************************
 #
@@ -155,6 +153,9 @@ else
 # When the PROJECTPATH is given export it
 export PROJECTPATH
 endif
+
+# Build Dir
+CONFIG := $(PROJECTPATH)/gcc/bin
 
 #******************************************************************************
 #
