@@ -18,12 +18,12 @@ cd $AM_SDK_ROOT # Enter the root of your AmbiqSuite SDK
 git clone https://github.com/sparkfun/SparkFun_Apollo3_AmbiqSuite_BSPs boards_sfe # Clone this repo into a directory called 'boards_sfe'
 
 # Assuming you have your ARMCC (arm-none-eabi-xxx) toolchain installed you can then build examples
-cd boards_sfe/$YOUR_BOARD/examples/$YOUR_EXAMPLE/gcc
-make
-make clean
-make bootload       # eqivalent to bootload_svl
-make bootload_svl   # builds and bootloads with SparkFun Variable Loader - you must have this bootloader flashed onto your board
-make bootload_asb   # builds and bootloads with Ambiq Secure Bootloader - should work with most all boards. If not try changing the baud rate
+cd boards_sfe/common/examples/$YOUR_EXAMPLE/gcc
+make BOARD=$YOUR_BOARD
+make BOARD=$YOUR_BOARD clean
+make BOARD=$YOUR_BOARD bootload       # eqivalent to bootload_svl
+make BOARD=$YOUR_BOARD bootload_svl   # builds and bootloads with SparkFun Variable Loader - you must have this bootloader flashed onto your board
+make BOARD=$YOUR_BOARD bootload_asb   # builds and bootloads with Ambiq Secure Bootloader - should work with most all boards. If not try changing the baud rate
 ```
 
 How to Generate BSP Files

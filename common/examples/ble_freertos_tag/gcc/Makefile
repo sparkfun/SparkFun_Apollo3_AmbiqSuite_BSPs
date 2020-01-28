@@ -120,8 +120,8 @@ else
 ifeq ($(notdir $(BOARDPATH)),)
     override BOARDPATH:=$(patsubst %/, %,$(BOARDPATH))
     $(warning BOARDPATH had a trivial 'notdir' so we tried changing it to: $(BOARDPATH))
-    BOARD=$(notdir $(BOARDPATH))
 endif
+BOARD=$(notdir $(BOARDPATH))
 # When the BOARDPATH is given export it
 export BOARDPATH
 endif
