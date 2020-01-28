@@ -96,7 +96,7 @@ PROJECTPATH		?=# Set as the path to the project if not located at ..
 BOARD			?=# If using a SparkFun board you can simply provide the name e.g. redboard_artemis_atp
 
 ### Project Settings
-TARGET := example
+TARGET := artemis_svl
 COMPILERNAME := gcc
 PROJECT := $(TARGET)_gcc
 
@@ -183,6 +183,10 @@ INCLUDES+= -I$(SDKPATH)/devices
 INCLUDES+= -I$(SDKPATH)/mcu/apollo3
 INCLUDES+= -I$(SDKPATH)/CMSIS/AmbiqMicro/Include
 INCLUDES+= -I$(SDKPATH)/CMSIS/ARM/Include
+INCLUDES+= -I$(COMMONPATH)/examples/artemis_svl/src/svl_packet
+INCLUDES+= -I$(COMMONPATH)/examples/artemis_svl/src/svl_ringbuf
+INCLUDES+= -I$(COMMONPATH)/examples/artemis_svl/src/svl_uart
+INCLUDES+= -I$(COMMONPATH)/examples/artemis_svl/src/svl_utils
 INCLUDES+=
 
 # Compilation Units (Add all the .c files you need to compile)
@@ -191,6 +195,10 @@ SRC+= main.c
 SRC+= am_util_delay.c
 SRC+= am_util_stdio.c
 SRC+= startup_gcc.c
+SRC+= svl_packet.c
+SRC+= svl_ringbuf.c
+SRC+= svl_uart.c
+SRC+= svl_utils.c
 SRC+=
 
 # VPATH (Add paths to where your source files are located)
@@ -198,6 +206,11 @@ VPATH=
 VPATH+= $(PROJECTPATH)/src
 VPATH+= $(SDKPATH)/utils
 VPATH+= $(COMMONPATH)/tools_sfe/templates
+VPATH+= $(COMMONPATH)/examples/artemis_svl/src
+VPATH+= $(COMMONPATH)/examples/artemis_svl/src/svl_packet
+VPATH+= $(COMMONPATH)/examples/artemis_svl/src/svl_ringbuf
+VPATH+= $(COMMONPATH)/examples/artemis_svl/src/svl_uart
+VPATH+= $(COMMONPATH)/examples/artemis_svl/src/svl_utils
 VPATH+=
 
 # LIBS (Precompiled libraries to include in the linker step)

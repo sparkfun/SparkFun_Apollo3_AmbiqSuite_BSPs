@@ -96,9 +96,10 @@ PROJECTPATH		?=# Set as the path to the project if not located at ..
 BOARD			?=# If using a SparkFun board you can simply provide the name e.g. redboard_artemis_atp
 
 ### Project Settings
-TARGET := example
+TARGET := pdm_fft
 COMPILERNAME := gcc
-PROJECT := $(TARGET)_gcc
+PROJECT := pdm_fft_gcc
+CONFIG := bin
 
 
 #******************************************************************************
@@ -155,9 +156,6 @@ else
 export PROJECTPATH
 endif
 
-# Build Dir
-CONFIG := $(PROJECTPATH)/gcc/bin
-
 #******************************************************************************
 #
 # User Defines / Includes / Sources / Libraries
@@ -171,6 +169,9 @@ DEFINES+= -DAM_PACKAGE_BGA
 DEFINES+= -DWSF_TRACE_ENABLED
 DEFINES+= -DAM_DEBUG_PRINTF
 DEFINES+= -DAM_PART_APOLLO3
+DEFINES+= -DAM_UTIL_FAULTISR_PRINT
+DEFINES+= -DUNITY_INCLUDE_CONFIG_H
+DEFINES+= -D__FPU_PRESENT
 DEFINES+=
 
 # Includes (Add paths to where example header files are located)
@@ -188,15 +189,17 @@ INCLUDES+=
 # Compilation Units (Add all the .c files you need to compile)
 SRC=
 SRC+= main.c
-SRC+= am_util_delay.c
-SRC+= am_util_stdio.c
 SRC+= startup_gcc.c
+SRC+= am_util_delay.c
+SRC+= am_util_faultisr.c
+SRC+= am_util_stdio.c
 SRC+=
 
 # VPATH (Add paths to where your source files are located)
 VPATH=
 VPATH+= $(PROJECTPATH)/src
 VPATH+= $(SDKPATH)/utils
+VPATH+= $(COMMONPATH)/examples/pdm_fft
 VPATH+= $(COMMONPATH)/tools_sfe/templates
 VPATH+=
 
@@ -204,6 +207,7 @@ VPATH+=
 LIBS=
 LIBS+= $(BOARDPATH)/bsp/gcc/bin/libam_bsp.a
 LIBS+= $(SDKPATH)/mcu/apollo3/hal/gcc/bin/libam_hal.a
+LIBS+= $(SDKPATH)/CMSIS/ARM/Lib/ARM/libarm_cortexM4lf_math.a
 LIBS+=
 
 

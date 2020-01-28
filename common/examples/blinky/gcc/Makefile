@@ -96,9 +96,10 @@ PROJECTPATH		?=# Set as the path to the project if not located at ..
 BOARD			?=# If using a SparkFun board you can simply provide the name e.g. redboard_artemis_atp
 
 ### Project Settings
-TARGET := example
+TARGET := blinky
 COMPILERNAME := gcc
-PROJECT := $(TARGET)_gcc
+PROJECT := blinky_gcc
+CONFIG := bin
 
 
 #******************************************************************************
@@ -155,9 +156,6 @@ else
 export PROJECTPATH
 endif
 
-# Build Dir
-CONFIG := $(PROJECTPATH)/gcc/bin
-
 #******************************************************************************
 #
 # User Defines / Includes / Sources / Libraries
@@ -188,15 +186,19 @@ INCLUDES+=
 # Compilation Units (Add all the .c files you need to compile)
 SRC=
 SRC+= main.c
-SRC+= am_util_delay.c
-SRC+= am_util_stdio.c
 SRC+= startup_gcc.c
+SRC+= am_util_delay.c
+SRC+= am_util_faultisr.c
+SRC+= am_util_stdio.c
+SRC+= am_devices_led.c
 SRC+=
 
 # VPATH (Add paths to where your source files are located)
 VPATH=
 VPATH+= $(PROJECTPATH)/src
 VPATH+= $(SDKPATH)/utils
+VPATH+= $(SDKPATH)/devices
+VPATH+= $(COMMONPATH)/examples/blinky
 VPATH+= $(COMMONPATH)/tools_sfe/templates
 VPATH+=
 

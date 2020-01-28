@@ -96,7 +96,7 @@ PROJECTPATH		?=# Set as the path to the project if not located at ..
 BOARD			?=# If using a SparkFun board you can simply provide the name e.g. redboard_artemis_atp
 
 ### Project Settings
-TARGET := example
+TARGET := startup_tests
 COMPILERNAME := gcc
 PROJECT := $(TARGET)_gcc
 
@@ -183,14 +183,26 @@ INCLUDES+= -I$(SDKPATH)/devices
 INCLUDES+= -I$(SDKPATH)/mcu/apollo3
 INCLUDES+= -I$(SDKPATH)/CMSIS/AmbiqMicro/Include
 INCLUDES+= -I$(SDKPATH)/CMSIS/ARM/Include
+INCLUDES+= -I$(COMMONPATH)/examples/startup_tests
+INCLUDES+= -I$(COMMONPATH)/examples/startup_tests/test_framework
+INCLUDES+= -I$(COMMONPATH)/examples/startup_tests/tests
+INCLUDES+= -I$(COMMONPATH)/examples/startup_tests/tests/data
+INCLUDES+= -I$(COMMONPATH)/examples/startup_tests/tests/bss
+INCLUDES+= -I$(COMMONPATH)/examples/startup_tests/tests/constructors
+INCLUDES+= -I$(COMMONPATH)/examples/startup_tests/tests/fn_init
 INCLUDES+=
 
 # Compilation Units (Add all the .c files you need to compile)
 SRC=
-SRC+= main.c
-SRC+= am_util_delay.c
+SRC+= main.cpp
 SRC+= am_util_stdio.c
 SRC+= startup_gcc.c
+SRC+= test_framework.cpp
+SRC+= tests.cpp
+SRC+= test_data.cpp
+SRC+= test_bss.cpp
+SRC+= test_constructors.cpp
+SRC+= test_fn_init.cpp
 SRC+=
 
 # VPATH (Add paths to where your source files are located)
@@ -198,6 +210,13 @@ VPATH=
 VPATH+= $(PROJECTPATH)/src
 VPATH+= $(SDKPATH)/utils
 VPATH+= $(COMMONPATH)/tools_sfe/templates
+VPATH+= $(COMMONPATH)/examples/startup_tests
+VPATH+= $(COMMONPATH)/examples/startup_tests/test_framework
+VPATH+= $(COMMONPATH)/examples/startup_tests/tests
+VPATH+= $(COMMONPATH)/examples/startup_tests/tests/data
+VPATH+= $(COMMONPATH)/examples/startup_tests/tests/bss
+VPATH+= $(COMMONPATH)/examples/startup_tests/tests/constructors
+VPATH+= $(COMMONPATH)/examples/startup_tests/tests/fn_init
 VPATH+=
 
 # LIBS (Precompiled libraries to include in the linker step)
@@ -293,7 +312,7 @@ CFLAGS+=
 XSTD   = -std=gnu++11
 
 XFLAGS = $(CFLAGS)
-XFLAGS+= -fno-exceptions
+XFLAGS+= -fno-exceptions -fno-threadsafe-statics # added -fno-threadsafe-statics to allow static local contructors
 
 LFLAGS = -mthumb -mcpu=$(CPU) -mfpu=$(FPU) -mfloat-abi=$(FABI)
 LFLAGS+= -nostartfiles -static
