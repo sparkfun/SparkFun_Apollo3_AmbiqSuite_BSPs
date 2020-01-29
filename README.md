@@ -42,8 +42,8 @@ Name | Default Value | Description
 ```ASB_UPLOAD_BAUD``` | 115200 | Baud rate used for the Ambiq Secure Bootloader
 ```SVL_UPLOAD_BAUD``` | 921600 | Baud rate used for the SparkFun Variable Loader (configurable to common values 921600, 460800, 230400, 115200, and 57600)
 ```SDKPATH``` | ../../../../.. | Path used to locate the root of the AmbiqSuiteSDK (change this if installing BSPs in a non-standard location)
-```COMMONPATH``` | ../../../../common | Path used to locate the common directory of this repo (change if compiling a project from a non-standard location (aka not from ~/common/examples/{example}/gcc))
-```PROJECTPATH``` | .. | Path to project directory - the template makefile will automatically add $(PROJECTPATH)/src to the directories to search for included headers and source files
+```COMMONPATH``` | ../../../../common | Path used to locate the common directory of this repo (change if compiling a project from a non-standard location (aka not from ```~/common/examples/{example}/gcc```))
+```PROJECTPATH``` | .. | Path to project directory - the template makefile will automatically add ```$(PROJECTPATH)/src``` to the directories to search for included headers and source files
 
 
 ## Using Custom BSPs
