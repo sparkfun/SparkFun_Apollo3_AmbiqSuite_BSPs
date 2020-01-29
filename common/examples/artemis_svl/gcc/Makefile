@@ -160,7 +160,7 @@ export BOARDPATH
 endif
 
 ifeq ($(PROJECTPATH),)
-    PROJECTPATH			=$(COMMONPATH)/examples/$(TARGET)
+    PROJECTPATH			=..
     $(warning warning: you have not defined PROJECTPATH so will continue assuming that the PROJECT root is at $(PROJECTPATH))
 else
 # When the PROJECTPATH is given export it
