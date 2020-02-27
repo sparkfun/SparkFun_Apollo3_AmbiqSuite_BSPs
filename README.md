@@ -19,7 +19,8 @@ git clone https://github.com/sparkfun/SparkFun_Apollo3_AmbiqSuite_BSPs boards_sf
 
 # Assuming you have your ARMCC (arm-none-eabi-xxx) toolchain installed you can then build examples
 BOARD=redboard_artemis_atp        # or: edge, artemis_thing_plus, artemis_redboard_nano, artemis_redboard_atp etc...
-cd boards_sfe/common/examples/$YOUR_EXAMPLE/gcc
+EXAMPLE=hello_world_uart          # or: ble_freertos_tag, blinky, tensorflow_micro_speech or other applicable example for board
+cd boards_sfe/common/examples/$EXAMPLE/gcc
 make BOARD=$BOARD
 make BOARD=$BOARD clean
 make BOARD=$BOARD bootload       # eqivalent to bootload_svl
