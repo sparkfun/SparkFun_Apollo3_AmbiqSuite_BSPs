@@ -9,8 +9,8 @@ Prerequisites
 * make
 * python3 (only needed for bootloading)
 
-Installation
-============
+Installation / Usage
+====================
 Usage of these BSPs is quite flexible, however the easiest way to use them is to clone into your AmbiqSuite SDK directly. For example:
 
 ``` bash
@@ -18,13 +18,13 @@ cd $AM_SDK_ROOT # Enter the root of your AmbiqSuite SDK
 git clone https://github.com/sparkfun/SparkFun_Apollo3_AmbiqSuite_BSPs boards_sfe # Clone this repo into a directory called 'boards_sfe'
 
 # Assuming you have your ARMCC (arm-none-eabi-xxx) toolchain installed you can then build examples
-YOUR_BOARD=redboard_artemis_atp       # choose the directory name of the board you want to use
+BOARD=redboard_artemis_atp        # or: edge, artemis_thing_plus, artemis_redboard_nano, artemis_redboard_atp etc...
 cd boards_sfe/common/examples/$YOUR_EXAMPLE/gcc
-make BOARD=$YOUR_BOARD
-make BOARD=$YOUR_BOARD clean
-make BOARD=$YOUR_BOARD bootload       # eqivalent to bootload_svl
-make BOARD=$YOUR_BOARD bootload_svl   # builds and bootloads with SparkFun Variable Loader - you must have this bootloader flashed onto your board
-make BOARD=$YOUR_BOARD bootload_asb   # builds and bootloads with Ambiq Secure Bootloader - should work with most all boards. If not try changing the baud rate
+make BOARD=$BOARD
+make BOARD=$BOARD clean
+make BOARD=$BOARD bootload       # eqivalent to bootload_svl
+make BOARD=$BOARD bootload_svl   # builds and bootloads with SparkFun Variable Loader - you must have this bootloader flashed onto your board
+make BOARD=$BOARD bootload_asb   # builds and bootloads with Ambiq Secure Bootloader - should work with all boards. If not try changing the baud rate or manually setting the board into bootload mode
 ```
 
 Advanced Usage
