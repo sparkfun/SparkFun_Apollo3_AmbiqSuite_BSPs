@@ -95,8 +95,8 @@ extern "C"
 //
 //*****************************************************************************
 #define AM_BSP_PDM_CHANNEL                  AM_HAL_PDM_CHANNEL_RIGHT
-#define AM_BSP_PDM_DATA                     AM_BSP_GPIO_MIC_DATA
-#define AM_BSP_PDM_CLOCK                    AM_BSP_GPIO_MIC_CLK
+#define AM_BSP_PDM_DATA_PIN                 AM_BSP_GPIO_MIC_DATA
+#define AM_BSP_PDM_CLOCK_PIN                AM_BSP_GPIO_MIC_CLK
 #define g_AM_BSP_PDM_DATA                   g_AM_BSP_GPIO_MIC_DATA
 #define g_AM_BSP_PDM_CLOCK                  g_AM_BSP_GPIO_MIC_CLK
 
@@ -109,8 +109,8 @@ extern "C"
 #define AM_BSP_ACCELEROMETER_I2C_ADDRESS    0x19
 #define AM_BSP_ACCELEROMETER_I2C_SDA_PIN    AM_BSP_GPIO_IOM1_SDA
 #define AM_BSP_ACCELEROMETER_I2C_SCL_PIN    AM_BSP_GPIO_IOM1_SCL
-#define g_AM_BSP_ACCELEROMETER_I2C_SDA_PIN  g_AM_BSP_GPIO_IOM1_SDA
-#define g_AM_BSP_ACCELEROMETER_I2C_SCL_PIN  g_AM_BSP_GPIO_IOM1_SCL
+#define g_AM_BSP_ACCELEROMETER_I2C_SDA      g_AM_BSP_GPIO_IOM1_SDA
+#define g_AM_BSP_ACCELEROMETER_I2C_SCL      g_AM_BSP_GPIO_IOM1_SCL
 
 
 //*****************************************************************************
@@ -121,6 +121,8 @@ extern "C"
 #define AM_BSP_QWIIC_I2C_IOM                1
 #define AM_BSP_QWIIC_I2C_SDA_PIN            AM_BSP_GPIO_IOM1_SDA
 #define AM_BSP_QWIIC_I2C_SCL_PIN            AM_BSP_GPIO_IOM1_SCL
+#define g_AM_BSP_QWIIC_I2C_SDA              g_AM_BSP_GPIO_IOM1_SDA
+#define g_AM_BSP_QWIIC_I2C_SCL              g_AM_BSP_GPIO_IOM1_SCL
 
 
 // //*****************************************************************************

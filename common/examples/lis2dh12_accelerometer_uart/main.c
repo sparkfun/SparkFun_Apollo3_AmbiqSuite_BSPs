@@ -145,8 +145,8 @@ uint32_t initAccel( void ){
 
     //
     // Configure the IOM pins.
-    am_hal_gpio_pinconfig(AM_BSP_ACCELEROMETER_I2C_SDA_PIN,  g_AM_BSP_ACCELEROMETER_I2C_SDA_PIN);
-    am_hal_gpio_pinconfig(AM_BSP_ACCELEROMETER_I2C_SCL_PIN,  g_AM_BSP_ACCELEROMETER_I2C_SDA_PIN);
+    am_hal_gpio_pinconfig(AM_BSP_ACCELEROMETER_I2C_SDA_PIN,  g_AM_BSP_ACCELEROMETER_I2C_SDA);
+    am_hal_gpio_pinconfig(AM_BSP_ACCELEROMETER_I2C_SCL_PIN,  g_AM_BSP_ACCELEROMETER_I2C_SCL);
 
     //
     // Enable the IOM.
