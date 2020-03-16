@@ -120,6 +120,8 @@ extern "C"
 #define AM_BSP_QWIIC_I2C_IOM                4
 #define AM_BSP_QWIIC_I2C_SDA_PIN            AM_BSP_GPIO_IOM4_SDA
 #define AM_BSP_QWIIC_I2C_SCL_PIN            AM_BSP_GPIO_IOM4_SCL
+#define g_AM_BSP_QWIIC_I2C_SDA              g_AM_BSP_GPIO_IOM4_SDA
+#define g_AM_BSP_QWIIC_I2C_SCL              g_AM_BSP_GPIO_IOM4_SCL
 
 
 // //*****************************************************************************
