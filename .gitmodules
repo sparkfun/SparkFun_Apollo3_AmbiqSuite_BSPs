@@ -1,0 +1,3 @@
+[submodule "common/tools_sfe/scripts/utility/sh-realpath"]
+	path = common/tools_sfe/scripts/utility/sh-realpath
+	url = https://github.com/mkropat/sh-realpath
