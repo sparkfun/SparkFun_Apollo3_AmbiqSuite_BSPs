@@ -205,77 +205,79 @@ def phase_bootload(ser):
 
     verboseprint('\nphase:\tbootload')
 
-    with open(args.binfile, mode='rb') as binfile:
-        application = binfile.read()
-        total_len = len(application)
+    try:
+        with open(args.binfile, mode='rb') as binfile:
+            application = binfile.read()
+            total_len = len(application)
 
-        total_frames = math.ceil(total_len/frame_size)
-        curr_frame = 0
-        progressChars = 0
+            total_frames = math.ceil(total_len/frame_size)
+            curr_frame = 0
+            progressChars = 0
 
-        if (not args.verbose):
-            print("[", end='')
+            if (not args.verbose):
+                print("[", end='')
 
-        verboseprint('\thave ' + str(total_len) +
-                     ' bytes to send in ' + str(total_frames) + ' frames')
+            verboseprint('\thave ' + str(total_len) +
+                         ' bytes to send in ' + str(total_frames) + ' frames')
 
-        bl_done = False
-        bl_failed = False
-        while((not bl_done) and (not bl_failed)):
-                
-            packet = wait_for_packet(ser)               # wait for indication by Artemis
-            if(packet['timeout'] or packet['crc']):
-                print('\n\terror receiving packet')
-                print(packet)
-                print('\n')
-                bl_failed = True
-                bl_done = True
-
-            if( packet['cmd'] == SVL_CMD_NEXT ):
-                # verboseprint('\tgot frame request')
-                curr_frame += 1
-                resend_count = 0
-            elif( packet['cmd'] == SVL_CMD_RETRY ):
-                verboseprint('\t\tretrying...')
-                resend_count += 1
-                if( resend_count >= resend_max ):
+            bl_done = False
+            bl_failed = False
+            while((not bl_done) and (not bl_failed)):
+                packet = wait_for_packet(ser)               # wait for indication by Artemis
+                if(packet['timeout'] or packet['crc']):
+                    print('\n\terror receiving packet')
+                    print(packet)
+                    print('\n')
                     bl_failed = True
                     bl_done = True
-            else:
-                print('unknown error')
-                bl_failed = True
-                bl_done = True
 
-            if( curr_frame <= total_frames ):
-                frame_data = application[((curr_frame-1)*frame_size):((curr_frame-1+1)*frame_size)]
-                if(args.verbose):
-                    verboseprint('\tsending frame #'+str(curr_frame) +
-                                 ', length: '+str(len(frame_data)))
+                if( packet['cmd'] == SVL_CMD_NEXT ):
+                    # verboseprint('\tgot frame request')
+                    curr_frame += 1
+                    resend_count = 0
+                elif( packet['cmd'] == SVL_CMD_RETRY ):
+                    verboseprint('\t\tretrying...')
+                    resend_count += 1
+                    if( resend_count >= resend_max ):
+                        bl_failed = True
+                        bl_done = True
                 else:
-                    percentComplete = curr_frame * 100 / total_frames
-                    percentCompleteInChars = math.ceil(
-                        percentComplete / 100 * barWidthInCharacters)
-                    while(progressChars < percentCompleteInChars):
-                        progressChars = progressChars + 1
-                        print('#', end='', flush=True)
-                    if (percentComplete == 100):
-                        print("]", end='')
+                    print('unknown error')
+                    bl_failed = True
+                    bl_done = True
 
-                send_packet(ser, SVL_CMD_FRAME, frame_data)
+                if( curr_frame <= total_frames ):
+                    frame_data = application[((curr_frame-1)*frame_size):((curr_frame-1+1)*frame_size)]
+                    if(args.verbose):
+                        verboseprint('\tsending frame #'+str(curr_frame) +
+                                     ', length: '+str(len(frame_data)))
+                    else:
+                        percentComplete = curr_frame * 100 / total_frames
+                        percentCompleteInChars = math.ceil(
+                            percentComplete / 100 * barWidthInCharacters)
+                        while(progressChars < percentCompleteInChars):
+                            progressChars = progressChars + 1
+                            print('#', end='', flush=True)
+                        if (percentComplete == 100):
+                            print("]", end='')
 
+                    send_packet(ser, SVL_CMD_FRAME, frame_data)
+
+                else:
+                    send_packet(ser, SVL_CMD_DONE, b'')
+                    bl_done = True
+
+            if( bl_failed == False ):
+                twopartprint('\n\t', 'Upload complete')
+                endTime = time.time()
+                bps = total_len / (endTime - startTime)
+                verboseprint('\n\tNominal bootload bps: ' + str(round(bps, 2)))
             else:
-                send_packet(ser, SVL_CMD_DONE, b'')
-                bl_done = True
+                twopartprint('\n\t', 'Upload failed')
 
-        if( bl_failed == False ):
-            twopartprint('\n\t', 'Upload complete')
-            endTime = time.time()
-            bps = total_len / (endTime - startTime)
-            verboseprint('\n\tNominal bootload bps: ' + str(round(bps, 2)))
-        else:
-            twopartprint('\n\t', 'Upload failed')
-
-        return bl_failed
+            return bl_failed
+    except:
+        print("Unable to open binary file: " + args.binfile)
 
 
 
