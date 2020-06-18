@@ -1,4 +1,8 @@
-This folder contains original (or close to original) scripts from the AmbiqSuite SDK for configuring and using the (in-silicon?) bootloader of the APollo3.
+This folder contains original (or close to original) scripts from the AmbiqSuite SDK all rolled into one easy to use item.
 
-- configure_silicon_bootloader: generate info0.bin and upload to the Apollo3 with a debugger to enable bootloader
-- use_silicon_bootloader: convert your application.bin into an OTA image blob, then convert that to a wired update image blob, and then push that onto an Apollo3 that has the silicon bootloader configured
+Usage: ```python ambiq_bin2board.py --bin ${build.path}/${build.project_name}.bin --load-address-blob 0x20000 --magic-num 0xCB -o ${build.path}/${build.project_name} --version 0x0 --load-address-wired 0xC000 -i 6 --options 0x1 -b ${baud_rate} -port ${port} -r 2 [-v]```
+
+Previous method:
+1. Created signed OTA blob
+2. Wrap OTA blob in wired blob
+3. Upload signed blobs via UART
