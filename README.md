@@ -32,11 +32,11 @@ Advanced Usage
 ================
 
 ## Make Line Options
-A basic build can be acheived with a simple command like ```make BOARD=redbaord_artemis bootload``` however this usage assumes a lot of things. You can override the default values for these options:
+A basic build can be acheived with a simple command like ```make BOARD=redboard_artemis bootload``` however this usage assumes a lot of things. You can override the default values for these options:
 
 Name | Default Value | Description
 --- | --- | ---
-```BOARD``` | | Optional short syntax to select baord bsps that exist in the root directory of this repo
+```BOARD``` | | Optional short syntax to select board bsps that exist in the root directory of this repo
 ```BOARDPATH``` | | Directly specify the path to the board directory that contains desired bsp files. Will be ignored if ```BOARD``` is provided
 ```COM_PORT``` | COM4 | USB serial port that will be used in bootload steps. Can be Windows or \*nix style (COMX or /dev/xxx)
 ```PYTHON3``` | python3 | Command used to invoke Python3.x on the command line
@@ -53,7 +53,7 @@ When compiling pretty much any example the SDK relies on the BSP (Board Support 
 What if you want to use a custom BSP for your own board? Firstly, you can generate BSP files by following the [bsp_pinconfig README](https://github.com/sparkfun/SparkFun_Apollo3_AmbiqSuite_BSPs/blob/master/common/bsp_pinconfig/README.md). You should put your BSP files in a directory called ```bsp``` and enclose that in a directory named after your board. Once you have done that there are two options.
 
 1. Instead of using ```BOARD=``` you can directly specify the path to the board directory on the make lines like this: ```make BOARDPATH=../some/relative/or/absolute/path/to/your/board/directory bootload```
-1. You can hijack the system so that your baord works with the shortcut ```BOARD=```. Do this by placing your board directory next to the SparkFun boards in your copy of the repo.
+1. You can hijack the system so that your board works with the shortcut ```BOARD=```. Do this by placing your board directory next to the SparkFun boards in your copy of the repo.
 
 How to Generate BSP Files
 =========================
