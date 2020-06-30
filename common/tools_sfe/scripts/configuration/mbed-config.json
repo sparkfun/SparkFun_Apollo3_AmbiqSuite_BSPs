@@ -1,0 +1,90 @@
+{
+  "copy": [
+    {
+      "from": "devices",
+      "to": "targets/TARGET_Ambiq_Micro/sdk/devices", 
+      "ignore": [
+        "am_devices_da14581.c",
+        "am_devices_da14581.h",
+        "am_devices_em9304.c",
+        "am_devices_em9304.h",
+        "am_devices_fireball.c",
+        "am_devices_fireball.h",
+        "am_devices_mb85rc256v.c",
+        "am_devices_mb85rc256v.h",
+        "am_devices_mb85rs1mt.c",
+        "am_devices_mb85rs1mt.h",
+        "am_devices_mspi_atxp032.c",
+        "am_devices_mspi_atxp032.h",
+        "am_devices_mspi_psram_aps6404l.c",
+        "am_devices_mspi_psram_aps6404l.h",
+        "am_devices_mspi_rm67162.c",
+        "am_devices_mspi_rm67162.h",
+        "am_devices_mspi_s25fs064s.c",
+        "am_devices_mspi_s25fs064s.h",
+        "am_devices_spiflash.c",
+        "am_devices_spiflash.h"
+      ]
+    },
+    {
+      "from": "utils",
+      "to": "targets/TARGET_Ambiq_Micro/sdk/utils", 
+      "ignore": [
+        "am_util_faultisr.c",
+        "am_util_regdump.c"
+      ]
+    },
+    {
+      "from": "mcu",
+      "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/sdk/mcu", 
+      "ignore": [
+        "apollo",
+        "apollo2",
+        "apollo3p",
+        "Makefile",
+        "gcc",
+        "iar",
+        "keil"
+      ]
+    },
+    {
+      "from": "CMSIS",
+      "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/sdk/CMSIS",
+      "ignore": [
+        "apollo1.h",
+        "apollo2.h",
+        "apollo3p.h",
+        "system_apollo1.h",
+        "system_apollo2.h",
+        "system_apollo3p.h",
+        "system_apollo1.c",
+        "system_apollo2.c",
+        "system_apollo3p.c",
+        "startup_apollo1.s",
+        "startup_apollo2.s",
+        "startup_apollo3.s",
+        "startup_apollo3p.s",
+        "arm_math.h",
+        "cmsis_armcc.h",
+        "cmsis_armclang.h",
+        "cmsis_compiler.h",
+        "cmsis_gcc.h",
+        "cmsis_iccarm.h",
+        "cmsis_version.h",
+        "core_cm4.h",
+        "mpu_armv7.h"
+      ]
+    },
+
+    {"from": "boards_sfe/artemis_dk/bsp", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/TARGET_SFE_ARTEMIS_DK/bsp", "ignore": ["gcc", "bsp_pins.src"]},
+    {"from": "boards_sfe/artemis_thing_plus/bsp", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/TARGET_SFE_ARTEMIS_THING_PLUS/bsp", "ignore": ["gcc", "bsp_pins.src"]},
+    {"from": "boards_sfe/edge/bsp", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/TARGET_SFE_EDGE/bsp", "ignore": ["gcc", "bsp_pins.src"]},
+    {"from": "boards_sfe/edge2/bsp", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/TARGET_SFE_EDGE2/bsp", "ignore": ["gcc", "bsp_pins.src"]},
+    {"from": "boards_sfe/redboard_artemis/bsp", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/TARGET_SFE_ARTEMIS/bsp", "ignore": ["gcc", "bsp_pins.src"]},
+    {"from": "boards_sfe/redboard_artemis_atp/bsp", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/TARGET_SFE_ARTEMIS_ATP/bsp", "ignore": ["gcc", "bsp_pins.src"]},
+    {"from": "boards_sfe/redboard_artemis_nano/bsp", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/TARGET_SFE_ARTEMIS_NANO/bsp", "ignore": ["gcc", "bsp_pins.src"]},
+
+    {"from": "boards_sfe/common/third_party/hm01b0", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/COMPONENT_hm01b0", "ignore": []},
+    {"from": "boards_sfe/common/third_party/lis2dh12", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/COMPONENT_lis2dh12", "ignore": []}
+  ]
+}
