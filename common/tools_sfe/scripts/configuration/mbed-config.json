@@ -84,7 +84,7 @@
     {"from": "boards_sfe/redboard_artemis_atp/bsp", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/TARGET_SFE_ARTEMIS_ATP/bsp", "ignore": ["gcc", "bsp_pins.src"]},
     {"from": "boards_sfe/redboard_artemis_nano/bsp", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/TARGET_SFE_ARTEMIS_NANO/bsp", "ignore": ["gcc", "bsp_pins.src"]},
 
-    {"from": "boards_sfe/common/third_party/hm01b0", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/COMPONENT_hm01b0", "ignore": []},
-    {"from": "boards_sfe/common/third_party/lis2dh12", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/COMPONENT_lis2dh12", "ignore": []}
+    {"from": "boards_sfe/common/third_party/hm01b0", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/COMPONENT_hm01b0/hm01b0", "ignore": []},
+    {"from": "boards_sfe/common/third_party/lis2dh12", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/COMPONENT_lis2dh12/lis2dh12", "ignore": []}
   ]
 }
