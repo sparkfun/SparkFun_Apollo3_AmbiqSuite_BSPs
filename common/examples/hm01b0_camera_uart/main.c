@@ -96,6 +96,37 @@ void am_gpio_isr(void);
 void framebuffer_dump(uint8_t *pui8Buffer, uint32_t ui32BufferLen);
 
 
+//*****************************************************************************
+//
+// High Speed UART Configuration
+//
+//*****************************************************************************
+static const am_hal_uart_config_t g_sBspUartConfigHS =
+{
+    //
+    // Standard UART settings: 115200-8-N-1
+    //
+    .ui32BaudRate = 115200,
+    .ui32DataBits = AM_HAL_UART_DATA_BITS_8,
+    .ui32Parity = AM_HAL_UART_PARITY_NONE,
+    .ui32StopBits = AM_HAL_UART_ONE_STOP_BIT,
+    .ui32FlowControl = AM_HAL_UART_FLOW_CTRL_NONE,
+
+    //
+    // Set TX and RX FIFOs to interrupt at half-full.
+    //
+    .ui32FifoLevels = (AM_HAL_UART_TX_FIFO_1_2 |
+                    AM_HAL_UART_RX_FIFO_1_2),
+
+    //
+    // The default interface will just use polling instead of buffers.
+    //
+    .pui8TxBuffer = 0,
+    .ui32TxBufferSize = 0,
+    .pui8RxBuffer = 0,
+    .ui32RxBufferSize = 0,
+};
+
 
 
 
@@ -125,16 +156,18 @@ int main(void)
     //
     am_bsp_low_power_init();
 
+#ifdef AM_BSP_GPIO_CAMERA_HM01B0_DVDDEN
     //
     // Turn on the camera regulator
     //
     am_hal_gpio_pinconfig(AM_BSP_GPIO_CAMERA_HM01B0_DVDDEN, g_AM_HAL_GPIO_OUTPUT_12);
     am_hal_gpio_output_set(AM_BSP_GPIO_CAMERA_HM01B0_DVDDEN);
+#endif // AM_BSP_GPIO_CAMERA_HM01B0_DVDDEN
 
     //
-    // Enable the UART print interface.
+    // Enable the UART print interface at high speed
     //
-    am_bsp_uart_printf_enable();
+    am_bsp_uart_printf_enable_custom(&g_sBspUartConfigHS);
 
     //
     // Clear the terminal and print the banner.
