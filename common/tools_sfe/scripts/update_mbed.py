@@ -29,6 +29,7 @@ def main():
         print("\texcluding:")
         print(ignore_patterns)
         print()
+        shutil.rmtree(dest_path, ignore_errors=True)
         shutil.copytree(src_path, dest_path, ignore=shutil.ignore_patterns(*ignore_patterns), dirs_exist_ok=True)
 
     exit()
