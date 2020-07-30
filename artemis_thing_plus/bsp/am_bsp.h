@@ -90,6 +90,20 @@ extern "C"
 
 //*****************************************************************************
 //
+// Primary SPI Pins
+//
+//*****************************************************************************
+#define AM_BSP_PRIM_SPI_IOM                 0
+#define AM_BSP_PRIM_SPI_CLK_PIN             AM_BSP_GPIO_IOM0_SCK
+#define AM_BSP_PRIM_SPI_SDO_PIN             AM_BSP_GPIO_IOM0_MOSI
+#define AM_BSP_PRIM_SPI_SDI_PIN             AM_BSP_GPIO_IOM0_MISO
+#define g_AM_BSP_PRIM_SPI_CLK               g_AM_BSP_GPIO_IOM0_SCK
+#define g_AM_BSP_PRIM_SPI_SDO               g_AM_BSP_GPIO_IOM0_SDO
+#define g_AM_BSP_PRIM_SPI_SDI               g_AM_BSP_GPIO_IOM0_SDI
+
+
+//*****************************************************************************
+//
 // Qwiic Connector.
 //
 //*****************************************************************************
