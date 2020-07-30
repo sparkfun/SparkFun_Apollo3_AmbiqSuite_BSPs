@@ -72,7 +72,12 @@
         "cmsis_iccarm.h",
         "cmsis_version.h",
         "core_cm4.h",
-        "mpu_armv7.h"
+        "mpu_armv7.h",
+        "arm_cortexM4l_math.lib",
+        "arm_cortexM4lf_math.lib",
+        "iar_cortexM4l_math.a",
+        "iar_cortexM4lf_math.a",
+        "libarm_cortexM4l_math.a"
       ]
     },
 
