@@ -209,13 +209,6 @@ pin
     drvstrength     = 2
 
 pin
-    name            = UART1_TX_30
-    desc            = UART1 Tx Pin
-    pinnum          = 30
-    func_sel        = AM_HAL_PIN_30_UART1TX
-    drvstrength     = 2
-
-pin
     name            = UART1_TX_35
     desc            = UART1 Tx Pin
     pinnum          = 35
