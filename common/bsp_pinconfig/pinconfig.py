@@ -230,6 +230,7 @@ def read_arguments():
     parser.add_argument('input', help='input src file name')
     parser.add_argument('CorH',  help='C to create C file, H to create H file',
                         choices=['C','H','c','h'])
+    parser.add_argument('-g', '--guard', dest='headerdef', required=False, default='AM_BSP_PINS_H', help='optional string to use for header include guards - defaults to AM_BSP_PINS_H')
 
     return parser.parse_args()
 
@@ -605,7 +606,7 @@ def write_Cfiles(pinobj, bCreateC):
         #
         S = filetemplateH.format(filename='am_bsp_pins.h',
                                  pin_defs=strHfile,
-                                 headerdef='AM_BSP_PINS_H')
+                                 headerdef=args.headerdef)
         print(S)
 
 

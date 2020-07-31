@@ -46,9 +46,13 @@ def main():
     for name, job in config['generate']['pincfgs'].items():
         print('\t', name)
         for selector in selectors:
-            results = subprocess.run(['python', absolutify('{_sdk}/boards_sfe/common/bsp_pinconfig/pinconfig.py'), absolutify(job['src']), selector], capture_output=True)
+            headerdef = '_APOLLO3_' + os.path.basename(absolutify(job['dest'])).upper() + '_H_' 
+            results = subprocess.run(['python', absolutify('{_sdk}/boards_sfe/common/bsp_pinconfig/pinconfig.py'), absolutify(job['src']), selector, '-g', headerdef], capture_output=True)
             with open(absolutify(job['dest']) + '.' + selector, 'wb') as fout:
                 fout.write(results.stdout)
+            errors = str(results.stderr)
+            if errors != "b''":
+                print('error: ', str(results.stderr))
 
     exit()
 
