@@ -6,6 +6,8 @@ import argparse
 import json
 import shutil
 import os
+import subprocess
+from braceexpand import braceexpand as expand
 
 # ***********************************************************************************
 #
@@ -31,6 +33,22 @@ def main():
         print()
         shutil.rmtree(dest_path, ignore_errors=True)
         shutil.copytree(src_path, dest_path, ignore=shutil.ignore_patterns(*ignore_patterns), dirs_exist_ok=True)
+
+    # handle pincfg generation
+    print('generate pincfgs:')
+    def absolutify(path):
+        new_path = path
+        new_path = new_path.replace('{_mbed}', args.mbed)
+        new_path = new_path.replace('{_sdk}', args.sdk)        
+        return new_path
+
+    selectors = ['c', 'h']
+    for name, job in config['generate']['pincfgs'].items():
+        print('\t', name)
+        for selector in selectors:
+            results = subprocess.run(['python', absolutify('{_sdk}/boards_sfe/common/bsp_pinconfig/pinconfig.py'), absolutify(job['src']), selector], capture_output=True)
+            with open(absolutify(job['dest']) + '.' + selector, 'wb') as fout:
+                fout.write(results.stdout)
 
     exit()
 

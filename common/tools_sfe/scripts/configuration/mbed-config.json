@@ -91,5 +91,14 @@
 
     {"from": "boards_sfe/common/third_party/hm01b0", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/COMPONENT_hm01b0/hm01b0", "ignore": []},
     {"from": "boards_sfe/common/third_party/lis2dh12", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/COMPONENT_lis2dh12/lis2dh12", "ignore": []}
-  ]
+  ],
+
+  "generate": {
+    "pincfgs": {
+      "peripherals": {
+        "src": "{_sdk}/boards_sfe/common/support/apollo3/peripherals/pins.src",
+        "dest": "{_mbed}/targets/TARGET_Ambiq_Micro/TARGET_Apollo3/device/PeripheralPinConfigs"
+      }
+    }
+  }
 }
