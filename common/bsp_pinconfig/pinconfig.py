@@ -231,6 +231,7 @@ def read_arguments():
     parser.add_argument('CorH',  help='C to create C file, H to create H file',
                         choices=['C','H','c','h'])
     parser.add_argument('-g', '--guard', dest='headerdef', required=False, default='AM_BSP_PINS_H', help='optional string to use for header include guards - defaults to AM_BSP_PINS_H')
+    parser.add_argument('-p', '--prefix', dest='prefix', required=False, default='AM_BSP', help='optional string with which to prefix names - defaults to AM_BSP')
 
     return parser.parse_args()
 
@@ -484,11 +485,11 @@ def write_Cfiles(pinobj, bCreateC):
         strHfile += '\n'
 
         if pin.pinnum != intnotgiven:
-            strHfile += '#define AM_BSP_GPIO_%-20s\t' % pin.name  +  '%d\n' % pin.pinnum
-            strHfile += 'extern const am_hal_gpio_pincfg_t       g_AM_BSP_GPIO_%s;\n' % pin.name
+            strHfile += '#define ' + args.prefix + '_GPIO_%-20s\t' % pin.name  +  '%d\n' % pin.pinnum
+            strHfile += 'extern const am_hal_gpio_pincfg_t       g_' + args.prefix + '_GPIO_%s;\n' % pin.name
             #strHfile += '\n'
 
-        strCfile += 'const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_%s =\n' % pin.name
+        strCfile += 'const am_hal_gpio_pincfg_t g_' + args.prefix + '_GPIO_%s =\n' % pin.name
         strCfile += '{\n'
         strCfile += '%-25s' % '    .uFuncSel' + '= %s,\n' % pin.func_sel
 
@@ -574,7 +575,7 @@ def write_Cfiles(pinobj, bCreateC):
             strCfile += '%-25s' % '    .uNCE' + '= %s,\n' % str(pin.CEnum)
 
             # Create the define
-            strtmp = '#define AM_BSP_%s_CHNL' % (pin.name)
+            strtmp = '#define ' + args.prefix + '_%s_CHNL' % (pin.name)
             strHfile += '%-40s' % strtmp  +  '%s\n' % str((pin.CEnum))
 
         if pin.CEpol != strnotgiven:
