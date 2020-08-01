@@ -491,7 +491,7 @@ def write_Cfiles(pinobj, bCreateC):
 
         if pin.pinnum != intnotgiven:
             if bga and args.bgaguard:
-                strHfile += '#ifdef (' + args.bgaguard + ')\n'
+                strHfile += '#if defined (' + args.bgaguard + ')\n'
 
             strHfile += '#define ' + args.prefix + '_%-20s\t' % pin.name  +  '%d\n' % pin.pinnum
             strHfile += 'extern const am_hal_gpio_pincfg_t       g_' + args.prefix + '_%s;\n' % pin.name
@@ -501,7 +501,7 @@ def write_Cfiles(pinobj, bCreateC):
             #strHfile += '\n'
     
         if bga and args.bgaguard:
-            strCfile += '#ifdef (' + args.bgaguard + ')\n'
+            strCfile += '#if defined (' + args.bgaguard + ')\n'
 
         strCfile += 'const am_hal_gpio_pincfg_t g_' + args.prefix + '_%s =\n' % pin.name
         strCfile += '{\n'
