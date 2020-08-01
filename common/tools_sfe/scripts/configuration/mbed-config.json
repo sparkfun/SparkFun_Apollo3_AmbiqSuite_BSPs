@@ -99,6 +99,7 @@
         "src": "{_sdk}/boards_sfe/common/support/apollo3/peripherals/pins.src",
         "dest": "{_mbed}/targets/TARGET_Ambiq_Micro/TARGET_Apollo3/device/PeripheralPinConfigs",
         "guard": "_APOLLO3_PERIPHERAL_PIN_CONFIGS_H_",
+        "bgaguard": "AM_PACKAGE_BGA",
         "prefix": "AP3_PER"
       }
     }

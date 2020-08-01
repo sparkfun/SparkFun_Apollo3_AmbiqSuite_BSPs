@@ -232,6 +232,7 @@ def read_arguments():
                         choices=['C','H','c','h'])
     parser.add_argument('-g', '--guard', dest='headerdef', required=False, default='AM_BSP_PINS_H', help='optional string to use for header include guards - defaults to AM_BSP_PINS_H')
     parser.add_argument('-p', '--prefix', dest='prefix', required=False, default='AM_BSP', help='optional string with which to prefix names - defaults to AM_BSP')
+    parser.add_argument('-b', '--bgaguard', dest='bgaguard', required=False, default=None, help='if provided this script will place preprocessor guards around pins that only exist on the BGA package using the provided string as the check value')
 
     return parser.parse_args()
 
@@ -484,10 +485,23 @@ def write_Cfiles(pinobj, bCreateC):
         strHfile += sectiontemplate.format(pin_descr=sectiondesc)
         strHfile += '\n'
 
+        bga = False
+        if ( 30 <= pin.pinnum <=38 ) or ( 42 <= pin.pinnum <= 43 ) or ( 45 <= pin.pinnum <= 46 ):
+            bga = True
+
         if pin.pinnum != intnotgiven:
+            if bga and args.bgaguard:
+                strHfile += '#ifdef (' + args.bgaguard + ')\n'
+
             strHfile += '#define ' + args.prefix + '_%-20s\t' % pin.name  +  '%d\n' % pin.pinnum
             strHfile += 'extern const am_hal_gpio_pincfg_t       g_' + args.prefix + '_%s;\n' % pin.name
+
+            if bga and args.bgaguard:
+                strHfile += '#endif // ' + args.bgaguard + '\n'
             #strHfile += '\n'
+    
+        if bga and args.bgaguard:
+            strCfile += '#ifdef (' + args.bgaguard + ')\n'
 
         strCfile += 'const am_hal_gpio_pincfg_t g_' + args.prefix + '_%s =\n' % pin.name
         strCfile += '{\n'
@@ -588,12 +602,14 @@ def write_Cfiles(pinobj, bCreateC):
             else:
                strCfile += '%-25s' % '    .eCEpol' + '= %s,\n' % pin.CEpol
 
-
         # Eliminate the last comma from the last structure member
         strCfile = strCfile[:-2]
 
         # Terminate the structure
         strCfile += '\n};\n'
+
+        if bga and args.bgaguard:
+            strCfile += '#endif // ' + args.bgaguard + '\n'
 
     if bCreateC:
         #
