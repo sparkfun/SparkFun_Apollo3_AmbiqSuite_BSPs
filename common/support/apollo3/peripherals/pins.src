@@ -301,10 +301,22 @@ pin
     func_sel        = AM_HAL_PIN_34_UART0RX
 
 pin
+    name            = UART0_RX_40
+    desc            = UART0 Rx Pin
+    pinnum          = 40
+    func_sel        = AM_HAL_PIN_40_UART0RX
+
+pin
     name            = UART0_RX_45
     desc            = UART0 Rx Pin
     pinnum          = 45
     func_sel        = AM_HAL_PIN_45_UART0RX
+
+pin
+    name            = UART0_RX_49
+    desc            = UART0 Rx Pin
+    pinnum          = 49
+    func_sel        = AM_HAL_PIN_49_UART0RX
 
 # *****************************************************************************
 #  UART pins (UART1) (RX).
@@ -386,6 +398,226 @@ pin
     desc            = UART1 Rx Pin
     pinnum          = 47
     func_sel        = AM_HAL_PIN_47_UART1RX
+
+# *****************************************************************************
+#  UART pins (UART0) (RTS).
+# *****************************************************************************
+pin
+    name            = UART0_RTS_3
+    desc            = UART0 RTS Pin
+    pinnum          = 3
+    func_sel        = AM_HAL_PIN_3_UART0RTS
+    drvstrength     = 2
+
+pin
+    name            = UART0_RTS_5
+    desc            = UART0 RTS Pin
+    pinnum          = 5
+    func_sel        = AM_HAL_PIN_5_UART0RTS
+    drvstrength     = 2
+
+pin
+    name            = UART0_RTS_13
+    desc            = UART0 RTS Pin
+    pinnum          = 13
+    func_sel        = AM_HAL_PIN_13_UART0RTS
+    drvstrength     = 2
+
+pin
+    name            = UART0_RTS_18
+    desc            = UART0 RTS Pin
+    pinnum          = 18
+    func_sel        = AM_HAL_PIN_18_UART0RTS
+    drvstrength     = 2
+
+pin
+    name            = UART0_RTS_34
+    desc            = UART0 RTS Pin
+    pinnum          = 34
+    func_sel        = AM_HAL_PIN_34_UART0RTS
+    drvstrength     = 2
+
+pin
+    name            = UART0_RTS_35
+    desc            = UART0 RTS Pin
+    pinnum          = 35
+    func_sel        = AM_HAL_PIN_35_UART0RTS
+    drvstrength     = 2
+
+pin
+    name            = UART0_RTS_37
+    desc            = UART0 RTS Pin
+    pinnum          = 37
+    func_sel        = AM_HAL_PIN_37_UART0RTS
+    drvstrength     = 2
+
+pin
+    name            = UART0_RTS_41
+    desc            = UART0 RTS Pin
+    pinnum          = 41
+    func_sel        = AM_HAL_PIN_41_UART0RTS
+    drvstrength     = 2
+
+# *****************************************************************************
+#  UART pins (UART1) (RTS).
+# *****************************************************************************
+pin
+    name            = UART1_RTS_10
+    desc            = UART1 RTS Pin
+    pinnum          = 10
+    func_sel        = AM_HAL_PIN_10_UART1RTS
+    drvstrength     = 2
+
+pin
+    name            = UART1_RTS_16
+    desc            = UART1 RTS Pin
+    pinnum          = 16
+    func_sel        = AM_HAL_PIN_16_UART1RTS
+    drvstrength     = 2
+
+pin
+    name            = UART1_RTS_20
+    desc            = UART1 RTS Pin
+    pinnum          = 20
+    func_sel        = AM_HAL_PIN_20_UART1RTS
+    drvstrength     = 2
+
+pin
+    name            = UART1_RTS_30
+    desc            = UART1 RTS Pin
+    pinnum          = 30
+    func_sel        = AM_HAL_PIN_30_UART1RTS
+    drvstrength     = 2
+
+pin
+    name            = UART1_RTS_31
+    desc            = UART1 RTS Pin
+    pinnum          = 31
+    func_sel        = AM_HAL_PIN_31_UART1RTS
+    drvstrength     = 2
+
+pin
+    name            = UART1_RTS_34
+    desc            = UART1 RTS Pin
+    pinnum          = 34
+    func_sel        = AM_HAL_PIN_34_UART1RTS
+    drvstrength     = 2
+
+pin
+    name            = UART1_RTS_41
+    desc            = UART1 RTS Pin
+    pinnum          = 41
+    func_sel        = AM_HAL_PIN_41_UART1RTS
+    drvstrength     = 2
+
+pin
+    name            = UART1_RTS_44
+    desc            = UART1 RTS Pin
+    pinnum          = 44
+    func_sel        = AM_HAL_PIN_44_UART1RTS
+    drvstrength     = 2
+
+# *****************************************************************************
+#  UART pins (UART0) (CTS).
+# *****************************************************************************
+pin
+    name            = UART0_CTS_4
+    desc            = UART0 CTS Pin
+    pinnum          = 4
+    func_sel        = AM_HAL_PIN_4_UART0CTS
+
+pin
+    name            = UART0_CTS_6
+    desc            = UART0 CTS Pin
+    pinnum          = 6
+    func_sel        = AM_HAL_PIN_6_UART0CTS
+
+pin
+    name            = UART0_CTS_12
+    desc            = UART0 CTS Pin
+    pinnum          = 12
+    func_sel        = AM_HAL_PIN_12_UART0CTS
+
+pin
+    name            = UART0_CTS_24
+    desc            = UART0 CTS Pin
+    pinnum          = 24
+    func_sel        = AM_HAL_PIN_24_UART0CTS
+
+pin
+    name            = UART0_CTS_29
+    desc            = UART0 CTS Pin
+    pinnum          = 29
+    func_sel        = AM_HAL_PIN_29_UART0CTS
+
+pin
+    name            = UART0_CTS_33
+    desc            = UART0 CTS Pin
+    pinnum          = 33
+    func_sel        = AM_HAL_PIN_33_UART0CTS
+
+pin
+    name            = UART0_CTS_36
+    desc            = UART0 CTS Pin
+    pinnum          = 36
+    func_sel        = AM_HAL_PIN_36_UART0CTS
+
+pin
+    name            = UART0_CTS_38
+    desc            = UART0 CTS Pin
+    pinnum          = 38
+    func_sel        = AM_HAL_PIN_38_UART0CTS
+
+# *****************************************************************************
+#  UART pins (UART0) (CTS).
+# *****************************************************************************
+pin
+    name            = UART1_CTS_11
+    desc            = UART1 CTS Pin
+    pinnum          = 11
+    func_sel        = AM_HAL_PIN_11_UART1CTS
+
+pin
+    name            = UART1_CTS_17
+    desc            = UART1 CTS Pin
+    pinnum          = 17
+    func_sel        = AM_HAL_PIN_17_UART1CTS
+
+pin
+    name            = UART1_CTS_21
+    desc            = UART1 CTS Pin
+    pinnum          = 21
+    func_sel        = AM_HAL_PIN_21_UART1CTS
+
+pin
+    name            = UART1_CTS_26
+    desc            = UART1 CTS Pin
+    pinnum          = 26
+    func_sel        = AM_HAL_PIN_26_UART1CTS
+
+pin
+    name            = UART1_CTS_29
+    desc            = UART1 CTS Pin
+    pinnum          = 29
+    func_sel        = AM_HAL_PIN_29_UART1CTS
+
+pin
+    name            = UART1_CTS_32
+    desc            = UART1 CTS Pin
+    pinnum          = 32
+    func_sel        = AM_HAL_PIN_32_UART1CTS
+
+pin
+    name            = UART1_CTS_36
+    desc            = UART1 CTS Pin
+    pinnum          = 36
+    func_sel        = AM_HAL_PIN_36_UART1CTS
+
+pin
+    name            = UART1_CTS_45
+    desc            = UART1 CTS Pin
+    pinnum          = 45
+    func_sel        = AM_HAL_PIN_45_UART1CTS
 
 # *****************************************************************************
 #  IOM0 pins.
@@ -911,6 +1143,285 @@ pin
     func_sel        = AM_HAL_PIN_1_SLSDAWIR3
     GPOutcfg        = opendrain
     pullup          = 1_5K
+
+# *****************************************************************************
+#  PDM Microphone Lines (DATA)
+# *****************************************************************************
+pin
+    name            = NCE_0 
+    desc            = NCE Pin
+    pinnum          = 0
+    func_sel        = AM_HAL_PIN_0_NCE0
+
+pin
+    name            = NCE_1
+    desc            = NCE Pin
+    pinnum          = 1
+    func_sel        = AM_HAL_PIN_1_NCE1
+
+pin
+    name            = NCE_2 
+    desc            = NCE Pin
+    pinnum          = 2
+    func_sel        = AM_HAL_PIN_2_NCE2
+
+pin
+    name            = NCE_3 
+    desc            = NCE Pin
+    pinnum          = 3
+    func_sel        = AM_HAL_PIN_3_NCE3
+
+pin
+    name            = NCE_4 
+    desc            = NCE Pin
+    pinnum          = 4
+    func_sel        = AM_HAL_PIN_4_NCE4
+
+pin
+    name            = NCE_7 
+    desc            = NCE Pin
+    pinnum          = 7
+    func_sel        = AM_HAL_PIN_7_NCE7
+
+pin
+    name            = NCE_8 
+    desc            = NCE Pin
+    pinnum          = 8
+    func_sel        = AM_HAL_PIN_8_NCE8
+
+pin
+    name            = NCE_9 
+    desc            = NCE Pin
+    pinnum          = 9
+    func_sel        = AM_HAL_PIN_9_NCE9
+
+pin
+    name            = NCE_10
+    desc            = NCE Pin
+    pinnum          = 10
+    func_sel        = AM_HAL_PIN_10_NCE10
+
+pin
+    name            = NCE_11
+    desc            = NCE Pin
+    pinnum          = 11
+    func_sel        = AM_HAL_PIN_11_NCE11
+
+pin
+    name            = NCE_12
+    desc            = NCE Pin
+    pinnum          = 12
+    func_sel        = AM_HAL_PIN_12_NCE12
+
+pin
+    name            = NCE_13
+    desc            = NCE Pin
+    pinnum          = 13
+    func_sel        = AM_HAL_PIN_13_NCE13
+
+pin
+    name            = NCE_14
+    desc            = NCE Pin
+    pinnum          = 14
+    func_sel        = AM_HAL_PIN_14_NCE14
+
+pin
+    name            = NCE_15
+    desc            = NCE Pin
+    pinnum          = 15
+    func_sel        = AM_HAL_PIN_15_NCE15
+
+pin
+    name            = NCE_16
+    desc            = NCE Pin
+    pinnum          = 16
+    func_sel        = AM_HAL_PIN_16_NCE16
+
+pin
+    name            = NCE_17
+    desc            = NCE Pin
+    pinnum          = 17
+    func_sel        = AM_HAL_PIN_17_NCE17
+
+pin
+    name            = NCE_18
+    desc            = NCE Pin
+    pinnum          = 18
+    func_sel        = AM_HAL_PIN_18_NCE18
+
+pin
+    name            = NCE_19
+    desc            = NCE Pin
+    pinnum          = 19
+    func_sel        = AM_HAL_PIN_19_NCE19
+
+pin
+    name            = NCE_20
+    desc            = NCE Pin
+    pinnum          = 20
+    func_sel        = AM_HAL_PIN_20_NCE20
+
+pin
+    name            = NCE_21
+    desc            = NCE Pin
+    pinnum          = 21
+    func_sel        = AM_HAL_PIN_21_NCE21
+
+pin
+    name            = NCE_22
+    desc            = NCE Pin
+    pinnum          = 22
+    func_sel        = AM_HAL_PIN_22_NCE22
+
+pin
+    name            = NCE_23
+    desc            = NCE Pin
+    pinnum          = 23
+    func_sel        = AM_HAL_PIN_23_NCE23
+
+pin
+    name            = NCE_24
+    desc            = NCE Pin
+    pinnum          = 24
+    func_sel        = AM_HAL_PIN_24_NCE24
+
+pin
+    name            = NCE_25
+    desc            = NCE Pin
+    pinnum          = 25
+    func_sel        = AM_HAL_PIN_25_NCE25
+
+pin
+    name            = NCE_26
+    desc            = NCE Pin
+    pinnum          = 26
+    func_sel        = AM_HAL_PIN_26_NCE26
+
+pin
+    name            = NCE_27
+    desc            = NCE Pin
+    pinnum          = 27
+    func_sel        = AM_HAL_PIN_27_NCE27
+
+pin
+    name            = NCE_28
+    desc            = NCE Pin
+    pinnum          = 28
+    func_sel        = AM_HAL_PIN_28_NCE28
+
+pin
+    name            = NCE_29
+    desc            = NCE Pin
+    pinnum          = 29
+    func_sel        = AM_HAL_PIN_29_NCE29
+
+pin
+    name            = NCE_30
+    desc            = NCE Pin
+    pinnum          = 30
+    func_sel        = AM_HAL_PIN_30_NCE30
+
+pin
+    name            = NCE_31
+    desc            = NCE Pin
+    pinnum          = 31
+    func_sel        = AM_HAL_PIN_31_NCE31
+
+pin
+    name            = NCE_32
+    desc            = NCE Pin
+    pinnum          = 32
+    func_sel        = AM_HAL_PIN_32_NCE32
+
+pin
+    name            = NCE_33
+    desc            = NCE Pin
+    pinnum          = 33
+    func_sel        = AM_HAL_PIN_33_NCE33
+
+pin
+    name            = NCE_34
+    desc            = NCE Pin
+    pinnum          = 34
+    func_sel        = AM_HAL_PIN_34_NCE34
+
+pin
+    name            = NCE_35
+    desc            = NCE Pin
+    pinnum          = 35
+    func_sel        = AM_HAL_PIN_35_NCE35
+
+pin
+    name            = NCE_36
+    desc            = NCE Pin
+    pinnum          = 36
+    func_sel        = AM_HAL_PIN_36_NCE36
+
+pin
+    name            = NCE_37
+    desc            = NCE Pin
+    pinnum          = 37
+    func_sel        = AM_HAL_PIN_37_NCE37
+
+pin
+    name            = NCE_38
+    desc            = NCE Pin
+    pinnum          = 38
+    func_sel        = AM_HAL_PIN_38_NCE38
+
+pin
+    name            = NCE_41
+    desc            = NCE Pin
+    pinnum          = 41
+    func_sel        = AM_HAL_PIN_41_NCE41
+
+pin
+    name            = NCE_42
+    desc            = NCE Pin
+    pinnum          = 42
+    func_sel        = AM_HAL_PIN_42_NCE42
+
+pin
+    name            = NCE_43
+    desc            = NCE Pin
+    pinnum          = 43
+    func_sel        = AM_HAL_PIN_43_NCE43
+
+pin
+    name            = NCE_44
+    desc            = NCE Pin
+    pinnum          = 44
+    func_sel        = AM_HAL_PIN_44_NCE44
+
+pin
+    name            = NCE_45
+    desc            = NCE Pin
+    pinnum          = 45
+    func_sel        = AM_HAL_PIN_45_NCE45
+
+pin
+    name            = NCE_46
+    desc            = NCE Pin
+    pinnum          = 46
+    func_sel        = AM_HAL_PIN_46_NCE46
+
+pin
+    name            = NCE_47
+    desc            = NCE Pin
+    pinnum          = 47
+    func_sel        = AM_HAL_PIN_47_NCE47
+
+pin
+    name            = NCE_48
+    desc            = NCE Pin
+    pinnum          = 48
+    func_sel        = AM_HAL_PIN_48_NCE48
+
+pin
+    name            = NCE_49
+    desc            = NCE Pin
+    pinnum          = 49
+    func_sel        = AM_HAL_PIN_49_NCE49
 
 # *****************************************************************************
 #  PDM Microphone Lines (DATA)
