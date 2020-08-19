@@ -10,7 +10,7 @@ PORT=COM4
 # immutables
 COMMONPATH=$AMSDK/boards_sfe/common
 PYTHON3=python3
-AMBIQ_BIN2BOARD=$COMMONPATH/tools_sfe/ambiq/ambiq_bin2board.py
+AMBIQ_BIN2BOARD=$COMMONPATH/tools_sfe/asb/asb.py
 BINPATH=temp_
 
 # handle arguments

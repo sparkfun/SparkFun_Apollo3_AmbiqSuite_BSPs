@@ -153,8 +153,8 @@ endif
 #
 #******************************************************************************
 ### Bootloader Tools
-AMBIQ_BIN2BOARD=$(PYTHON3) $(COMMONPATH)/tools_sfe/ambiq/ambiq_bin2board.py
-ARTEMIS_SVL=$(PYTHON3) $(COMMONPATH)/tools_sfe/artemis/artemis_svl.py
+ASB_UPLOADER=$(PYTHON3) $(COMMONPATH)/tools_sfe/asb/asb.py
+SVL_UPLOADER=$(PYTHON3) $(COMMONPATH)/tools_sfe/svl/svl.py
 
 
 SHELL:=/bin/bash
@@ -169,7 +169,7 @@ SHELL:=/bin/bash
 all: bootload_asb
 
 bootload_asb: bin/micro_speech.bin
-	$(AMBIQ_BIN2BOARD) --bin bin/micro_speech.bin --load-address-blob 0x20000 --magic-num 0xCB -o bin/micro_speech --version 0x0 --load-address-wired 0xC000 -i 6 --options 0x1 -b $(ASB_UPLOAD_BAUD) -port $(COM_PORT) -r 2 -v 
+	$(ASB_UPLOADER) --bin bin/micro_speech.bin --load-address-blob 0x20000 --magic-num 0xCB -o bin/micro_speech --version 0x0 --load-address-wired 0xC000 -i 6 --options 0x1 -b $(ASB_UPLOAD_BAUD) -port $(COM_PORT) -r 2 -v 
 
 bootload: bootload_asb
 

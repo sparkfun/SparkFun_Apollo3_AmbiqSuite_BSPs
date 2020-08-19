@@ -1,3 +1,9 @@
 [submodule "common/tools_sfe/scripts/utility/sh-realpath"]
 	path = common/tools_sfe/scripts/utility/sh-realpath
 	url = https://github.com/mkropat/sh-realpath
+[submodule "common/tools_sfe/asb"]
+	path = common/tools_sfe/asb
+	url = https://github.com/sparkfun/Apollo3_Uploader_ASB
+[submodule "common/tools_sfe/svl"]
+	path = common/tools_sfe/svl
+	url = https://github.com/sparkfun/Apollo3_Uploader_SVL

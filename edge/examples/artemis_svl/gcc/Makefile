@@ -226,8 +226,8 @@ LIBS+=
 #
 #******************************************************************************
 ### Bootloader Tools
-AMBIQ_BIN2BOARD=$(PYTHON3) $(COMMONPATH)/tools_sfe/ambiq/ambiq_bin2board.py
-ARTEMIS_SVL=$(PYTHON3) $(COMMONPATH)/tools_sfe/artemis/artemis_svl.py
+ASB_UPLOADER=$(PYTHON3) $(COMMONPATH)/tools_sfe/asb/asb.py
+SVL_UPLOADER=$(PYTHON3) $(COMMONPATH)/tools_sfe/svl/svl.py
 
 
 SHELL:=/bin/bash
@@ -364,10 +364,10 @@ $(CONFIG)/$(TARGET)_%.bin: $(CONFIG)/$(TARGET)_%.axf
 	$(OD) $(ODFLAGS) $< > $(CONFIG)/$(TARGET).lst
 
 bootload_asb: directories $(CONFIG)/$(TARGET)_asb.bin
-	$(AMBIQ_BIN2BOARD) --bin $(CONFIG)/$(TARGET)_asb.bin --load-address-blob 0x20000 --magic-num 0xCB -o $(CONFIG)/$(TARGET) --version 0x0 --load-address-wired 0xC000 -i 6 --options 0x1 -b $(ASB_UPLOAD_BAUD) -port $(COM_PORT) -r 2 -v 
+	$(ASB_UPLOADER) --bin $(CONFIG)/$(TARGET)_asb.bin --load-address-blob 0x20000 --magic-num 0xCB -o $(CONFIG)/$(TARGET) --version 0x0 --load-address-wired 0xC000 -i 6 --options 0x1 -b $(ASB_UPLOAD_BAUD) -port $(COM_PORT) -r 2 -v 
 
 bootload_svl: directories $(CONFIG)/$(TARGET)_svl.bin
-	$(ARTEMIS_SVL) $(COM_PORT) -f $(CONFIG)/$(TARGET)_svl.bin -b $(SVL_UPLOAD_BAUD) -v
+	$(SVL_UPLOADER) $(COM_PORT) -f $(CONFIG)/$(TARGET)_svl.bin -b $(SVL_UPLOAD_BAUD) -v
 
 bootload: bootload_svl
 
