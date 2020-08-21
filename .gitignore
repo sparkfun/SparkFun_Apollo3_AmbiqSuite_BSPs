@@ -25,6 +25,7 @@ __pycache__
 !edge2/examples/tensorflow_micro_speech/gcc/bin/micro_speech.bin
 !edge2/examples/tensorflow_micro_speech_test/gcc/bin/micro_speech_test.bin
 !redboard_artemis/examples/tensorflow_micro_speech/gcc/bin/micro_speech.bin
+!artemis_dk/examples/tensorflow_micro_speech/gcc/bin/micro_speech.bin
 
 # Other Build Residuals
 *.map
