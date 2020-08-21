@@ -33,3 +33,15 @@ __pycache__
 
 # MacOSX
 *.DS_Store
+
+# Interface Firmware
+!artemis_dk/intfc/kl26z_artemis_dk_if.axf
+!artemis_dk/intfc/kl26z_artemis_dk_if.bin
+!artemis_dk/intfc/kl26z_artemis_dk_if.hex
+!artemis_dk/intfc/kl26z_artemis_dk_if_crc.bin
+!artemis_dk/intfc/kl26z_artemis_dk_if_crc.hex
+!artemis_dk/intfc/kl26z_bl.axf
+!artemis_dk/intfc/kl26z_bl.bin
+!artemis_dk/intfc/kl26z_bl.hex
+!artemis_dk/intfc/kl26z_bl_crc.bin
+!artemis_dk/intfc/kl26z_bl_crc.hex
