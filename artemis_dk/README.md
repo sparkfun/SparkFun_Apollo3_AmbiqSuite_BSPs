@@ -1,3 +1,5 @@
 # Artemis DK Interface Firmware
 In addition to the typical BSP files this directory also includes a copy of recent interface firmware for the Artemis Dev Kit. This firmware is what runs on the onboard KL26Z interface MCU.
 
+* ```intfc/kl26z_bl*.*``` : this is the bootloader for the KL26Z MCU - it must be programmed onto the board using a debug probe such as a SEGGER J-Link (offset 0x00000000). It is active when there is no secondary image or the board was powered on with the reset button held down. The USB mass storage drive will appear as "MAINTENANCE" and will allow you to drag + drop a secondary image onto the KL26Z
+* ```intfc/kl26z_artemis_dk_if*.*``` : this is the secondary image on the KL26Z MCU that will allow it to reprogram the Artemis module. When the KL26Z is in "MAINTENANCE" mode this image can be programmed by drag + drop. It may also be programmed directly using a debug probe (offset 0x00000000, still requires ```intfc/kl26z_bl*.*``` to be flashed to function). The USB mass storage drive will appear as "ARTEMIS" and will allow you to drag + drop executable images onto the Artemis module
