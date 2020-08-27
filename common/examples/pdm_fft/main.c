@@ -318,7 +318,7 @@ pcm_fft_print(void)
         am_util_stdio_printf("Loudest frequency bin: %d\n", ui32MaxIndex);
     }
 
-    am_util_stdio_printf("Loudest frequency: %d         \r", ui32LoudestFrequency);
+    am_util_stdio_printf("Loudest frequency: %d         \n", ui32LoudestFrequency);
 }
 
 //*****************************************************************************
