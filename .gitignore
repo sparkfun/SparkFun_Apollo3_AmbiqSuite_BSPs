@@ -22,6 +22,7 @@ __pycache__
 *.bin
 !edge/examples/tensorflow_micro_speech/gcc/bin/micro_speech.bin
 !edge/examples/tensorflow_micro_speech_test/gcc/bin/micro_speech_test.bin
+!edge/examples/tensorflow_person_detection/gcc/bin/person_detection.bin
 !edge2/examples/tensorflow_micro_speech/gcc/bin/micro_speech.bin
 !edge2/examples/tensorflow_micro_speech_test/gcc/bin/micro_speech_test.bin
 !redboard_artemis/examples/tensorflow_micro_speech/gcc/bin/micro_speech.bin
