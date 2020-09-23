@@ -231,7 +231,7 @@ def read_arguments():
     parser.add_argument('CorH',  help='C to create C file, H to create H file',
                         choices=['C','H','c','h'])
     parser.add_argument('-g', '--guard', dest='headerdef', required=False, default='AM_BSP_PINS_H', help='optional string to use for header include guards - defaults to AM_BSP_PINS_H')
-    parser.add_argument('-p', '--prefix', dest='prefix', required=False, default='AM_BSP', help='optional string with which to prefix names - defaults to AM_BSP')
+    parser.add_argument('-p', '--prefix', dest='prefix', required=False, default='AM_BSP_GPIO', help='optional string with which to prefix names - defaults to AM_BSP')
     parser.add_argument('-b', '--bgaguard', dest='bgaguard', required=False, default=None, help='if provided this script will place preprocessor guards around pins that only exist on the BGA package using the provided string as the check value')
 
     return parser.parse_args()
