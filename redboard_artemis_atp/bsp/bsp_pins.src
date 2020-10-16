@@ -540,7 +540,7 @@ pin
     name            = MSPI_D3
     desc            = MSPI data 3.
     pinnum          = 23
-    func_sel        = AM_HAL_PIN_23_MSPI13
+    func_sel        = AM_HAL_PIN_23_MSPI3
     drvstrength     = 8
     intdir          = lo2hi
     IOMnum          = 6
