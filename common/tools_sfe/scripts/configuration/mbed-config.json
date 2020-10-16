@@ -23,7 +23,11 @@
         "am_devices_mspi_s25fs064s.c",
         "am_devices_mspi_s25fs064s.h",
         "am_devices_spiflash.c",
-        "am_devices_spiflash.h"
+        "am_devices_spiflash.h",
+        "am_devices_mspi_mx25u12835f.c",
+        "am_devices_mspi_mx25u12835f.h",
+        "am_devices_mspi_rm69330.c",
+        "am_devices_mspi_rm69330.h"
       ]
     },
     {
@@ -88,6 +92,7 @@
     {"from": "boards_sfe/redboard_artemis/bsp", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/TARGET_SFE_ARTEMIS/bsp", "ignore": ["gcc", "bsp_pins.src"]},
     {"from": "boards_sfe/redboard_artemis_atp/bsp", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/TARGET_SFE_ARTEMIS_ATP/bsp", "ignore": ["gcc", "bsp_pins.src"]},
     {"from": "boards_sfe/redboard_artemis_nano/bsp", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/TARGET_SFE_ARTEMIS_NANO/bsp", "ignore": ["gcc", "bsp_pins.src"]},
+    {"from": "boards_sfe/artemis_mm_pb/bsp", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/TARGET_SFE_ARTEMIS_MM_PB/bsp", "ignore": ["gcc", "bsp_pins.src"]},
 
     {"from": "boards_sfe/common/third_party/hm01b0", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/COMPONENT_hm01b0/hm01b0", "ignore": []},
     {"from": "boards_sfe/common/third_party/lis2dh12", "to": "targets/TARGET_Ambiq_Micro/TARGET_Apollo3/COMPONENT_lis2dh12/lis2dh12", "ignore": []}
