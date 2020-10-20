@@ -98,12 +98,12 @@ pin
 pin
     name            = AUD_LRCLK
     pinnum          = 36
-    func_sel        = AM_HAL_PIN_36_PDMDATA
+    func_sel        = AM_HAL_PIN_36_GPIO
 
 pin
     name            = AUD_BCLK
     pinnum          = 37
-    func_sel        = AM_HAL_PIN_37_PDMCLK
+    func_sel        = AM_HAL_PIN_37_GPIO
 
 # *****************************************************************************
 #  MicroMod I2C
@@ -449,14 +449,14 @@ pin
 pin
     name            = MIC_DATA
     desc            = Data line for PDM microphones
-    pinnum          = 11
-    func_sel        = AM_HAL_PIN_11_PDMDATA
+    pinnum          = 36
+    func_sel        = AM_HAL_PIN_36_PDMDATA
 
 pin
     name            = MIC_CLK
     desc            = Clock line for PDM microphones
-    pinnum          = 12
-    func_sel        = AM_HAL_PIN_12_PDMCLK
+    pinnum          = 37
+    func_sel        = AM_HAL_PIN_37_PDMCLK
 
 
 # *****************************************************************************
