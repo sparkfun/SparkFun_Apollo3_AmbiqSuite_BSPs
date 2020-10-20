@@ -53,7 +53,7 @@ extern "C"
 // Primary SPI Pins
 //
 //*****************************************************************************
-#define AM_BSP_PRIM_SPI_IOM                 4
+#define AM_BSP_PRIM_SPI_IOM                 3
 #define AM_BSP_PRIM_SPI_CLK_PIN             AM_BSP_GPIO_SPI_SCK
 #define AM_BSP_PRIM_SPI_SDO_PIN             AM_BSP_GPIO_SPI_SDO
 #define AM_BSP_PRIM_SPI_SDI_PIN             AM_BSP_GPIO_SPI_SDI
@@ -85,7 +85,7 @@ extern am_devices_led_t am_bsp_psLEDs[AM_BSP_NUM_LEDS];
 
 // Corresponding GPIO Numbers
 #define AM_BSP_GPIO_LED0         AM_BSP_GPIO_LED_BLUE
-#define AM_BSP_GPIO_LED23        AM_BSP_GPIO_LED_BLUE
+#define AM_BSP_GPIO_LED19        AM_BSP_GPIO_LED_BLUE
 #define AM_BSP_GPIO_LED_STAT     AM_BSP_GPIO_LED_BLUE
 
 //*****************************************************************************
@@ -116,42 +116,31 @@ extern am_devices_led_t am_bsp_psLEDs[AM_BSP_NUM_LEDS];
 
 //*****************************************************************************
 //
-// Machine Learning Carrier Board Defs
+// Aliases for MicroMod connector pins.
 //
 //*****************************************************************************
-#define AM_BSP_PDM_CHANNEL                  AM_HAL_PDM_CHANNEL_RIGHT
-#define AM_BSP_PDM_DATA_PIN                 AM_BSP_GPIO_MIC_DATA
-#define AM_BSP_PDM_CLOCK_PIN                AM_BSP_GPIO_MIC_CLK
-#define g_AM_BSP_PDM_DATA                   g_AM_BSP_GPIO_MIC_DATA
-#define g_AM_BSP_PDM_CLOCK                  g_AM_BSP_GPIO_MIC_CLK
+#define AM_BSP_GPIO_CAM_MCLK    AM_BSP_GPIO_AUD_OUT
+#define AM_BSP_GPIO_CAM_PCLK    AM_BSP_GPIO_AUD_IN
 
-#define AM_BSP_ACCELEROMETER_I2C_IOM        AM_BSP_PRIM_I2C_IOM
-#define AM_BSP_ACCELEROMETER_I2C_ADDRESS    0x19
-#define AM_BSP_ACCELEROMETER_I2C_SDA_PIN    AM_BSP_PRIM_I2C_SDA_PIN
-#define AM_BSP_ACCELEROMETER_I2C_SCL_PIN    AM_BSP_PRIM_I2C_SCL_PIN
-#define g_AM_BSP_ACCELEROMETER_I2C_SDA      g_AM_BSP_PRIM_I2C_SDA
-#define g_AM_BSP_ACCELEROMETER_I2C_SCL      g_AM_BSP_PRIM_I2C_SCL
+#define AM_BSP_GPIO_SPI_SCK1    AM_BSP_GPIO_SDIO_CLK
+#define AM_BSP_GPIO_SPI_SDO1    AM_BSP_GPIO_SDIO_CMD
+#define AM_BSP_GPIO_SPI_SDI1    AM_BSP_GPIO_SDIO_DATA0
+#define AM_BSP_GPIO_SPI_CS1     AM_BSP_GPIO_SDIO_DATA3
 
-#define AM_BSP_GPIO_CAMERA_HM01B0_DVDDEN    AM_BSP_GPIO_PWM1
-#define AM_BSP_CAMERA_HM01B0_I2C_IOM        AM_BSP_PRIM_I2C_IOM
-#define AM_BSP_CAMERA_HM01B0_I2C_SCL_PIN    AM_BSP_PRIM_I2C_SCL_PIN
-#define AM_BSP_CAMERA_HM01B0_I2C_SDA_PIN    AM_BSP_PRIM_I2C_SDA_PIN
-#define AM_BSP_GPIO_CAMERA_HM01B0_D0        AM_BSP_GPIO_G0
-#define AM_BSP_GPIO_CAMERA_HM01B0_D1        AM_BSP_GPIO_G1
-#define AM_BSP_GPIO_CAMERA_HM01B0_D2        AM_BSP_GPIO_G2
-#define AM_BSP_GPIO_CAMERA_HM01B0_D3        AM_BSP_GPIO_G3
-#define AM_BSP_GPIO_CAMERA_HM01B0_D4        AM_BSP_GPIO_G4
-#define AM_BSP_GPIO_CAMERA_HM01B0_D5        AM_BSP_GPIO_G5
-#define AM_BSP_GPIO_CAMERA_HM01B0_D6        AM_BSP_GPIO_G6
-#define AM_BSP_GPIO_CAMERA_HM01B0_D7        AM_BSP_GPIO_G7
-#define AM_BSP_CAMERA_HM01B0_MCLK_GEN_MOD   1
-#define AM_BSP_CAMERA_HM01B0_MCLK_GEN_SEG   AM_HAL_CTIMER_TIMERA
-#define AM_BSP_CAMERA_HM01B0_MCLK_PIN  AM_BSP_GPIO_AUD_OUT
-#define AM_BSP_GPIO_CAMERA_HM01B0_VSYNC     AM_BSP_GPIO_G10
-#define AM_BSP_GPIO_CAMERA_HM01B0_HSYNC     AM_BSP_GPIO_G9
-#define AM_BSP_GPIO_CAMERA_HM01B0_PCLK      AM_BSP_GPIO_AUD_IN
-#define AM_BSP_GPIO_CAMERA_HM01B0_TRIG      AM_BSP_GPIO_D1
-#define AM_BSP_GPIO_CAMERA_HM01B0_INT       AM_BSP_GPIO_I2C_INT
+#define AM_BSP_GPIO_BUS0    AM_BSP_GPIO_G0
+#define AM_BSP_GPIO_BUS1    AM_BSP_GPIO_G1
+#define AM_BSP_GPIO_BUS2    AM_BSP_GPIO_G2
+#define AM_BSP_GPIO_BUS3    AM_BSP_GPIO_G3
+#define AM_BSP_GPIO_BUS4    AM_BSP_GPIO_G4
+#define AM_BSP_GPIO_BUS5    AM_BSP_GPIO_G5
+#define AM_BSP_GPIO_BUS6    AM_BSP_GPIO_G6
+#define AM_BSP_GPIO_BUS7    AM_BSP_GPIO_G7
+
+#define AM_BSP_GPIO_ADC_DM  AM_BSP_GPIO_G9
+#define AM_BSP_GPIO_ADC_DP  AM_BSP_GPIO_G10
+
+#define AM_BSP_GPIO_CAM_HSYNC   AM_BSP_GPIO_G9
+#define AM_BSP_GPIO_CAM_VSYNC   AM_BSP_GPIO_G10
 
 //*****************************************************************************
 //
