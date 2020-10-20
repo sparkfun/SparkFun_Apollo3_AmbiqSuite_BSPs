@@ -589,7 +589,7 @@ def write_Cfiles(pinobj, bCreateC):
             strCfile += '%-25s' % '    .uNCE' + '= %s,\n' % str(pin.CEnum)
 
             # Create the define
-            strtmp = '#define ' + args.prefix + '_%s_CHNL' % (pin.name)
+            strtmp = '#define AM_BSP_%s_CHNL' % (pin.name)
             strHfile += '%-40s' % strtmp  +  '%s\n' % str((pin.CEnum))
 
         if pin.CEpol != strnotgiven:
