@@ -1016,12 +1016,7 @@ pin
 # *****************************************************************************
 #  ITM pins.
 # *****************************************************************************
-pin
-    name            = ITM_SWO
-    desc            = ITM Serial Wire Output.
-    pinnum          = 22
-    func_sel        = AM_HAL_PIN_22_SWO
-    drvstrength     = 2
+# micromod connector does not have a SWO connection
 
 # *****************************************************************************
 #  CORE pins.
