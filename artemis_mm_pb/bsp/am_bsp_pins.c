@@ -95,7 +95,7 @@ const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_AUD_IN =
 //*****************************************************************************
 const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_AUD_LRCLK =
 {
-    .uFuncSel            = AM_HAL_PIN_36_PDMDATA
+    .uFuncSel            = AM_HAL_PIN_36_GPIO
 };
 
 //*****************************************************************************
@@ -105,7 +105,7 @@ const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_AUD_LRCLK =
 //*****************************************************************************
 const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_AUD_BCLK =
 {
-    .uFuncSel            = AM_HAL_PIN_37_PDMCLK
+    .uFuncSel            = AM_HAL_PIN_37_GPIO
 };
 
 //*****************************************************************************
@@ -589,7 +589,7 @@ const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_G10 =
 //*****************************************************************************
 const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_MIC_DATA =
 {
-    .uFuncSel            = AM_HAL_PIN_11_PDMDATA
+    .uFuncSel            = AM_HAL_PIN_36_PDMDATA
 };
 
 //*****************************************************************************
@@ -599,7 +599,7 @@ const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_MIC_DATA =
 //*****************************************************************************
 const am_hal_gpio_pincfg_t g_AM_BSP_GPIO_MIC_CLK =
 {
-    .uFuncSel            = AM_HAL_PIN_12_PDMCLK
+    .uFuncSel            = AM_HAL_PIN_37_PDMCLK
 };
 
 //*****************************************************************************
