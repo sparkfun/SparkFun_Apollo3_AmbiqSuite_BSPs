@@ -120,10 +120,10 @@ extern am_devices_led_t am_bsp_psLEDs[AM_BSP_NUM_LEDS];
 //
 //*****************************************************************************
 #define AM_BSP_PDM_CHANNEL                  AM_HAL_PDM_CHANNEL_RIGHT
-#define AM_BSP_PDM_DATA_PIN                 AM_BSP_GPIO_AUD_LRCLK
-#define AM_BSP_PDM_CLOCK_PIN                AM_BSP_GPIO_AUD_BCLK
-#define g_AM_BSP_PDM_DATA                   g_AM_BSP_GPIO_AUD_LRCLK
-#define g_AM_BSP_PDM_CLOCK                  g_AM_BSP_GPIO_AUD_BCLK
+#define AM_BSP_PDM_DATA_PIN                 AM_BSP_GPIO_MIC_DATA
+#define AM_BSP_PDM_CLOCK_PIN                AM_BSP_GPIO_MIC_CLK
+#define g_AM_BSP_PDM_DATA                   g_AM_BSP_GPIO_MIC_DATA
+#define g_AM_BSP_PDM_CLOCK                  g_AM_BSP_GPIO_MIC_CLK
 
 #define AM_BSP_ACCELEROMETER_I2C_IOM        AM_BSP_PRIM_I2C_IOM
 #define AM_BSP_ACCELEROMETER_I2C_ADDRESS    0x19
