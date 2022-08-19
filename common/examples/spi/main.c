@@ -4,7 +4,7 @@
 
 // #define ASYNCH // comment out to use blocking methods
 
-#define IOMN (2)
+#define IOMN (0)
 #define SPI_MODE (3)
 #define SPI_FREQ (AM_HAL_IOM_4MHZ)
 void* iom_handle = NULL;
@@ -45,14 +45,14 @@ void init_iom( void ){
     if(status != AM_HAL_STATUS_SUCCESS){ report(status); }
 
     // config pins
-    status = am_hal_gpio_pinconfig(AM_BSP_GPIO_IOM2_MISO, g_AM_BSP_GPIO_IOM2_MISO);
+    status = am_hal_gpio_pinconfig(AM_BSP_GPIO_IOM0_MISO, g_AM_BSP_GPIO_IOM0_MISO);
     if(status != AM_HAL_STATUS_SUCCESS){ report(status); }
 
-    status = am_hal_gpio_pinconfig(AM_BSP_GPIO_IOM2_MOSI, g_AM_BSP_GPIO_IOM2_MOSI); 
+    status = am_hal_gpio_pinconfig(AM_BSP_GPIO_IOM0_MOSI, g_AM_BSP_GPIO_IOM0_MOSI);
     if(status != AM_HAL_STATUS_SUCCESS){ report(status); }
 
-    status = am_hal_gpio_pinconfig(AM_BSP_GPIO_IOM2_SCK, g_AM_BSP_GPIO_IOM2_SCK); 
-    if(status != AM_HAL_STATUS_SUCCESS){ report(status); }\
+    status = am_hal_gpio_pinconfig(AM_BSP_GPIO_IOM0_SCK, g_AM_BSP_GPIO_IOM0_SCK);
+    if(status != AM_HAL_STATUS_SUCCESS){ report(status); }
 }
 
 
